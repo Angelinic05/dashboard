@@ -1,0 +1,938 @@
+/* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:wght@788&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #00000044;
+    --glow-violet: #760FFC;
+    --glow-object-grad: #ffd000;
+    --glow-violet-c: #AC11FD;
+    --text: #9B9B9B;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* font-size: helvetica; */
+    /* font-family: Montserrat, sans-serif; */
+    background-color: black; /* Fondo negro */
+    color: var(--text); /* Texto en blanco */
+}
+
+/* Estilo para el contenedor del título ---------------------------------*/
+.contenedor-titulo {
+    background-color: #131313; /* Fondo
+    height: 5%;
+    /* background: linear-gradient(90deg, #8C0FE0, #b230c4); */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-sizing: border-box; 
+}
+
+.contenedor-titulo h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.contenedor-titulo img{
+    width: 15%;
+    /* height: 5%; */
+    object-fit: cover;
+}
+
+
+
+/* Contenedor principal ----------------------------------------*/
+.contenedor-principal {
+    width: 100%;
+    max-width: 2500px; /* Máximo ancho para pantallas grandes */
+    margin: 0 auto;
+    padding: 5px;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+/* Fila superior con 5 contenedores -------------------------------------------*/
+.fila-superior {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
+    gap: 10px; /* Espacio entre los contenedores */
+    margin-bottom: 20px;
+}
+
+.contenedor-pequeño {
+    background-color: #131313;
+    flex: 1 1 calc(20% - 10px); /* Ajuste flexible con espacio para gap */
+    min-width: 100px; /* Ancho mínimo para evitar que se achique demasiado */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+    text-align: center;
+    border-radius: 8px;
+    padding: 25px;
+     /* Centra el texto horizontalmente dentro del contenedor */
+}
+
+.stat {
+    color: #fff; /* Color del texto */
+}
+
+.statnum {
+    background: var(--glow-violet);
+    font-size: 3rem;
+    font-weight: 600;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(var(--glow-shadow-text) 0px 0px 5px);
+    line-height: 0.9; /* Espacio entre el número y el texto */
+}
+
+.stattext {
+    font-size: 0.9em; /* Tamaño de la fuente para el texto */
+}
+
+/* Contenedor inferior con 2 columnas -------------------------------*/
+h2{
+    
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--glow-violet), var(--glow-violet-c));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+}
+
+.contenedor-inferior {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
+    gap: 10px; /* Espacio entre los contenedores */
+    margin-top: 0px;
+}
+
+.contenedor-izquierdo,
+.contenedor-derecho {
+    margin-bottom: 0;
+    flex: 1 1 calc(40% - 10px); /* Ajuste flexible con espacio para gap */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+.subcontenedor-izq,
+.subcontenedor-der {
+    background-color: #131313;   
+    /* height: 100%; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Espacio entre los subcontenedores */
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+/* Estilos para el contenedor de la tabla ------------------------------*/
+.contenedor-izquierdo, .contenedor-derecho {
+    padding: 0px 10px 0px 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 10%;
+}
+
+/* Estilos para el subcontenedor izquierdo */
+.subcontenedor-izq, .subcontenedor-der {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.subcontenedor-der-circle {
+    background-color: #131313;   
+    height: 24.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 20px; Espacio entre los subcontenedores */
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 2.3vh;
+}
+
+/* Estilos para la tarjeta de la tabla */
+.card.schedule-table {
+    margin-bottom: 15px;
+    width: 100%;/* Fondo de la tarjeta */
+    /* padding: 15px; Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.card.schedule-table table {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    border-collapse: collapse; /* Elimina el espacio entre las celdas */
+}
+
+.card.schedule-table th,
+.card.schedule-table td {
+    padding: 10px; /* Espaciado interno en celdas */
+    text-align: center; /* Alinea el texto a la izquierda */
+    border-bottom: 1px solid #505050; /* Línea horizontal entre filas */
+}
+
+.card.schedule-table th {
+    background-color: #202020; /* Fondo del encabezado */
+    color: #fff; /* Color del texto del encabezado */
+}
+
+/* .card.schedule-table> table> tr> td {
+    display: flex;
+    justify-content: center;
+} */
+
+.card.schedule-table tr:last-child td {
+    border-bottom: none; /* Elimina la línea en la última fila */
+}
+
+/* Estilos para la tarjeta de progreso personal */
+.card.personal-bests {
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+/* Estilos para la lista dentro de la tarjeta de progreso personal */
+.card.personal-bests ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para los ítems de la lista como fila de tabla */
+.card.personal-bests li {
+    display: grid;
+    grid-template-columns: 0.9fr 2.5fr 0.3fr ;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Estilos para los textos de los ítems */
+.card.personal-bests span {
+    font-size: 1em;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.total{
+    color: white;
+    font-weight: 1000;
+}
+
+/* Estilos para la barra de progreso */
+.progress-bar {
+    background-color: #444;
+    border-radius: 8px;
+    height: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+    width: 100%; /* Asegura que la barra de progreso ocupe todo el ancho disponible */
+}
+
+/* Estilos para la parte de progreso dentro de la barra */
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--glow-violet), var(--glow-violet-c));
+    border-radius: 8px;
+}
+
+/* Estilos para el texto del progreso */
+.progress-text {
+    font-size: 0.9em;
+    color: #fff;
+    text-align: right;
+}
+
+
+
+/* BARRAS CIRCULO----------------------------------------------------------------------------------------- */
+
+.card.exercise-table {
+    /* padding-top: 10; */
+    background-color: #131313;
+    grid-row: 2;
+    grid-column: 2;
+}
+.card>.bigstats2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9rem;
+    /* margin-bottom: 2rem; */
+}
+.card>.bigstats2>.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.statnum2 {
+    background: var(--glow-violet);
+    font-size: 1.6rem;
+    font-weight: 1000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(var(--glow-shadow-text) 0px 0px 5px);
+    line-height: 0.9;
+}
+.progress-container,
+.progress-container2,
+.progress-container3 {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+.progress-background {
+    fill: none;
+    stroke: #808080;
+    stroke-width: 10;
+}
+.progress-bar {
+    fill: none;
+    stroke: #8C0FE0;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 0, 1000;
+    transition: stroke-dasharray 0.5s ease-in-out;
+}
+
+.progress-bar-circle{
+    transform: rotate(-90deg); /* Rotación para empezar desde la parte superior */
+    transform-origin: 50% 50%;
+}
+.progress-text {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    fill: #ffffff;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Contenedor final --------------------------------------------------*/
+/* .countdown{
+    background-color: #131313;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh; 
+    margin-bottom: 20px;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 3rem;
+    width: 16vh;
+    font-weight: 900;
+    background: linear-gradient(90deg, #8F00FF, #b230c4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+} */
+
+
+
+
+.countdown {
+    
+    /* background-color: #1f1f1f; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    /* padding: 2rem; */
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.date {
+    width: 15vh;
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #1f1f1f;
+    /* background: linear-gradient(180deg, #8F00FF, #b230c4); */
+    /* box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4); */
+    /* transition: transform 0.2s ease-in-out; */
+}
+
+.date:hover {
+    transform: scale(1.1);
+}
+
+.lispan {
+    font-size: 4.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+}
+
+.label {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.countdown h1 {
+    font-size: 4rem;
+    color: #444;
+}
+
+
+
+
+
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        padding: 0;
+        
+    }
+
+    h2{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 900;
+    }
+
+    .contenedor-titulo img{
+        width: 40%;
+    }
+
+    .fila-superior {
+        flex-direction: column;
+        gap: 20; /* Elimina el espacio entre contenedores en pantallas pequeñas */
+    }
+
+    .contenedor-pequeño {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .contenedor-izquierdo,
+    .contenedor-derecho {
+        flex: 1 1 100%;
+
+        height: auto;
+    }
+
+    .subcontenedor-izq,
+    .subcontenedor-der {
+        height: auto;
+        display: flex;
+        margin-bottom: 5px; /* Ajusta el espacio entre subcontenedores */
+    }
+
+    .subcontenedor-izq,
+    .subcontenedor-der {   
+        flex-direction: row;
+
+    }
+
+
+    .subcontenedor-der {
+        height: 100%;
+    }
+
+    
+
+    .card.schedule-table {
+        padding: 5px;
+    }
+
+    .card.schedule-table h2 {
+        font-size: 1.2em;
+    }
+
+    .card.schedule-table th,
+    .card.schedule-table td {
+        font-size:1rem;
+        padding: 8px;
+    }
+
+
+    .card.personal-bests {
+        width: 80vh;
+    }
+    
+    /* Estilos para la lista dentro de la tarjeta de progreso personal */
+    .card.personal-bests ul {
+        /* border: 1px solid rgb(51, 139, 0); */
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Estilos para los ítems de la lista como fila de tabla */
+    .card.personal-bests li {
+        display: grid;
+        grid-template-columns: 1.5fr 2.8fr 0.4fr; 
+        /* align-items: center; */
+        /* margin-bottom: 15px; */
+    }
+
+
+    
+    /* Estilos para los textos de los ítems */
+    .card.personal-bests span {
+        /* border: 1px solid darkblue; */
+        font-size: 0.8rem;
+        color: #fff;
+        padding: 0;
+    }
+
+
+    
+    /* Estilos para la parte de progreso dentro de la barra */
+    
+
+    .progress-bar {
+        height: 90%;
+    }
+
+    .progress-container, .progress-container2, .progress-container3 {
+        width: 100%; 
+        height: 100%; 
+    }
+
+    .subcontenedor-der-circle {
+        padding: 0.4vh;
+        height: 100%;
+        padding: 2.3vh;
+    }
+
+    /* .subcontenedor-der-circle {
+        background-color: #131313;   
+        height: 24.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-bottom: 20px; 
+        box-sizing: border-box;
+        border-radius: 8px;
+        overflow: hidden;
+        padding: 2.3vh;
+    } */
+
+    .card>.bigstats2 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.2rem;
+    }
+
+    .statnum2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .contenedor-final {
+        margin-top: 20px;
+    }
+
+    .countdown{
+        gap: 0.5vh; /* Espacio entre los contenedores */
+        margin-bottom: 20px;
+        gap: 0.1rem; 
+        margin: 30px auto;
+    }
+    
+    .date{
+        width: 10vh;
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #1f1f1f;
+        transition: transform 0.2s ease-in-out;
+        font-size: 3rem;
+        padding: 15px;
+        border-radius: 8px;
+    
+    }
+
+    .lispan {
+        font-size: 1.9rem; /* Reduce el tamaño del texto */
+    }
+
+    .label {
+        font-size: 0.9rem;
+    }
+
+    .countdown h1 {
+        font-size: 2.5rem;
+    }
+
+
+}
+
+
+@media (max-width: 480px) {
+    .contenedor-principal {
+        padding: 0;
+    }
+
+    h2{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 900;
+    }
+
+    .contenedor-titulo img{
+        width: 60%;
+    }
+
+    .fila-superior {
+        flex-direction: column;
+        gap: 20; /* Elimina el espacio entre contenedores en pantallas pequeñas */
+    }
+
+    .contenedor-pequeño {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .contenedor-izquierdo,
+    .contenedor-derecho {
+        flex: 1 1 100%;
+        height: auto;
+    }
+
+    .subcontenedor-izq,
+    .subcontenedor-der {
+        height: auto;
+        display: flex;
+        margin-bottom: 5px; /* Ajusta el espacio entre subcontenedores */
+    }
+
+    .subcontenedor-izq,
+    .subcontenedor-der {   
+        flex-direction: row;
+
+    }
+
+
+    .subcontenedor-der {
+        height: 100%;
+    }
+
+
+    .card.schedule-table {
+        padding: 5px;
+    }
+
+    .card.schedule-table h2 {
+        font-size: 1.2em;
+    }
+
+    .card.schedule-table th,
+    .card.schedule-table td {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+
+    .card.personal-bests {
+        width: 80vh;
+    }
+    
+    /* Estilos para la lista dentro de la tarjeta de progreso personal */
+    .card.personal-bests ul {
+        /* border: 1px solid rgb(51, 139, 0); */
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Estilos para los ítems de la lista como fila de tabla */
+    .card.personal-bests li {
+        display: grid;
+        grid-template-columns: 2fr 2.3fr 0.4fr; 
+        /* align-items: center; */
+        /* margin-bottom: 15px; */
+    }
+
+
+    
+    /* Estilos para los textos de los ítems */
+    .card.personal-bests span {
+        /* border: 1px solid darkblue; */
+        font-size: 0.8rem;
+        color: #fff;
+        padding: 0;
+    }
+
+
+    
+    /* Estilos para la parte de progreso dentro de la barra */
+    
+
+    .progress-bar {
+        height: 90%;
+    }
+
+    .progress-container, .progress-container2, .progress-container3 {
+        width: 100%; 
+        height: 100%; 
+    }
+
+    .subcontenedor-der-circle {
+        padding: 2vh;
+        height: 90%;
+    }
+
+    .card>.bigstats2 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.2rem;
+    }
+
+    .statnum2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .contenedor-final {
+        margin-top: 20px;
+    }
+
+    .countdown{
+        gap: 0.5vh; /* Espacio entre los contenedores */
+        margin-bottom: 20px;
+        gap: 0.1rem; 
+        margin: 30px auto;
+    }
+    
+    .date{
+        width: 7vh;
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #1f1f1f;
+        transition: transform 0.2s ease-in-out;
+        font-size: 3rem;
+        padding: 15px;
+        border-radius: 8px;
+    
+    }
+
+    .lispan {
+        font-size: 1.9rem; /* Reduce el tamaño del texto */
+    }
+
+    .label {
+        font-size: 0.9rem;
+    }
+
+    .countdown h1 {
+        font-size: 2.5rem;
+    }
+}
+
+ 
+@media (max-width: 430px) {
+
+    .contenedor-principal {
+        padding: 0;
+        
+    }
+
+    h2{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .contenedor-titulo img{
+        width: 50%;
+    }
+
+    .fila-superior {
+        flex-direction: column;
+        gap: 20; 
+    }
+
+    .contenedor-pequeño {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .contenedor-izquierdo,
+    .contenedor-derecho {
+        flex: 1 1 100%;
+        height: auto;
+    }
+
+    .subcontenedor-izq,
+    .subcontenedor-der {
+        height: auto;
+        display: flex;
+        margin-bottom: 5px; 
+    }
+
+
+
+
+    .subcontenedor-der {
+        height: 100%;
+    }
+
+    
+
+    .card.schedule-table {
+        padding: 5px;
+    }
+
+    .card.schedule-table h2 {
+        font-size: 1.2em;
+    }
+
+    .card.schedule-table th,
+    .card.schedule-table td {
+        font-size:1rem;
+        padding: 8px;
+    }
+
+
+    .card.personal-bests {
+        width: 80vh;
+    }
+    
+
+    .card.personal-bests ul {
+
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+
+    .card.personal-bests li {
+        display: grid;
+        grid-template-columns: 2fr 2.5fr 0.9fr; 
+
+    }
+
+
+    
+    .card.personal-bests span {
+
+        font-size: 0.7rem;
+        color: #fff;
+        padding: 0;
+    }
+
+
+    
+
+    
+
+    .progress-bar {
+        height: 90%;
+    }
+
+    
+
+    .card.schedule-table {
+        padding: 2px;
+    }
+
+    .card.schedule-table th,
+    .card.schedule-table td {
+        font-size: 0.67rem;
+        padding: 8px;
+    }
+
+
+    .card.personal-bests {
+        width: 80vh;
+    }
+    
+    
+
+    .card.personal-bests li {
+        margin-bottom: 10px;
+    }
+    
+
+
+    .statnum2 {
+        font-size: 1.3rem;
+    }
+
+
+
+    .countdown{
+        width: 100%;
+        margin-bottom: 20px;
+        gap: 0.1rem; 
+        margin: 5px;
+    }
+    
+    .date{
+        /* font-size: 2rem;
+        padding: 20px; */
+        width: 10vh;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 10px;
+        font-size: 3rem;
+        padding: 15px;
+        border-radius: 8px;
+    
+    }
+
+    .lispan {
+        font-size: 1.5rem; 
+    }
+
+    .label {
+        font-size: 0.9rem;
+    }
+
+    .countdown h1 {
+        font-size: 2rem;
+    }
+}  
