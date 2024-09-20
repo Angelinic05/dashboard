@@ -208,7 +208,7 @@ h2{
 /* Estilos para la tarjeta de progreso personal */
 .card.personal-bests {
     border-radius: 8px;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
     margin-top: 20px;
 }
@@ -305,7 +305,7 @@ h2{
 }
 .progress-background {
     fill: none;
-    stroke: #808080;
+    stroke: #444;
     stroke-width: 10;
 }
 .progress-bar {
