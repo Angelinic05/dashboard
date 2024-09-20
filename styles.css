@@ -55,7 +55,7 @@ body {
 /* Contenedor principal ----------------------------------------*/
 .contenedor-principal {
     width: 100%;
-    max-width: 2500px; /* Máximo ancho para pantallas grandes */
+    max-width: 3000px; /* Máximo ancho para pantallas grandes */
     margin: 0 auto;
     padding: 5px;
     box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
@@ -208,7 +208,7 @@ h2{
 /* Estilos para la tarjeta de progreso personal */
 .card.personal-bests {
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     margin-top: 20px;
 }
