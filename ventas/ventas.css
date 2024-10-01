@@ -367,7 +367,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 60vh;
   margin-left: 5vh;
   margin-right: 5vh;
   gap: 30px
@@ -386,16 +386,16 @@ canvas {
 }
 
 
-
-/* Ajusta el ancho de las barras */
-/* .bar {
-  width: 100%;
-  he 
+.canva1 {
+  width: 750px; 
+  height: 400px;
 }
 
-.line {
-  width: 100%;
-} */
+.canva2 {
+  width: 1200px; 
+  height: 400px;
+}
+
 
 
 
@@ -420,14 +420,10 @@ canvas {
   border-radius: 10px; /* Bordes redondeados */
   overflow: hidden; /* Para mostrar bordes redondeados */
   box-shadow: 0 0 30px #000000; /* Sombra */
-  transition: transform 0.3s ease;
+
 }
 
 
-.sales-table:hover {
-    box-shadow: 0 0 10px #112153; 
-    transform: scale(1.1); /* Aumenta el tamaño al 120% */
-}
 
 /* Estilos para encabezados y celdas */
 .sales-table th {
@@ -464,17 +460,6 @@ canvas {
 
 
 
-
-/* ------------- */
-
-
-
-
-
-
-
-
-
 @media (max-width: 420px) {
   .sidebar.close .nav-links li .sub-menu{
     display: none;
@@ -488,31 +473,23 @@ canvas {
 /* Responsividad para dispositivos móviles */
 @media (max-width: 768px) {
     .contenedor-principal {
-        padding: 0;
-        
+      padding-left: 5vh;
+  }
+
+
+    .fila-superior2 {
+      height: 8vh;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      gap: 5px; /* Espacio entre los contenedores */
     }
 
-    h2{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        font-size: 1.8rem;
-        font-weight: 900;
-    }
-
-    .contenedor-titulo img{
-        width: 40%;
-    }
-
-    .fila-superior {
-        flex-direction: column;
-        gap: 20; /* Elimina el espacio entre contenedores en pantallas pequeñas */
-    }
-
-    .contenedor-pequeño {
-        width: 100%;
-        height: auto;
-        padding: 10px;
+    .contenedor-pequeño2 {
+      min-width: 10vh; /* Ancho mínimo para evitar que se achique demasiado */
+      height: 2vh;
+      padding: 15px;
+      transition: transform 0.3s ease;
     }
 
     .contenedor-izquierdo,
