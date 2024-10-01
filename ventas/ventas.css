@@ -10,50 +10,6 @@ body {
     padding: 20px;
 }
 
-/* Estilo del contenedor principal */
-.container {
-    max-width: 800px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo del título */
-.title {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Estilo del gráfico */
-
-
-/* Estilo del texto de los ejes */
-.chartjs-axis-labels {
-    font: 16px Arial, sans-serif;
-    color: #666;
-}
-
-/* Estilo del legend */
-.chartjs-legend {
-    margin: 10px 0;
-}
-
-/* Estilo del tooltip */
-.chartjs-tooltip {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-
-/* ------------------------------------------------------ */
-/* Estilos generales */
 
 
 *,
@@ -88,11 +44,12 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 260px;
+    width: 280px;
     background: #08112c;
     z-index: 100;
     transition: all 0.5s ease;
   }
+
   .sidebar.close{
     width: 78px;
   }
@@ -316,7 +273,7 @@ body {
     font-size: 35px;
   }
   .home-section .home-content .bx-menu{
-    margin: 0 15px;
+    margin: 0 20px;
     cursor: pointer;
   }
   .home-section .home-content .text{
@@ -327,14 +284,7 @@ body {
 
   
 /* Estilo para el contenedor del título ---------------------------------*/
-/* .contenedor-titulo {
-    background-color: #131313; /* Fondo
-    height: 5%;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    box-sizing: border-box; 
-} */
+
 
 .contenedor-titulo h1 {
     margin: 0;
@@ -357,80 +307,159 @@ body {
     padding: 5px;
     padding-left: 90px;
     box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+
 }
 
 /* Fila superior con 5 contenedores -------------------------------------------*/
-.fila-superior {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
-    gap: 10px; /* Espacio entre los contenedores */
-    margin-bottom: 20px;
+
+
+
+
+.fila-superior2 {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 40px; /* Espacio entre los contenedores */
+  margin-bottom: 20px;
 }
 
-.contenedor-pequeño {
-    background-color: #08112c;
-    flex: 1 1 calc(20% - 10px); /* Ajuste flexible con espacio para gap */
-    min-width: 100px; /* Ancho mínimo para evitar que se achique demasiado */
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
-    text-align: center;
-    border-radius: 8px;
-    padding: 25px;
-     /* Centra el texto horizontalmente dentro del contenedor */
+.contenedor-pequeño2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #08112c;
+  border: 5px solid rgb(40, 62, 107);
+  min-width: 100px; /* Ancho mínimo para evitar que se achique demasiado */
+  height: 5vh;
+  box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+  text-align: center;
+  border-radius: 30px;
+  padding: 25px;
+  transition: transform 0.3s ease;
 }
 
-.stat {
-    color: #fff; /* Color del texto */
+
+.contenedor-pequeño2:hover {
+    background-color: #243a7a;
+    box-shadow: 0 0 10px #233979; 
+    transform: scale(1.1); /* Aumenta el tamaño al 120% */
 }
 
-.statnum {
-    background: var(--glow-violet);
-    font-size: 3rem;
-    font-weight: 600;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    filter: drop-shadow(var(--glow-shadow-text) 0px 0px 5px);
-    line-height: 0.9; /* Espacio entre el número y el texto */
+
+.statnum2 {
+  background: var(--text);
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(var(--glow-shadow-text) 0px 0px 5px);
+  line-height: 0.9; /* Espacio entre el número y el texto */
 }
 
-.stattext {
-    font-size: 0.9em; /* Tamaño de la fuente para el texto */
-}
 
 /* Contenedor inferior con 2 columnas -------------------------------*/
-h2{
-    
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 2.5rem;
-    font-weight: 900;
-    background: linear-gradient(90deg, var(--glow-violet), var(--glow-violet-c));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;   
+
+
+.contenedor-centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  gap: 30px
 }
 
-.contenedor-centro{
-    display: grid;
-    grid-template-columns: 50% 50%;
 
-}
 
-.izq .der{
-    width: 100%;
-}
-/* Estilos para el subcontenedor izquierdo */
+/* Estilos para los canvases */
 canvas {
-    padding: 30px;
-    background-color: #08112c;
-    display: block;
-    margin: 20px auto; /* Espaciado superior e inferior */
-    border-radius: 8px;
+  display: inherit;
+  width: 100%;
+  padding: 30px;
+  background-color: #08112c;
+  box-shadow: 0 0 10px #000000; 
+  border-radius: 8px;
 }
+
+
+
+/* Ajusta el ancho de las barras */
+/* .bar {
+  width: 100%;
+  he 
+}
+
+.line {
+  width: 100%;
+} */
+
+
+
+/* Estilos generales para el contenedor de tablas */
+/* Estilos generales para el contenedor de tablas */
+#salesTables { 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  margin-right: 5vh;
+}
+
+/* Estilos para las tablas */
+.sales-table {
+  /* flex: 1; Permitir que las tablas crezcan igualmente */
+  min-width: 400px; /* Ancho mínimo para las tablas */
+  max-width: 400px; /* Ancho máximo para las tablas */
+  margin-bottom: 20px; /* Espacio inferior para separación */
+  border-collapse: collapse; /* Sin espacio entre bordes */
+  border-radius: 10px; /* Bordes redondeados */
+  overflow: hidden; /* Para mostrar bordes redondeados */
+  box-shadow: 0 0 30px #000000; /* Sombra */
+  transition: transform 0.3s ease;
+}
+
+
+.sales-table:hover {
+    box-shadow: 0 0 10px #112153; 
+    transform: scale(1.1); /* Aumenta el tamaño al 120% */
+}
+
+/* Estilos para encabezados y celdas */
+.sales-table th {
+  background-color: #0d1b44; /* Fondo para encabezados */
+  color: #ffffff; /* Color de texto blanco */
+  padding: 12px; /* Espaciado interno */
+  text-align: left; /* Alinear texto a la izquierda */
+  font-weight: bold; /* Negrita */
+}
+
+.sales-table td {
+  background-color: #172344; /* Fondo para celdas */
+  color: #ffffff; /* Color de texto blanco */
+  padding: 12px; /* Espaciado interno */
+}
+
+.sales-table tr:nth-child(even) td {
+  background-color: rgb(47, 58, 90);
+}
+
+
+/* Encabezado de mes */
+#salesTables h3 {
+  color: #ffffff; /* Color de texto blanco */
+  margin: 10px 0; /* Espaciado vertical */
+  font-size: 24px; /* Tamaño de fuente */
+  padding-bottom: 5px; /* Espaciado inferior */
+  width: 100%; /* Ancho completo para encabezado */
+}
+
+
+
 
 
 

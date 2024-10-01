@@ -8,202 +8,419 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="Main.js" defer></script>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' 
-rel='stylesheet' type='text/css'>
-</head>
-<body>
-
+    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <style>
         body {
-        font-family: 'Montserrat';
+            font-family: 'Montserrat';
         }
     </style>
-    
-    <div class="sidebar close">
-        <div class="logo-details">
-          <i class='bx bxl-c-plus-plus'></i>
-          <span class="logo_name">Dashboard</span>
-        </div>
-        <ul class="nav-links">
-          <li>
-            <a href="../dashboard/Index.html">
-              <i class='bx bx-grid-alt' ></i>
-              <span class="link_name">Dashboard</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Category</a></li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="#">
-                <i class='bx bx-collection' ></i>
-                <span class="link_name">Category</span>
-              </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="#">Category</a></li>
-              <li><a href="#">HTML & CSS</a></li>
-              <li><a href="#">JavaScript</a></li>
-              <li><a href="#">PHP & MySQL</a></li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="#">
-                <i class='bx bx-book-alt' ></i>
-                <span class="link_name">Posts</span>
-              </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="#">Posts</a></li>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Login Form</a></li>
-              <li><a href="#">Card Design</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-pie-chart-alt-2' ></i>
-              <span class="link_name">Lanzamientos</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Analytics</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-line-chart' ></i>
-              <span class="link_name">Chart</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Chart</a></li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="#">
-                <i class='bx bx-plug' ></i>
-                <span class="link_name">Plugins</span>
-              </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="#">Plugins</a></li>
-              <li><a href="#">UI Face</a></li>
-              <li><a href="#">Pigments</a></li>
-              <li><a href="#">Box Icons</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-compass' ></i>
-              <span class="link_name">Explore</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Explore</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-history'></i>
-              <span class="link_name">History</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">History</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-cog' ></i>
-              <span class="link_name">Setting</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Setting</a></li>
-            </ul>
-          </li>
-          <li>
-        <div class="profile-details">
-          <div class="profile-content">
-            <!--<img src="image/profile.jpg" alt="profileImg">-->
-          </div>
-          <div class="name-job">
-            <div class="profile_name">Prem Shahi</div>
-            <div class="job">Web Desginer</div>
-          </div>
-          <i class='bx bx-log-out' ></i>
-        </div>
+</head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">Dashboard</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="../Index.html">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Dashboard</a></li>
+        </ul>
       </li>
-    </ul>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Comparativa</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Lanzamientos</a></li>
+          <li><a href="#" >Enero</a></li>
+          <li><a href="#" >Abril</a></li>
+          <li><a href="#" >Julio</a></li>
+          <li><a href="#" >Septiembre</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Posts</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Posts</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Login Form</a></li>
+          <li><a href="#">Card Design</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="../ventas/ventas.html">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Lanzamientos</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analytics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Chart</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Chart</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="ventas/ventas.html">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Lanzamientos</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Lanzamientos</a></li>
+          <li><a href="#">Enero</a></li>
+          <li><a href="#">Abril</a></li>
+          <li><a href="#">Julio</a></li>
+          <li><a href="../Index.html">Septiembre</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-compass' ></i>
+          <span class="link_name">Explore</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Explore</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-history'></i>
+          <span class="link_name">History</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
       </div>
-      <section class="home-section">
-        <div class="home-content">
-            <i class='bx bx-menu'></i>
-            <img src="../logo.png" alt="Logo"><!-- Agregar texto relevante -->
-        </div>
-    </section>
-    
-    <!-- <div class="contenedor-titulo">
-        <img src="logo.png" alt="Logo">
-        <h1>Título Principal</h1> 
-    </div> -->
-        <div class="contenedor-principal">
-            <!-- Fila superior con 5 contenedores -->
-            <div class="fila-superior">
-                <!-- Contenedores 1 a 5 -->
-                <div class="contenedor-pequeño">
-                    <a href="">Julio</a>
-                </div>
-                <div class="contenedor-pequeño">
-                    <a href="">Julio</a>
-                </div>
-                <div class="contenedor-pequeño">
-                    <a href="">Julio</a>
-                </div>
-                <div class="contenedor-pequeño">
-                    <a href="">Julio</a>
-                </div>
-                <div class="contenedor-pequeño">
-                    <a href="">Julio</a>
-                </div>
-            </div>
-            
-            <!-- Contenedor inferior con 2 columnas -->
-            <div class="contenedor-centro">
-              <div class="izq">
-                <canvas id="salesBarChart" width="870" height="600"></canvas>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu'></i>
+        <img src="logo.png" alt="Logo"><!-- Agregar texto relevante -->
+    </div>
+</section>
 
-              </div>
-              <div class="der">
-                <canvas id="salesLineChart" width="870" height="600"></canvas>
-              </div>
-              
-              
-            </div>
-                
-                
-            </div>
-        </div>
+<div class="contenedor-principal">
+  <!-- Fila superior con 4 contenedores -->
+  <div class="fila-superior2">
+      <div id="enero" class="contenedor-pequeño2">
+          <div class="stat">
+              <div class="statnum2">ENERO</div>
+          </div>
+      </div>
+      <div id="abril" class="contenedor-pequeño2">
+          <div class="stat">
+              <div class="statnum2">ABRIL</div>
+          </div>
+      </div>
+      <div id="julio" class="contenedor-pequeño2">
+          <div class="stat">
+              <div class="statnum2">JULIO</div>
+          </div>
+      </div>
+      <div id="septiembre" class="contenedor-pequeño2">
+          <div class="stat">
+              <div class="statnum2">SEPTIEMBRE</div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="contenedor-centro">
+      <div class="izq" id="barChart" style="width: 750px; height: 400px;"></div>
+      <div class="der" id="lineChart" style="width: 1200px; height: 400px;"></div>
+
+</div>
+
+<div id="salesTables"></div>
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/e267099c50.js" crossorigin="anonymous"></script>
 
     <script>
         let arrow = document.querySelectorAll(".arrow");
-        for (var i = 0; i < arrow.length; i++) {
-            arrow[i].addEventListener("click", (e)=>{
-        let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+arrow.forEach((arrowElement) => {
+    arrowElement.addEventListener("click", (e) => {
+        let arrowParent = e.target.parentElement.parentElement; // selecciona el padre principal de la flecha
         arrowParent.classList.toggle("showMenu");
-            });
+    });
+});
+
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+sidebarBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec';
+
+    async function fetchData() {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.statusText);
+            }
+            const data = await response.json();
+            console.log('Datos obtenidos:', data);
+            createCharts(data.graficas);
+            createTables(data.tabla); // Llamar a la función para crear las tablas
+        } catch (error) {
+            console.error('Error al obtener los datos:', error);
         }
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".bx-menu");
-        console.log(sidebarBtn);
-        sidebarBtn.addEventListener("click", ()=>{
-            sidebar.classList.toggle("close");
+    }
+
+    function createCharts(combinedValues) {
+      const eneroSales = combinedValues.map(row => row[1]);
+        const abrilSales = combinedValues.map(row => row[2]);
+        const julioSales = combinedValues.map(row => row[3]);
+        const septiembreSales = combinedValues.map(row => row[4]);
+
+        const barTotals = [
+            eneroSales.reduce((sum, val) => sum + val, 0),
+            abrilSales.reduce((sum, val) => sum + val, 0),
+            julioSales.reduce((sum, val) => sum + val, 0),
+            septiembreSales.reduce((sum, val) => sum + val, 0)
+        ];
+
+        // Inicializar gráfico de barras
+        const barChart = echarts.init(document.getElementById('barChart'));
+        const barOption = {
+            tooltip: {},
+            xAxis: {
+                type: 'category',
+                data: ['Enero', 'Abril', 'Julio', 'Septiembre'],
+                axisLabel: { color: 'white', fontSize: 20 }
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: { color: 'white', fontSize: 20 },
+                splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
+            },
+            series: [{
+                name: 'Ventas',
+                type: 'bar',
+                data: barTotals,
+                itemStyle: {
+                    color: function (params) {
+                        const colors = ['#EEB84C', '#D474C7', '#13C3E9', '#90EE90'];
+                        return colors[params.dataIndex];
+                    },
+                    borderRadius: [10, 10, 0, 0],
+                    shadowBlur: 20,
+                    shadowColor: 'rgba(0, 0, 0, 0.8)',
+                    shadowOffsetX: 5,
+                    shadowOffsetY: 5,
+                },
+                label: {
+                    show: true,
+                    position: 'top',
+                    color: '#ffffff',
+                    fontSize: 16,
+                    fontWeight: 'bold',
+                    textShadowColor: '#000',
+                    textShadowBlur: 5
+                },
+                barWidth: 50,
+                animationDelay: function (idx) {
+                    return idx * 200;
+                }
+            }],
+            animationEasing: 'elasticOut',
+            animationDuration: 2000
+        };
+        barChart.setOption(barOption);
+
+        // Inicializar gráfico lineal
+        const lineChart = echarts.init(document.getElementById('lineChart'));
+        const lineOption = {
+            tooltip: { trigger: 'axis' },
+            legend: {
+                data: ['Enero', 'Abril', 'Julio', 'Septiembre'],
+                textStyle: { color: 'white' }
+            },
+            xAxis: {
+                type: 'category',
+                data: combinedValues.map(row => row[0]),
+                axisLabel: { color: 'white', fontSize: 20 }
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: { color: 'white', fontSize: 20 },
+                splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
+            },
+            series: [
+                { 
+                    name: 'Enero', 
+                    type: 'line', 
+                    data: eneroSales, 
+                    lineStyle: { color: '#EEB84C', width: 4 }, 
+                    itemStyle: { color: '#EEB84C' }  // Asegurar que los puntos tengan el mismo color
+                },
+                { 
+                    name: 'Abril', 
+                    type: 'line', 
+                    data: abrilSales, 
+                    lineStyle: { color: '#D474C7', width: 4 }, 
+                    itemStyle: { color: '#D474C7' } 
+                },
+                { 
+                    name: 'Julio', 
+                    type: 'line', 
+                    data: julioSales, 
+                    lineStyle: { color: '#13C3E9', width: 4 }, 
+                    itemStyle: { color: '#13C3E9' } 
+                },
+                { 
+                    name: 'Septiembre', 
+                    type: 'line', 
+                    data: septiembreSales, 
+                    lineStyle: { color: '#90EE90', width: 4 }, 
+                    itemStyle: { color: '#90EE90' } 
+                }
+            ],
+            animationEasing: 'elasticOut',
+            animationDuration: 3000
+        };
+        lineChart.setOption(lineOption);
+
+        // Función para actualizar gráficos
+        function highlightMonth(index) {
+            const colors = ['#EEB84C', '#D474C7', '#13C3E9', '#90EE90'];
+            const fadedColor = 'rgba(28,59,137,0.5)';
+
+            // Cambiar colores en el gráfico de barras
+            barOption.series[0].itemStyle.color = function (params) {
+                return params.dataIndex === index ? colors[params.dataIndex] : fadedColor;
+            };
+            barChart.setOption(barOption);
+
+            // Cambiar colores en el gráfico de líneas
+            lineOption.series.forEach((serie, i) => {
+                serie.lineStyle.color = i === index ? colors[i] : fadedColor;
+            });
+            lineChart.setOption(lineOption);
+        }
+
+        // Agregar eventos de click a los contenedores de los meses
+        document.getElementById('enero').addEventListener('click', function () {
+            highlightMonth(0);
         });
+        document.getElementById('abril').addEventListener('click', function () {
+            highlightMonth(1);
+        });
+        document.getElementById('julio').addEventListener('click', function () {
+            highlightMonth(2);
+        });
+        document.getElementById('septiembre').addEventListener('click', function () {
+            highlightMonth(3);
+        });
+    }
+
+    function createTables(data) {
+    const tableContainer = document.getElementById('salesTables');
+    tableContainer.innerHTML = ''; // Limpiar contenido anterior
+
+    // Datos para cada mes
+    const months = ['Enero', 'Abril', 'Julio', 'Septiembre'];
+    
+    // Acceso correcto a los datos
+    const salesData = [
+        data.map(row => [row[0], row[1]]), // Enero
+        data.map(row => [row[0], row[2]]), // Abril
+        data.map(row => [row[0], row[3]]), // Julio
+        data.map(row => [row[0], row[4]])  // Septiembre
+    ];
+
+    months.forEach((month, index) => {
+        const table = document.createElement('table');
+        table.className = 'sales-table';
+
+        const header = document.createElement('tr');
+        const headerCell1 = document.createElement('th');
+        headerCell1.textContent = month; // Cambiar "Tipo de Pago" por el nombre del mes
+        const headerCell2 = document.createElement('th');
+        headerCell2.textContent = 'Total';
+
+        header.appendChild(headerCell1);
+        header.appendChild(headerCell2);
+        table.appendChild(header);
+
+        salesData[index].forEach(row => {
+            const tr = document.createElement('tr');
+            const td1 = document.createElement('td');
+            td1.textContent = row[0] || 'Sin datos'; // Tipo de pago
+            const td2 = document.createElement('td');
+            td2.textContent = row[1] || 0; // Total
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            table.appendChild(tr);
+        });
+
+        const monthHeader = document.createElement('h3');
+        // monthHeader.textContent = month;
+        tableContainer.appendChild(monthHeader);
+        tableContainer.appendChild(table);
+    });
+}
+
+
+
+
+      fetchData();
+});
+
 
     </script>
 </body>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Ventas y Gráficas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Datos de Ventas</h1>
+    <div id="chartContainer">
+        <!-- Aquí se agregarán las gráficas -->
+    </div>
+    
+    <table id="ventasTable">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Total Ventas Enero</th>
+                <th>Total Ventas Abril</th>
+                <th>Total Ventas Julio</th>
+                <th>Total Ventas Septiembre</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Aquí se llenarán los datos -->
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchData() {
+            const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec'; // Cambia esto por tu URL
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud: ' + response.statusText);
+                }
+                const data = await response.json();
+                console.log('Datos obtenidos:', data); // Para depuración
+                populateTable(data.tabla);
+                populateChart(data.graficas);
+            } catch (error) {
+                console.error('Error al obtener los datos de la tabla y gráficas:', error);
+            }
+        }
+
+        function populateTable(data) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = ''; // Limpiar tabla existente
+
+            // Recorre los datos y crea filas
+            data.forEach((row) => {
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${row[0]}</td>
+                    <td>${row[1]}</td>
+                    <td>${row[2]}</td>
+                    <td>${row[3]}</td>
+                    <td>${row[4]}</td>
+                `;
+                tableBody.appendChild(newRow);
+            });
+        }
+
+        function populateChart(data) {
+            // Aquí puedes agregar el código para crear gráficas utilizando la librería de gráficos que prefieras
+            // Ejemplo: Chart.js o Google Charts
+            console.log('Datos para gráficas:', data);
+            // Implementa el código para mostrar las gráficas
+        }
+
+        // Llama a la función al cargar el documento
+        document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
+    
+</body>
+</html>

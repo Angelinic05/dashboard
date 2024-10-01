@@ -34,17 +34,18 @@ rel='stylesheet' type='text/css'>
           </li>
           <li>
             <div class="iocn-link">
-              <a href="#">
+              <a href="ventas/ventas.html">
                 <i class='bx bx-collection' ></i>
-                <span class="link_name">Category</span>
+                <span class="link_name">Lanzamientos</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-              <li><a class="link_name" href="#">Category</a></li>
-              <li><a href="#">HTML & CSS</a></li>
-              <li><a href="#">JavaScript</a></li>
-              <li><a href="#">PHP & MySQL</a></li>
+              <li><a class="link_name" href="#">Lanzamientos</a></li>
+              <li><a href="#">Enero</a></li>
+              <li><a href="#">Abril</a></li>
+              <li><a href="#">Julio</a></li>
+              <li><a href="../Index.html">Septiembre</a></li>
             </ul>
           </li>
           <li>
@@ -378,12 +379,7 @@ rel='stylesheet' type='text/css'>
                     </div>
                 </div>
             </div>
-                <!-- <div class="countdown">
-                    <div class="date"><span id="days" class="lispan"></span>days</div>
-                    <div class="date"><span id="hours" class="lispan"></span>Hrs</div>
-                    <div class="date"><span id="minutes" class="lispan"></span>Min</div>
-                    <div class="date"><span id="seconds" class="lispan"></span>Sec</div>
-                </div> -->
+
                 <h2 style="text-align: center;">NUESTRO PRÓXIMO RECORD SERÁ EN:</h2>
                 <div class="countdown">
                     
@@ -429,22 +425,6 @@ rel='stylesheet' type='text/css'>
             sidebar.classList.toggle("close");
         });
 
-        // function updateProgressBar(progressElementId, textElementId, url) {
-        //     var xhr = new XMLHttpRequest();
-        //     xhr.onreadystatechange = function () {
-        //         if (xhr.readyState === 4 && xhr.status === 200) {
-        //             var value = parseFloat(xhr.responseText);
-        //             var adjustedValue = Math.min(value, 100); // Ajustar el valor para asegurarse de que no sea mayor que 100%
-        //             console.log("Porcentaje recibido de Google Sheets: " + adjustedValue + "%");
-        //             var progressBar = document.getElementById(progressElementId);
-        //             var textElement = document.getElementById(textElementId);
-        //             progressBar.style.width = adjustedValue + '%';
-        //             textElement.textContent = adjustedValue.toFixed(1) + "%"; // Actualizar el texto con el porcentaje
-        //         }
-        //     };
-        //     xhr.open("GET", url, true);
-        //     xhr.send();
-        // }
 
         function updateCircularProgressBar(svgElement, url) {
             var xhr = new XMLHttpRequest();
@@ -523,24 +503,6 @@ rel='stylesheet' type='text/css'>
 
         var circularProgressBar = document.querySelector('.progress-container3');
         updateCircularProgressBar(circularProgressBar, 'https://script.google.com/macros/s/AKfycbxDuIz6RbAdjr-pDzZcQYQpb_jML_28tAfYqx7_Inqq5CLFq_qruGnVFA4_aYeWIEs0/exec');
-
-
-
-
-        // updateProgressBar('progress1', 'progressText1', 'https://script.google.com/macros/s/AKfycbz_NNs_dcpgLoh17mOtBqln-JLes8Nk2J53YEHRNaH8bIN1IWXqxPm4mgn0xolFCBg6_Q/exec');
-        // updateProgressBar('progress3', 'progressText3', 'https://script.google.com/macros/s/AKfycbxlpcgRB9BfOsrARmkpZ-ovO3M0dPcyIQOnddulGfXR6Z8SJGN1xzA_S1kaiQmVrUHo/exec');
-        // updateProgressBar('progress4', 'progressText4', 'https://script.google.com/macros/s/AKfycbykv3AE4ZzXrR8bAj0RTfdr5EPxX0l9iXN0n8KQROXsFTE20sixMIU5E8z9NCyHAjxc/exec');
-        // updateProgressBar('progress5', 'progressText5', 'https://script.google.com/macros/s/AKfycbwgQav5L10i9dpP6EXj-g18wtj79Clzbrmheqe1mSgxr6RIzY4QayJkc9xe71I4sz5YDQ/exec');
-        // updateProgressBar('progress2', 'progressText2', 'https://script.google.com/macros/s/AKfycbytYYUFi4LO_WCafmVIMeM7NkoOOTL-jjdfZApjAv8-FhThmg7L0l_kvVqDXfxwXGpy/exec');
-        // updateProgressBar('progress7', 'progressText7', 'https://script.google.com/macros/s/AKfycbwspsfw6c4d7v8Zvb3hM_jRndskjNFqoV5RiFISMRqBp1DC-Gz2SVczrnDvmi6sNd6kag/exec');
-
-
-        // updateProgressBar('progress8', 'progressText8', 'https://script.google.com/macros/s/AKfycbxrqaj7CPkbD3S3jxJQExV6MLaCmffxzoAPuXNeU_Mg6aGfZB34U2BkjxTMc0BO0nQ/exec');
-        // updateProgressBar('progress9', 'progressText9', 'https://script.google.com/macros/s/AKfycbx30XkXu1OKVy3O4H2MGmZn8tPiuvmQMQVUqprvmxAteWQc5aKoP_oBugu72GhX0kQAzQ/exec');
-        // updateProgressBar('progress10', 'progressText10', 'https://script.google.com/macros/s/AKfycbwi3mBRu39-aMa10qxecjKZsb0PbEw0RWZ-XNUfGtiNnnM6eZ1f5bDYyeIdFbX3M-VkVQ/exec');
-        // updateProgressBar('progress11', 'progressText11', 'https://script.google.com/macros/s/AKfycbzwV89mZzCiEULUtjYivEms9TzCW3RlgIAZaTYINBhxZ0yoTQdbhCCHR4ugzAGI0EM9/exec');
-        // updateProgressBar('progress12', 'progressText12', 'https://script.google.com/macros/s/AKfycbwQ0yg4pbv_nXCQXvBZEH8cbVvwLIit7QC8VxHlO95GJA9ybpajyAuiqv307TVRDA0d/exec');
-
 
 
 
