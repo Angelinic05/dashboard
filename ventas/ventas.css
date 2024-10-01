@@ -302,7 +302,7 @@ body {
 /* Contenedor principal ----------------------------------------*/
 .contenedor-principal {
     width: 100%;
-    max-width: 3000px; /* Máximo ancho para pantallas grandes */
+    max-width: 5000px; 
     margin: 0 auto;
     padding: 5px;
     padding-left: 90px;
@@ -335,7 +335,7 @@ body {
   height: 5vh;
   box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
   text-align: center;
-  border-radius: 30px;
+  border-radius: 8px;
   padding: 25px;
   transition: transform 0.3s ease;
 }
@@ -343,7 +343,6 @@ body {
 
 .contenedor-pequeño2:hover {
     background-color: #243a7a;
-    box-shadow: 0 0 10px #233979; 
     transform: scale(1.1); /* Aumenta el tamaño al 120% */
 }
 
@@ -377,9 +376,9 @@ body {
 
 /* Estilos para los canvases */
 canvas {
-  display: inherit;
-  width: 100%;
-  padding: 30px;
+  
+  border: 1px solid darkcyan;
+  display: flex;
   background-color: #08112c;
   box-shadow: 0 0 10px #000000; 
   border-radius: 8px;

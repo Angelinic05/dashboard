@@ -171,8 +171,8 @@
 
 
   <div class="contenedor-centro">
-      <div class="izq canva1" id="barChart" style="width: 750px; height: 500px;"></div>
-      <div class="der canva2" id="lineChart" style="width: 1200px; height: 500px;"></div>
+      <div class="canva1" id="barChart" style="width: 750px; height: 500px;"></div>
+      <div class="canva2" id="lineChart" style="width: 1200px; height: 500px;"></div>
 
 </div>
 
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         return colors[params.dataIndex];
                     },
                     borderRadius: [10, 10, 0, 0],
-                    shadowBlur: 20,
+                    shadowBlur: 10,
                     shadowColor: 'rgba(0, 0, 0, 0.8)',
                     shadowOffsetX: 5,
                     shadowOffsetY: 5,
@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function () {
     tableContainer.innerHTML = ''; // Limpiar contenido anterior
 
     // Datos para cada mes
-    const months = ['Enero', 'Abril', 'Julio', 'Septiembre'];
+    const months = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
     
     // Acceso correcto a los datos
     const salesData = [
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const headerCell1 = document.createElement('th');
         headerCell1.textContent = month; // Cambiar "Tipo de Pago" por el nombre del mes
         const headerCell2 = document.createElement('th');
-        headerCell2.textContent = 'Total';
+        headerCell2.textContent = 'TOTAL';
 
         header.appendChild(headerCell1);
         header.appendChild(headerCell2);
