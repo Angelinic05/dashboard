@@ -165,9 +165,12 @@
   <div class="contenedor-centro">
       <div id="barChart" ></div>
       <div id="lineChart" ></div>
+      <div id="pieChartContainer"></div>
   </div>
 
-  <div id="salesTables"></div>
+  <!-- <div id="salesTables"></div> -->
+  
+
 
 
 
@@ -193,10 +196,8 @@
             sidebar.classList.toggle("close");
         });
 
-document.addEventListener('DOMContentLoaded', function () { 
+        document.addEventListener('DOMContentLoaded', function () {
     const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec';
-
-    
 
     async function fetchData() {
         try {
@@ -207,43 +208,77 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
             console.log('Datos obtenidos:', data);
             createCharts(data.graficas);
-            createTables(data.tabla); // Llamar a la función para crear las tablas
         } catch (error) {
             console.error('Error al obtener los datos:', error);
         }
     }
 
     function createCharts(combinedValues) {
-        const eneroSales = combinedValues.map(row => row[1]);
-        const abrilSales = combinedValues.map(row => row[2]);
-        const julioSales = combinedValues.map(row => row[3]);
-        const septiembreSales = combinedValues.map(row => row[4]);
+        const salesByMonth = {
+            enero: combinedValues.map(row => row[1]),
+            abril: combinedValues.map(row => row[2]),
+            julio: combinedValues.map(row => row[3]),
+            septiembre: combinedValues.map(row => row[4])
+        };
 
-        const barTotals = [
-            eneroSales.reduce((sum, val) => sum + val, 0),
-            abrilSales.reduce((sum, val) => sum + val, 0),
-            julioSales.reduce((sum, val) => sum + val, 0),
-            septiembreSales.reduce((sum, val) => sum + val, 0)
-        ];
+        const barTotals = Object.values(salesByMonth).map(sales => sales.reduce((sum, val) => sum + val, 0));
 
         const screenWidth = window.innerWidth;
-        const fontSize = screenWidth < 768 ? 9 : 17; // Tamaño de la fuente según el tamaño de la pantalla
-        const barWidth = screenWidth < 768 ? 30 : 50; // Ancho de las barras para pantallas pequeñas
-        const labelFontSize = screenWidth < 768 ? 10 : 15; // Tamaño de las etiquetas
+        const fontSize = screenWidth < 768 ? 9 : 17;
+        const barWidth = screenWidth < 768 ? 30 : 50;
+        const labelFontSize = screenWidth < 768 ? 10 : 15;
         const widthLine = screenWidth < 768 ? 2 : 6;
+
         // Inicializar gráfico de barras
         const barChart = echarts.init(document.getElementById('barChart'));
-        const barOption = {
+        const barOption = createBarChartOption(barTotals, fontSize, barWidth, labelFontSize);
+        barChart.setOption(barOption);
+
+        // Inicializar gráfico lineal
+        const lineChart = echarts.init(document.getElementById('lineChart'));
+        const lineOption = createLineChartOption(combinedValues, salesByMonth, fontSize, widthLine);
+        lineChart.setOption(lineOption);
+
+        window.addEventListener('resize', () => {
+            barChart.resize();
+            lineChart.resize();
+        });
+
+        let highlightedIndex = -1;
+
+        function highlightMonth(index) {
+            const colors = ['#EEB84C', '#D474C7', '#13C3E9', '#90EE90'];
+            const fadedColor = 'rgba(28,59,137,0.5)';
+
+            if (highlightedIndex === index) {
+                highlightedIndex = -1;
+                resetHighlighting(barOption, lineOption, colors);
+            } else {
+                highlightedIndex = index;
+                applyHighlighting(barOption, lineOption, index, colors, fadedColor);
+                createPieChart(combinedValues, index);
+            }
+            barChart.setOption(barOption);
+            lineChart.setOption(lineOption);
+        }
+
+        ['enero', 'abril', 'julio', 'septiembre'].forEach((month, index) => {
+            document.getElementById(month).addEventListener('click', () => highlightMonth(index));
+        });
+    }
+
+    function createBarChartOption(barTotals, fontSize, barWidth, labelFontSize) {
+        return {
             tooltip: {},
             xAxis: {
                 type: 'category',
                 data: ['ENERO', 'ABRIL', 'JULIO', 'SEPT'],
-                axisLabel: { color: 'white', fontSize: fontSize  }
+                axisLabel: { color: 'white', fontSize: fontSize }
             },
             yAxis: {
                 type: 'value',
-                axisLabel: { color: 'white', fontSize: fontSize  },
-                splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
+                axisLabel: { color: 'white', fontSize: fontSize },
+                splitLine: { lineStyle: { color: '#070707', width: 3 } }
             },
             series: [{
                 name: 'Ventas',
@@ -277,11 +312,10 @@ document.addEventListener('DOMContentLoaded', function () {
             animationEasing: 'elasticOut',
             animationDuration: 2000
         };
-        barChart.setOption(barOption);
+    }
 
-        // Inicializar gráfico lineal
-        const lineChart = echarts.init(document.getElementById('lineChart'));
-        const lineOption = {
+    function createLineChartOption(combinedValues, salesByMonth, fontSize, widthLine) {
+        return {
             tooltip: { trigger: 'axis' },
             legend: {
                 data: ['Enero', 'Abril', 'Julio', 'Septiembre'],
@@ -295,146 +329,122 @@ document.addEventListener('DOMContentLoaded', function () {
             yAxis: {
                 type: 'value',
                 axisLabel: { color: 'white', fontSize: fontSize },
-                splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
+                splitLine: { lineStyle: {  color: '#070707', width: 3 } }
             },
             series: [
-                { 
-                    name: 'Enero', 
-                    type: 'line', 
-                    data: eneroSales, 
-                    lineStyle: { color: '#EEB84C', width: widthLine }, 
-                    itemStyle: { color: '#EEB84C' }
-                },
-                { 
-                    name: 'Abril', 
-                    type: 'line', 
-                    data: abrilSales, 
-                    lineStyle: { color: '#D474C7', width: widthLine }, 
-                    itemStyle: { color: '#D474C7' }
-                },
-                { 
-                    name: 'Julio', 
-                    type: 'line', 
-                    data: julioSales, 
-                    lineStyle: { color: '#13C3E9', width: widthLine }, 
-                    itemStyle: { color: '#13C3E9' }
-                },
-                { 
-                    name: 'Septiembre', 
-                    type: 'line', 
-                    data: septiembreSales, 
-                    lineStyle: { color: '#90EE90', width: widthLine}, 
-                    itemStyle: { color: '#90EE90' }
-                }
+                { name: 'Enero', type: 'line', data: salesByMonth.enero, lineStyle: { color: '#EEB84C', width: widthLine }, itemStyle: { color: '#EEB84C' } },
+                { name: 'Abril', type: 'line', data: salesByMonth.abril, lineStyle: { color: '#D474C7', width: widthLine }, itemStyle: { color: '#D474C7' } },
+                { name: 'Julio', type: 'line', data: salesByMonth.julio, lineStyle: { color: '#13C3E9', width: widthLine }, itemStyle: { color: '#13C3E9' } },
+                { name: 'Septiembre', type: 'line', data: salesByMonth.septiembre, lineStyle: { color: '#90EE90', width: widthLine }, itemStyle: { color: '#90EE90' } }
             ],
             animationEasing: 'elasticOut',
             animationDuration: 1500
         };
-        lineChart.setOption(lineOption);
+    }
 
-        window.addEventListener('resize', () => {
-        barChart.resize();
-        lineChart.resize();
-        });
-
-        // Variable para mantener el estado de resaltado
-        let highlightedIndex = -1;
-
-        // Función para actualizar gráficos
-        function highlightMonth(index) {
-            const colors = ['#EEB84C', '#D474C7', '#13C3E9', '#90EE90'];
-            const fadedColor = 'rgba(28,59,137,0.5)';
-
-            if (highlightedIndex === index) {
-                // Si el índice ya está resaltado, restaurar colores originales
-                highlightedIndex = -1; // Restablecer el índice resaltado
-                barOption.series[0].itemStyle.color = function (params) {
-                    return colors[params.dataIndex]; // Color original
-                };
-                lineOption.series.forEach((serie, i) => {
-                    serie.lineStyle.color = colors[i]; // Color original
-                });
-            } else {
-                // Resaltar el mes correspondiente
-                highlightedIndex = index; // Actualizar el índice resaltado
-                barOption.series[0].itemStyle.color = function (params) {
-                    return params.dataIndex === index ? colors[params.dataIndex] : fadedColor;
-                };
-                lineOption.series.forEach((serie, i) => {
-                    serie.lineStyle.color = i === index ? colors[i] : fadedColor;
-                });
-            }
-            barChart.setOption(barOption);
-            lineChart.setOption(lineOption);
-        }
-
-        // Agregar eventos de click a los contenedores de los meses
-        document.getElementById('enero').addEventListener('click', function () {
-            highlightMonth(0);
-        });
-        document.getElementById('abril').addEventListener('click', function () {
-            highlightMonth(1);
-        });
-        document.getElementById('julio').addEventListener('click', function () {
-            highlightMonth(2);
-        });
-        document.getElementById('septiembre').addEventListener('click', function () {
-            highlightMonth(3);
+    function resetHighlighting(barOption, lineOption, colors) {
+        barOption.series[0].itemStyle.color = function (params) {
+            return colors[params.dataIndex];
+        };
+        lineOption.series.forEach((serie, i) => {
+            serie.lineStyle.color = colors[i];
         });
     }
-    function createTables(data) {
-    const tableContainer = document.getElementById('salesTables');
-    tableContainer.innerHTML = ''; // Limpiar contenido anterior
 
-    // Datos para cada mes
-    const months = ['ENERO', 'ABRIL', 'JULIO', 'SEPT'];
-    
-    // Acceso correcto a los datos
-    const salesData = [
-        data.map(row => [row[0], row[1]]), // Enero
-        data.map(row => [row[0], row[2]]), // Abril
-        data.map(row => [row[0], row[3]]), // Julio
-        data.map(row => [row[0], row[4]])  // Septiembre
-    ];
-
-    months.forEach((month, index) => {
-        const table = document.createElement('table');
-        table.className = 'sales-table';
-
-        const header = document.createElement('tr');
-        const headerCell1 = document.createElement('th');
-        headerCell1.textContent = month; // Cambiar "Tipo de Pago" por el nombre del mes
-        const headerCell2 = document.createElement('th');
-        headerCell2.textContent = 'TOTAL';
-
-        header.appendChild(headerCell1);
-        header.appendChild(headerCell2);
-        table.appendChild(header);
-
-        salesData[index].forEach(row => {
-            const tr = document.createElement('tr');
-            const td1 = document.createElement('td');
-            td1.textContent = row[0] || 'Sin datos'; // Tipo de pago
-            const td2 = document.createElement('td');
-            td2.textContent = row[1] || 0; // Total
-
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            table.appendChild(tr);
+    function applyHighlighting(barOption, lineOption, index, colors, fadedColor) {
+        barOption.series[0].itemStyle.color = function (params) {
+            return params.dataIndex === index ? colors[params.dataIndex] : fadedColor;
+        };
+        lineOption.series.forEach((serie, i) => {
+            serie.lineStyle.color = i === index ? colors[i] : fadedColor;
         });
+    }
+    function createPieChart(data, monthIndex) {
+    const canvasContainer = document.getElementById('pieChartContainer');
+    canvasContainer.innerHTML = ''; // Limpiar contenido anterior
 
-        const monthHeader = document.createElement('h3');
-        // monthHeader.textContent = month;
-        tableContainer.appendChild(monthHeader);
-        tableContainer.appendChild(table);
+    const contado = data[monthIndex][1];
+    const credito = data[monthIndex][2];
+
+    const pieChartCanvas = document.createElement('canvas');
+    canvasContainer.appendChild(pieChartCanvas);
+
+    const pieChart = echarts.init(pieChartCanvas);
+    const total = contado + credito;
+
+    // Colores para cada mes y sus tonos más oscuros
+    const colors = [
+        { contado: '#EEB84C', credito: '#BFA640' }, // Enero
+        { contado: '#D474C7', credito: '#A85B9D' }, // Abril
+        { contado: '#13C3E9', credito: '#0FA1B6' }, // Julio
+        { contado: '#90EE90', credito: '#74B974' }  // Septiembre
+    ];
+    
+    const option = {
+        title: {
+            text: `Ventas ${['Enero', 'Abril', 'Julio', 'Septiembre'][monthIndex]}`,
+            left: 'center',
+            top: 'top',
+            textStyle: {
+                color: 'white'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: (params) => {
+                const percent = ((params.data.value / total) * 100).toFixed(2);
+                return `${params.data.name}: ${params.data.value} (${percent}%)`;
+            }
+        },
+        series: [{
+            name: 'Ventas',
+            type: 'pie',
+            radius: '100%', // Aumentar el tamaño de la torta
+            data: [
+                { value: contado, name: 'Contado', itemStyle: { color: colors[monthIndex].contado } }, // Color para "Contado"
+                { value: credito, name: 'Crédito', itemStyle: { color: colors[monthIndex].credito } } // Color más oscuro para "Crédito"
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            },
+            label: {
+                show: true,
+                position: 'center', // Mostrar en el centro
+                formatter: function(params) {
+                    return `${params.data.name}\n${params.data.value}\n${((params.data.value / total) * 100).toFixed(2)}%`;
+                },
+                color: '#ffffff', // Color de texto
+                fontSize: 16,
+                fontWeight: 'bold'
+            }
+        }],
+        animationType: 'scale',
+        animationEasing: 'elasticOut',
+        animationDelay: (idx) => idx * 100
+    };
+
+    pieChart.setOption(option);
+
+
+
+    // Hacer que el gráfico sea responsivo
+    window.addEventListener('resize', function() {
+        pieChart.resize();
     });
 }
 
 
+// Llamada para obtener datos
+fetchData();
 
 
-      fetchData();
 });
+
+
 
 
     </script>
