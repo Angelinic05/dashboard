@@ -411,6 +411,7 @@ body {
 
 /* Estilos para las tablas */
 .sales-table {
+  text-align: center;
   /* flex: 1; Permitir que las tablas crezcan igualmente */
   min-width: 400px; /* Ancho mínimo para las tablas */
   max-width: 400px; /* Ancho máximo para las tablas */
@@ -422,14 +423,13 @@ body {
 
 }
 
-
-
 /* Estilos para encabezados y celdas */
 .sales-table th {
+  align-items: center;
   background-color: #0d1b44; /* Fondo para encabezados */
   color: #ffffff; /* Color de texto blanco */
   padding: 12px; /* Espaciado interno */
-  text-align: left; /* Alinear texto a la izquierda */
+  
   font-weight: bold; /* Negrita */
 }
 
@@ -444,14 +444,7 @@ body {
 }
 
 
-/* Encabezado de mes */
-#salesTables h3 {
-  color: #ffffff; /* Color de texto blanco */
-  margin: 10px 0; /* Espaciado vertical */
-  font-size: 24px; /* Tamaño de fuente */
-  padding-bottom: 5px; /* Espaciado inferior */
-  width: 100%; /* Ancho completo para encabezado */
-}
+
 
 
 
@@ -541,28 +534,33 @@ body {
   }
 
   #salesTables { 
-    width: 100%;
-    padding: 5px;
+    flex-direction: column;
   }
   
   /* Estilos para las tablas */
   .sales-table {
-    box-shadow: none; 
-    min-width: 100px; /* Ancho mínimo para las tablas */
-    max-width: 150px; /* Ancho máximo para las tablas */
+    font-size: 12px;
+    min-width: 400px; /* Ancho mínimo para las tablas */
+    margin-bottom: 0; /* Espacio inferior para separación */
   }
 
+  
   /* Estilos para encabezados y celdas */
   .sales-table th {
-    padding: 10px; /* Espaciado interno */
-    font-size: 13px;
-    text-align: left; /* Alinear texto a la izquierda */
+    background-color: #0d1b44; /* Fondo para encabezados */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 12px; /* Espaciado interno */
     font-weight: bold; /* Negrita */
   }
   
   .sales-table td {
-    padding: 5px; /* Espaciado interno */
-    font-size: 13px;
+    background-color: #172344; /* Fondo para celdas */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 12px; /* Espaciado interno */
+  }
+  
+  .sales-table tr:nth-child(even) td {
+    background-color: rgb(47, 58, 90);
   }
 
   .canva1, .canva2 {
@@ -571,11 +569,6 @@ body {
     font-size: 10px;
   }
 
-
-  #barChart, #lineChart {
-    width: 100%;
-    height: 500px; /* Ajusta este valor según tus necesidades */
-}
 
 }
 
@@ -615,39 +608,36 @@ body {
     
   }
 
-  .contenedor-centro {
-  }
-
-  #salesTables { 
-  }
-  
-  /* Estilos para las tablas */
-  .sales-table {
-    border: 1px solid rgb(255, 255, 255);
-    box-shadow: none; 
-    min-width: 100px; /* Ancho mínimo para las tablas */
-    max-width: 150px; /* Ancho máximo para las tablas */
+    #salesTables { 
+      flex-direction: column;
+    }
     
-  }
+    /* Estilos para las tablas */
+    .sales-table {
+      font-size: 12px;
+      min-width: 400px; /* Ancho mínimo para las tablas */
+      margin-bottom: 0; /* Espacio inferior para separación */
+    }
 
+  
   /* Estilos para encabezados y celdas */
   .sales-table th {
-    padding: 10px; /* Espaciado interno */
-    font-size: 10px;
-    text-align: left; /* Alinear texto a la izquierda */
+    background-color: #0d1b44; /* Fondo para encabezados */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 12px; /* Espaciado interno */
     font-weight: bold; /* Negrita */
   }
   
   .sales-table td {
-    padding: 5px; /* Espaciado interno */
-    font-size: 10px;
+    background-color: #172344; /* Fondo para celdas */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 12px; /* Espaciado interno */
+  }
+  
+  .sales-table tr:nth-child(even) td {
+    background-color: rgb(47, 58, 90);
   }
 
-  .canva1, .canva2 {
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    height: 90vh; /* Altura más reducida para pantallas pequeñas */
-    font-size: 10px;
-  }
 
 
 }
