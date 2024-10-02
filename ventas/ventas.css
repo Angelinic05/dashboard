@@ -331,7 +331,8 @@ body {
   align-items: center;
   cursor: pointer;
   background-color: #08112c;
-  border: 5px solid rgb(40, 62, 107);
+  border: 5px solid #111c3d;
+  ;
   min-width: 100px; /* Ancho mínimo para evitar que se achique demasiado */
   height: 5vh;
   box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
@@ -343,7 +344,7 @@ body {
 
 
 .contenedor-pequeño2:hover {
-    background-color: #243a7a;
+    background-color: #111c3d;
     transform: scale(1.1); /* Aumenta el tamaño al 120% */
 }
 
@@ -596,32 +597,60 @@ body {
   }
 
 
-  .contenedor-principal {
-      padding: 0;
-      /* padding-left: 70px; */
-      
+  .fila-superior2 {
+    align-items: center;
+    height: auto;
+    gap: 15px;
   }
 
   .contenedor-pequeño2 {
-    font-size: 0.9rem;
-    padding: 8px;
+    width: 15%;
+  }
+
+  .statnum2 {
+    font-size: 1rem;
+    font-weight: 550;
+    background-clip: text;
+    
+    
   }
 
   .contenedor-centro {
-    gap: 10px;
+  }
+
+  #salesTables { 
+  }
+  
+  /* Estilos para las tablas */
+  .sales-table {
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: none; 
+    min-width: 100px; /* Ancho mínimo para las tablas */
+    max-width: 150px; /* Ancho máximo para las tablas */
+    
+  }
+
+  /* Estilos para encabezados y celdas */
+  .sales-table th {
+    padding: 10px; /* Espaciado interno */
+    font-size: 10px;
+    text-align: left; /* Alinear texto a la izquierda */
+    font-weight: bold; /* Negrita */
+  }
+  
+  .sales-table td {
+    padding: 5px; /* Espaciado interno */
+    font-size: 10px;
   }
 
   .canva1, .canva2 {
-    width: 100%;
-    height: 25vh; /* Altura mínima para pantallas muy pequeñas */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    height: 90vh; /* Altura más reducida para pantallas pequeñas */
+    font-size: 10px;
   }
 
-  .sales-table th, .sales-table td {
-    padding: 8px;
-  }
+
 }
-
-
 
 
 
