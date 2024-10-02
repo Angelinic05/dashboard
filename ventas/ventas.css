@@ -414,7 +414,7 @@ body {
   text-align: center;
   flex: 1; /* Permitir que las tablas crezcan o se reduzcan */
   width: 100%; /* Ancho del 100% para que sea completamente responsivo */
-  max-width: 400px; /* Ancho máximo */
+  max-width: 300px; /* Ancho máximo */
   margin: 10px; /* Margen para separación */
   border-collapse: collapse;
   border-radius: 10px;
