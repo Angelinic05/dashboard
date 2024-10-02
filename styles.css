@@ -669,20 +669,16 @@ h2{
 @media (max-width: 768px) {
 
     .sidebar.close {
-        left: -260px; /* Ocultar el menú en móviles */
+        left: -100px; /* Ocultar el menú en móviles */
     }
 
     .sidebar {
-        transition: left 0.3s ease;
+        transition: left 0.2s ease;
     }
 
     .home-section {
-        margin-left: 260px; /* Ajustar el margen del contenido principal cuando el menú esté visible */
-        transition: margin-left 0.3s ease;
-    }
-
-    .sidebar.close ~ .home-section {
-        margin-left: 0; /* El contenido no se desplaza cuando el menú está oculto */
+        transition: all 0.5s ease;
+        margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
     }
 
 
@@ -696,7 +692,7 @@ h2{
         display: flex;
         justify-content: center;
         width: 100%;
-        font-size: 1.8rem;
+        font-size: 1rem;
         font-weight: 900;
     }
 
@@ -872,9 +868,25 @@ h2{
 
 
 @media (max-width: 480px) {
-    .sidebar.close .nav-links li .sub-menu{
-        display: none;
-      }
+    .sidebar.close {
+        left: -100px; /* Ocultar el menú en móviles */
+    }
+
+    .sidebar {
+        transition: left 0.2s ease;
+    }
+
+    .home-section {
+        transition: all 0.5s ease;
+        margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+    }
+
+
+    .contenedor-principal {
+        padding: 0;
+        /* padding-left: 70px; */
+        
+    }
       
     .contenedor-principal {
         padding: 0;
@@ -1043,6 +1055,25 @@ h2{
 
  
 @media (max-width: 430px) {
+    .sidebar.close {
+        left: -100px; /* Ocultar el menú en móviles */
+    }
+
+    .sidebar {
+        transition: left 0.2s ease;
+    }
+
+    .home-section {
+        transition: all 0.5s ease;
+        margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+    }
+
+
+    .contenedor-principal {
+        padding: 0;
+        /* padding-left: 70px; */
+        
+    }
 
     .contenedor-principal {
         padding: 0;

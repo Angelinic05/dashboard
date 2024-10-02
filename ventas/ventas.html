@@ -148,24 +148,16 @@
   <!-- Fila superior con 4 contenedores -->
   <div class="fila-superior2">
       <div id="enero" class="contenedor-pequeño2">
-          <div class="stat">
               <div class="statnum2">ENERO</div>
-          </div>
       </div>
       <div id="abril" class="contenedor-pequeño2">
-          <div class="stat">
               <div class="statnum2">ABRIL</div>
-          </div>
       </div>
       <div id="julio" class="contenedor-pequeño2">
-          <div class="stat">
               <div class="statnum2">JULIO</div>
-          </div>
       </div>
       <div id="septiembre" class="contenedor-pequeño2">
-          <div class="stat">
               <div class="statnum2">SEPTIEMBRE</div>
-          </div>
       </div>
   </div>
 
@@ -202,7 +194,7 @@ sidebarBtn.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () { 
     const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec';
 
     async function fetchData() {
@@ -221,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createCharts(combinedValues) {
-      const eneroSales = combinedValues.map(row => row[1]);
+        const eneroSales = combinedValues.map(row => row[1]);
         const abrilSales = combinedValues.map(row => row[2]);
         const julioSales = combinedValues.map(row => row[3]);
         const septiembreSales = combinedValues.map(row => row[4]);
@@ -305,28 +297,28 @@ document.addEventListener('DOMContentLoaded', function () {
                     type: 'line', 
                     data: eneroSales, 
                     lineStyle: { color: '#EEB84C', width: 4 }, 
-                    itemStyle: { color: '#EEB84C' }  // Asegurar que los puntos tengan el mismo color
+                    itemStyle: { color: '#EEB84C' }
                 },
                 { 
                     name: 'Abril', 
                     type: 'line', 
                     data: abrilSales, 
                     lineStyle: { color: '#D474C7', width: 4 }, 
-                    itemStyle: { color: '#D474C7' } 
+                    itemStyle: { color: '#D474C7' }
                 },
                 { 
                     name: 'Julio', 
                     type: 'line', 
                     data: julioSales, 
                     lineStyle: { color: '#13C3E9', width: 4 }, 
-                    itemStyle: { color: '#13C3E9' } 
+                    itemStyle: { color: '#13C3E9' }
                 },
                 { 
                     name: 'Septiembre', 
                     type: 'line', 
                     data: septiembreSales, 
                     lineStyle: { color: '#90EE90', width: 4 }, 
-                    itemStyle: { color: '#90EE90' } 
+                    itemStyle: { color: '#90EE90' }
                 }
             ],
             animationEasing: 'elasticOut',
@@ -334,21 +326,34 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         lineChart.setOption(lineOption);
 
+        // Variable para mantener el estado de resaltado
+        let highlightedIndex = -1;
+
         // Función para actualizar gráficos
         function highlightMonth(index) {
             const colors = ['#EEB84C', '#D474C7', '#13C3E9', '#90EE90'];
             const fadedColor = 'rgba(28,59,137,0.5)';
 
-            // Cambiar colores en el gráfico de barras
-            barOption.series[0].itemStyle.color = function (params) {
-                return params.dataIndex === index ? colors[params.dataIndex] : fadedColor;
-            };
+            if (highlightedIndex === index) {
+                // Si el índice ya está resaltado, restaurar colores originales
+                highlightedIndex = -1; // Restablecer el índice resaltado
+                barOption.series[0].itemStyle.color = function (params) {
+                    return colors[params.dataIndex]; // Color original
+                };
+                lineOption.series.forEach((serie, i) => {
+                    serie.lineStyle.color = colors[i]; // Color original
+                });
+            } else {
+                // Resaltar el mes correspondiente
+                highlightedIndex = index; // Actualizar el índice resaltado
+                barOption.series[0].itemStyle.color = function (params) {
+                    return params.dataIndex === index ? colors[params.dataIndex] : fadedColor;
+                };
+                lineOption.series.forEach((serie, i) => {
+                    serie.lineStyle.color = i === index ? colors[i] : fadedColor;
+                });
+            }
             barChart.setOption(barOption);
-
-            // Cambiar colores en el gráfico de líneas
-            lineOption.series.forEach((serie, i) => {
-                serie.lineStyle.color = i === index ? colors[i] : fadedColor;
-            });
             lineChart.setOption(lineOption);
         }
 
@@ -366,7 +371,6 @@ document.addEventListener('DOMContentLoaded', function () {
             highlightMonth(3);
         });
     }
-
     function createTables(data) {
     const tableContainer = document.getElementById('salesTables');
     tableContainer.innerHTML = ''; // Limpiar contenido anterior

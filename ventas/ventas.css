@@ -404,6 +404,7 @@ body {
 } */
 
 .canva1, .canva2 {
+  padding-top: 20px;
   background-color: #08112c;
   box-shadow: 0 0 10px #000000; 
   border-radius: 8px;
@@ -507,6 +508,26 @@ body {
 
 
 @media (max-width: 768px) {
+
+  .sidebar.close {
+    left: -100px; /* Ocultar el menú en móviles */
+}
+
+.sidebar {
+    transition: left 0.2s ease;
+}
+
+.home-section {
+    transition: all 0.5s ease;
+    margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+}
+
+
+.contenedor-principal {
+    padding: 0;
+    /* padding-left: 70px; */
+    
+}
   .fila-superior2 {
     flex-direction: column;
     align-items: center;
@@ -549,6 +570,27 @@ body {
 
 /* Ajustes para pantallas muy pequeñas */
 @media (max-width: 480px) {
+
+    .sidebar.close {
+      left: -100px; /* Ocultar el menú en móviles */
+  }
+
+  .sidebar {
+      transition: left 0.2s ease;
+  }
+
+  .home-section {
+      transition: all 0.5s ease;
+      margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+  }
+
+
+  .contenedor-principal {
+      padding: 0;
+      /* padding-left: 70px; */
+      
+  }
+
   .contenedor-pequeño2 {
     font-size: 0.9rem;
     padding: 8px;
