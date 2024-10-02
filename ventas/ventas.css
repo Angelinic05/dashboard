@@ -377,31 +377,6 @@ body {
 
 
 
-/* Estilos para los canvases */
-/* canvas {
-  border: 1px solid darkcyan;
-  display: flex;
-  background-color: #08112c;
-  box-shadow: 0 0 10px #000000; 
-  border-radius: 8px;
-} */
-
-
-/* .canva1 {
-  background-color: #08112c;
-  box-shadow: 0 0 10px #000000; 
-  border-radius: 8px;
-  width: 100vh; 
-  height: 50vh;
-}
-
-.canva2 {
-  background-color: #08112c;
-  box-shadow: 0 0 10px #000000; 
-  border-radius: 8px;
-  width: 120vh; 
-  height: 50vh;
-} */
 
 .canva1, .canva2 {
   padding-top: 20px;
@@ -509,61 +484,82 @@ body {
 
 @media (max-width: 768px) {
 
-  .sidebar.close {
-    left: -100px; /* Ocultar el menú en móviles */
-}
+    .sidebar.close {
+      left: -100px; /* Ocultar el menú en móviles */
+  }
 
-.sidebar {
-    transition: left 0.2s ease;
-}
+  .sidebar {
+      transition: left 0.2s ease;
+  }
 
-.home-section {
-    transition: all 0.5s ease;
-    margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
-}
+  .home-section {
+      transition: all 0.5s ease;
+      margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+  }
 
 
-.contenedor-principal {
+      
+  .sidebar.close ~ .home-section{
+    left: 0;
+    width:100%;
+  }
+
+  .contenedor-principal {
     padding: 0;
     /* padding-left: 70px; */
     
 }
+
   .fila-superior2 {
-    flex-direction: column;
     align-items: center;
     height: auto;
     gap: 15px;
   }
 
   .contenedor-pequeño2 {
-    width: 90%;
-    padding: 10px;
+    width: 15%;
+  }
+
+  .statnum2 {
+    font-size: 1rem;
+    font-weight: 550;
+    background-clip: text;
+    
+    
   }
 
   .contenedor-centro {
     flex-direction: column;
-    margin-left: 0;
-    margin-right: 0;
   }
 
-  #salesTables {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .sales-table {
+  #salesTables { 
     width: 100%;
-    min-width: auto;
-    max-width: none;
+    padding: 5px;
+  }
+  
+  /* Estilos para las tablas */
+  .sales-table {
+    box-shadow: none; 
+    min-width: 100px; /* Ancho mínimo para las tablas */
+    max-width: 150px; /* Ancho máximo para las tablas */
   }
 
-  .sales-table th, .sales-table td {
-    padding: 10px;
+  /* Estilos para encabezados y celdas */
+  .sales-table th {
+    padding: 10px; /* Espaciado interno */
+    font-size: 13px;
+    text-align: left; /* Alinear texto a la izquierda */
+    font-weight: bold; /* Negrita */
+  }
+  
+  .sales-table td {
+    padding: 5px; /* Espaciado interno */
+    font-size: 13px;
   }
 
   .canva1, .canva2 {
     width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    height: 30vh; /* Altura más reducida para pantallas pequeñas */
+    height: 60vh; /* Altura más reducida para pantallas pequeñas */
   }
 }
 
@@ -617,290 +613,3 @@ body {
 
 
 
-
-
-
-
-/* 
-
-
-@media (max-width: 420px) {
-  .sidebar.close .nav-links li .sub-menu{
-    display: none;
-  }
-}
-
-
-
-
-@media (max-width: 768px) {
-    .contenedor-principal {
-      padding-left: 5vh;
-  }
-
-
-    .fila-superior2 {
-      height: 8vh;
-      display: flex;
-      justify-content: center;
-      align-items: end;
-      gap: 5px; 
-    }
-
-    .contenedor-pequeño2 {
-      min-width: 10vh;
-      height: 2vh;
-      padding: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .contenedor-izquierdo,
-    .contenedor-derecho {
-        flex: 1 1 100%;
-
-        height: auto;
-    }
-
-    .subcontenedor-izq,
-    .subcontenedor-der {
-        height: auto;
-        display: flex;
-        margin-bottom: 5px;
-
-    .subcontenedor-izq,
-    .subcontenedor-der {   
-        flex-direction: row;
-
-    }
-
-
-    .subcontenedor-der {
-        height: 100%;
-    }
-
-    
-
-
-}
-
-
-@media (max-width: 480px) {
-    .contenedor-principal {
-        padding: 0;
-    }
-
-    h2{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        font-size: 1.8rem;
-        font-weight: 900;
-    }
-
-    .contenedor-titulo img{
-        width: 60%;
-    }
-
-    .fila-superior {
-        flex-direction: column;
-        gap: 20; 
-    }
-
-    .contenedor-pequeño {
-        width: 100%;
-        height: auto;
-        padding: 10px;
-    }
-
-    .contenedor-izquierdo,
-    .contenedor-derecho {
-        flex: 1 1 100%;
-        height: auto;
-    }
-
-    .subcontenedor-izq,
-    .subcontenedor-der {
-        height: auto;
-        display: flex;
-        margin-bottom: 5px; 
-    }
-
-    .subcontenedor-izq,
-    .subcontenedor-der {   
-        flex-direction: row;
-
-    }
-
-
-    .subcontenedor-der {
-        height: 100%;
-    }
-}
-
- 
-@media (max-width: 430px) {
-
-    .contenedor-principal {
-        padding: 0;
-        
-    }
-
-    h2{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        font-size: 1.5rem;
-    }
-
-    .contenedor-titulo img{
-        width: 50%;
-    }
-
-    .fila-superior {
-        flex-direction: column;
-        gap: 20; 
-    }
-
-    .contenedor-pequeño {
-        width: 100%;
-        height: auto;
-        padding: 10px;
-    }
-
-    .contenedor-izquierdo,
-    .contenedor-derecho {
-        flex: 1 1 100%;
-        height: auto;
-    }
-
-    .subcontenedor-izq,
-    .subcontenedor-der {
-        height: auto;
-        display: flex;
-        margin-bottom: 5px; 
-    }
-
-
-
-
-    .subcontenedor-der {
-        height: 100%;
-    }
-
-    
-
-    .card.schedule-table {
-        padding: 5px;
-    }
-
-    .card.schedule-table h2 {
-        font-size: 1.2em;
-    }
-
-    .card.schedule-table th,
-    .card.schedule-table td {
-        font-size:1rem;
-        padding: 8px;
-    }
-
-
-    .card.personal-bests {
-        width: 80vh;
-    }
-    
-
-    .card.personal-bests ul {
-
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-    
-
-    .card.personal-bests li {
-        display: grid;
-        grid-template-columns: 2fr 2.5fr 0.9fr; 
-
-    }
-
-
-    
-    .card.personal-bests span {
-
-        font-size: 0.7rem;
-        color: #fff;
-        padding: 0;
-    }
-
-
-    
-
-    
-
-    .progress-bar {
-        height: 90%;
-    }
-
-    
-
-    .card.schedule-table {
-        padding: 2px;
-    }
-
-    .card.schedule-table th,
-    .card.schedule-table td {
-        font-size: 0.67rem;
-        padding: 8px;
-    }
-
-
-    .card.personal-bests {
-        width: 80vh;
-    }
-    
-    
-
-    .card.personal-bests li {
-        margin-bottom: 10px;
-    }
-    
-
-
-    .statnum2 {
-        font-size: 1.3rem;
-    }
-
-
-
-    .countdown{
-        width: 100%;
-        margin-bottom: 20px;
-        gap: 0.1rem; 
-        margin: 5px;
-    }
-    
-    .date{
-         font-size: 2rem;
-        padding: 20px; 
-        width: 10vh;
-        font-size: 1rem;
-        font-weight: 400;
-        padding: 10px;
-        font-size: 3rem;
-        padding: 15px;
-        border-radius: 8px;
-    
-    }
-
-    .lispan {
-        font-size: 1.5rem; 
-    }
-
-    .label {
-        font-size: 0.9rem;
-    }
-
-    .countdown h1 {
-        font-size: 2rem;
-    }
-}   */
