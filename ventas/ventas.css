@@ -376,25 +376,38 @@ body {
   gap: 30px
 }
 
-.canva1, .canva2 {
+/* .canva1, .canva2 {
   padding-top: 20px;
   background-color: #08112c;
   box-shadow: 0 0 10px #000000; 
   border-radius: 8px;
-}
+} */
 
-
+/* 
 .canva1{
-  width: 45%; /* Cambiado a porcentaje para hacerlo responsivo */
-  height: 50vh; /* Altura adaptable al viewport */
+  width: 45%; 
+  height: 50vh; 
 }
 
 .canva2 {
-  width: 60%; /* Cambiado a porcentaje para hacerlo responsivo */
-  height: 50vh; /* Altura adaptable al viewport */
+  width: 60%; 
+  height: 50vh; 
+} */
+
+#barChart {
+  background-color: #08112c;
+  width: 100%; /* Ajustar el tamaño según la pantalla */
+  height: 500px;
+  margin: auto;
 }
 
-
+#lineChart {
+  padding-top: 20px;
+  background-color: #08112c;
+  width: 100%; /* Ajustar el tamaño según la pantalla */
+  height: 500px;
+  margin: auto;
+}
 
 
 
@@ -439,6 +452,7 @@ body {
 .sales-table tr:nth-child(even) td {
   background-color: rgb(47, 58, 90);
 }
+
 
 
 
@@ -531,16 +545,21 @@ body {
   }
 
   .sales-table {
-    min-width: 300px; /* Reducir el ancho mínimo en pantallas pequeñas */
-    max-width: 100%; /* Asegurarse de que ocupe todo el espacio disponible */
+    min-width: 300px; 
+    max-width: 100%; 
   }
 
-  .canva1, .canva2 {
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    height: 90vh; /* Altura más reducida para pantallas pequeñas */
+  /* .canva1, .canva2 {
+    width: 100%; 
+    height: 90vh; 
     font-size: 10px;
-  }
+  } */
 
+  #barChart, #lineChart {
+    width: 80%; /* Ajustar el tamaño según la pantalla */
+    height: 500px;
+    margin: auto;
+  }
 
 }
 
@@ -579,9 +598,8 @@ body {
     
     
   }
-
   .sales-table {
-    min-width: 100%; /* Ocupa el ancho completo en pantallas muy pequeñas */
+    min-width: 80%; /* Ocupa el ancho completo en pantallas muy pequeñas */
   }
 
   .sales-table th, .sales-table td {

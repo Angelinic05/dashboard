@@ -163,12 +163,11 @@
 
 
   <div class="contenedor-centro">
-      <div class="canva1" id="barChart" ></div>
-      <div class="canva2" id="lineChart" ></div>
+      <div id="barChart" ></div>
+      <div id="lineChart" ></div>
+  </div>
 
-</div>
-
-<div id="salesTables"></div>
+  <div id="salesTables"></div>
 
 
 
@@ -227,6 +226,11 @@ document.addEventListener('DOMContentLoaded', function () {
             septiembreSales.reduce((sum, val) => sum + val, 0)
         ];
 
+        const screenWidth = window.innerWidth;
+        const fontSize = screenWidth < 768 ? 10 : 15; // Tamaño de la fuente según el tamaño de la pantalla
+        const barWidth = screenWidth < 768 ? 20 : 50; // Ancho de las barras para pantallas pequeñas
+        const labelFontSize = screenWidth < 768 ? 12 : 15; // Tamaño de las etiquetas
+
         // Inicializar gráfico de barras
         const barChart = echarts.init(document.getElementById('barChart'));
         const barOption = {
@@ -234,11 +238,11 @@ document.addEventListener('DOMContentLoaded', function () {
             xAxis: {
                 type: 'category',
                 data: ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'],
-                axisLabel: { color: 'white', fontSize: 15 }
+                axisLabel: { color: 'white', fontSize: fontSize  }
             },
             yAxis: {
                 type: 'value',
-                axisLabel: { color: 'white', fontSize: 15 },
+                axisLabel: { color: 'white', fontSize: fontSize  },
                 splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
             },
             series: [{
@@ -260,12 +264,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     show: true,
                     position: 'top',
                     color: '#ffffff',
-                    fontSize: 15,
+                    fontSize: labelFontSize,
                     fontWeight: 'bold',
                     textShadowColor: '#000',
                     textShadowBlur: 5
                 },
-                barWidth: 50,
+                barWidth: barWidth,
                 animationDelay: function (idx) {
                     return idx * 200;
                 }
@@ -281,16 +285,16 @@ document.addEventListener('DOMContentLoaded', function () {
             tooltip: { trigger: 'axis' },
             legend: {
                 data: ['Enero', 'Abril', 'Julio', 'Septiembre'],
-                textStyle: { color: 'white' }
+                textStyle: { color: 'white', fontSize: fontSize }
             },
             xAxis: {
                 type: 'category',
                 data: combinedValues.map(row => row[0]),
-                axisLabel: { color: 'white', fontSize: 15 }
+                axisLabel: { color: 'white', fontSize: fontSize }
             },
             yAxis: {
                 type: 'value',
-                axisLabel: { color: 'white', fontSize: 15 },
+                axisLabel: { color: 'white', fontSize: fontSize },
                 splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
             },
             series: [
@@ -327,6 +331,11 @@ document.addEventListener('DOMContentLoaded', function () {
             animationDuration: 1500
         };
         lineChart.setOption(lineOption);
+
+        window.addEventListener('resize', () => {
+        barChart.resize();
+        lineChart.resize();
+        });
 
         // Variable para mantener el estado de resaltado
         let highlightedIndex = -1;
