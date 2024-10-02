@@ -227,17 +227,17 @@ document.addEventListener('DOMContentLoaded', function () {
         ];
 
         const screenWidth = window.innerWidth;
-        const fontSize = screenWidth < 768 ? 7 : 17; // Tamaño de la fuente según el tamaño de la pantalla
-        const barWidth = screenWidth < 768 ? 20 : 50; // Ancho de las barras para pantallas pequeñas
-        const labelFontSize = screenWidth < 768 ? 12 : 15; // Tamaño de las etiquetas
-
+        const fontSize = screenWidth < 768 ? 9 : 17; // Tamaño de la fuente según el tamaño de la pantalla
+        const barWidth = screenWidth < 768 ? 30 : 50; // Ancho de las barras para pantallas pequeñas
+        const labelFontSize = screenWidth < 768 ? 10 : 15; // Tamaño de las etiquetas
+        const widthLine = screenWidth < 768 ? 2 : 6;
         // Inicializar gráfico de barras
         const barChart = echarts.init(document.getElementById('barChart'));
         const barOption = {
             tooltip: {},
             xAxis: {
                 type: 'category',
-                data: ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'],
+                data: ['ENERO', 'ABRIL', 'JULIO', 'SEPT'],
                 axisLabel: { color: 'white', fontSize: fontSize  }
             },
             yAxis: {
@@ -302,28 +302,28 @@ document.addEventListener('DOMContentLoaded', function () {
                     name: 'Enero', 
                     type: 'line', 
                     data: eneroSales, 
-                    lineStyle: { color: '#EEB84C', width: 4 }, 
+                    lineStyle: { color: '#EEB84C', width: widthLine }, 
                     itemStyle: { color: '#EEB84C' }
                 },
                 { 
                     name: 'Abril', 
                     type: 'line', 
                     data: abrilSales, 
-                    lineStyle: { color: '#D474C7', width: 4 }, 
+                    lineStyle: { color: '#D474C7', width: widthLine }, 
                     itemStyle: { color: '#D474C7' }
                 },
                 { 
                     name: 'Julio', 
                     type: 'line', 
                     data: julioSales, 
-                    lineStyle: { color: '#13C3E9', width: 4 }, 
+                    lineStyle: { color: '#13C3E9', width: widthLine }, 
                     itemStyle: { color: '#13C3E9' }
                 },
                 { 
                     name: 'Septiembre', 
                     type: 'line', 
                     data: septiembreSales, 
-                    lineStyle: { color: '#90EE90', width: 4 }, 
+                    lineStyle: { color: '#90EE90', width: widthLine}, 
                     itemStyle: { color: '#90EE90' }
                 }
             ],
