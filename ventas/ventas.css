@@ -395,6 +395,8 @@ body {
 
 
 
+
+
 /* Estilos generales para el contenedor de tablas */
 /* Estilos generales para el contenedor de tablas */
 #salesTables { 
@@ -567,6 +569,13 @@ body {
     height: 90vh; /* Altura más reducida para pantallas pequeñas */
     font-size: 10px;
   }
+
+
+  #barChart, #lineChart {
+    width: 100%;
+    height: 500px; /* Ajusta este valor según tus necesidades */
+}
+
 }
 
 

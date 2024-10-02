@@ -197,6 +197,8 @@
 document.addEventListener('DOMContentLoaded', function () { 
     const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec';
 
+    
+
     async function fetchData() {
         try {
             const response = await fetch(url);
@@ -232,11 +234,11 @@ document.addEventListener('DOMContentLoaded', function () {
             xAxis: {
                 type: 'category',
                 data: ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'],
-                axisLabel: { color: 'white', fontSize: 17 }
+                axisLabel: { color: 'white', fontSize: 15 }
             },
             yAxis: {
                 type: 'value',
-                axisLabel: { color: 'white', fontSize: 20 },
+                axisLabel: { color: 'white', fontSize: 15 },
                 splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
             },
             series: [{
@@ -258,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     show: true,
                     position: 'top',
                     color: '#ffffff',
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: 'bold',
                     textShadowColor: '#000',
                     textShadowBlur: 5
@@ -284,11 +286,11 @@ document.addEventListener('DOMContentLoaded', function () {
             xAxis: {
                 type: 'category',
                 data: combinedValues.map(row => row[0]),
-                axisLabel: { color: 'white', fontSize: 17 }
+                axisLabel: { color: 'white', fontSize: 15 }
             },
             yAxis: {
                 type: 'value',
-                axisLabel: { color: 'white', fontSize: 17 },
+                axisLabel: { color: 'white', fontSize: 15 },
                 splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
             },
             series: [
