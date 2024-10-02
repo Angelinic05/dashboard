@@ -375,15 +375,21 @@ body {
   gap: 30px
 }
 
-
-
-
 .canva1, .canva2 {
   padding-top: 20px;
   background-color: #08112c;
   box-shadow: 0 0 10px #000000; 
   border-radius: 8px;
-  width: 100%; /* Cambiado a porcentaje para hacerlo responsivo */
+}
+
+
+.canva1{
+  width: 40%; /* Cambiado a porcentaje para hacerlo responsivo */
+  height: 50vh; /* Altura adaptable al viewport */
+}
+
+.canva2 {
+  width: 60%; /* Cambiado a porcentaje para hacerlo responsivo */
   height: 50vh; /* Altura adaptable al viewport */
 }
 
@@ -497,7 +503,6 @@ body {
       margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
   }
 
-
       
   .sidebar.close ~ .home-section{
     left: 0;
@@ -559,7 +564,8 @@ body {
 
   .canva1, .canva2 {
     width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    height: 60vh; /* Altura más reducida para pantallas pequeñas */
+    height: 90vh; /* Altura más reducida para pantallas pequeñas */
+    font-size: 10px;
   }
 }
 

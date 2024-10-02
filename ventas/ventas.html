@@ -181,18 +181,18 @@
 
     <script>
         let arrow = document.querySelectorAll(".arrow");
-arrow.forEach((arrowElement) => {
-    arrowElement.addEventListener("click", (e) => {
-        let arrowParent = e.target.parentElement.parentElement; // selecciona el padre principal de la flecha
-        arrowParent.classList.toggle("showMenu");
-    });
-});
+        arrow.forEach((arrowElement) => {
+            arrowElement.addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement; // selecciona el padre principal de la flecha
+                arrowParent.classList.toggle("showMenu");
+            });
+        });
 
-let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".bx-menu");
-sidebarBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-});
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
 
 document.addEventListener('DOMContentLoaded', function () { 
     const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec';
@@ -231,8 +231,8 @@ document.addEventListener('DOMContentLoaded', function () {
             tooltip: {},
             xAxis: {
                 type: 'category',
-                data: ['Enero', 'Abril', 'Julio', 'Septiembre'],
-                axisLabel: { color: 'white', fontSize: 20 }
+                data: ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'],
+                axisLabel: { color: 'white', fontSize: 17 }
             },
             yAxis: {
                 type: 'value',
@@ -284,11 +284,11 @@ document.addEventListener('DOMContentLoaded', function () {
             xAxis: {
                 type: 'category',
                 data: combinedValues.map(row => row[0]),
-                axisLabel: { color: 'white', fontSize: 20 }
+                axisLabel: { color: 'white', fontSize: 17 }
             },
             yAxis: {
                 type: 'value',
-                axisLabel: { color: 'white', fontSize: 20 },
+                axisLabel: { color: 'white', fontSize: 17 },
                 splitLine: { lineStyle: { color: 'rgb(10, 52, 94)' } }
             },
             series: [
