@@ -556,8 +556,8 @@ body {
   } */
 
   #barChart, #lineChart {
-    width: 80%; /* Ajustar el tamaño según la pantalla */
-    height: 500px;
+    width: 100%; /* Ajustar el tamaño según la pantalla */
+    height: 400px;
     margin: auto;
   }
 
