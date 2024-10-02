@@ -838,8 +838,8 @@ body {
     }
     
     .date{
-        /* font-size: 2rem;
-        padding: 20px; */
+         font-size: 2rem;
+        padding: 20px; 
         width: 10vh;
         font-size: 1rem;
         font-weight: 400;

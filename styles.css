@@ -660,11 +660,6 @@ h2{
 
 
 
-@media (max-width: 420px) {
-  .sidebar.close .nav-links li .sub-menu{
-    display: none;
-  }
-}
 
 
 
@@ -672,8 +667,28 @@ h2{
 
 /* Responsividad para dispositivos móviles */
 @media (max-width: 768px) {
+
+    .sidebar.close {
+        left: -260px; /* Ocultar el menú en móviles */
+    }
+
+    .sidebar {
+        transition: left 0.3s ease;
+    }
+
+    .home-section {
+        margin-left: 260px; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+        transition: margin-left 0.3s ease;
+    }
+
+    .sidebar.close ~ .home-section {
+        margin-left: 0; /* El contenido no se desplaza cuando el menú está oculto */
+    }
+
+
     .contenedor-principal {
         padding: 0;
+        /* padding-left: 70px; */
         
     }
 
@@ -857,8 +872,13 @@ h2{
 
 
 @media (max-width: 480px) {
+    .sidebar.close .nav-links li .sub-menu{
+        display: none;
+      }
+      
     .contenedor-principal {
         padding: 0;
+        padding-left: 70px;
     }
 
     h2{
@@ -1026,6 +1046,7 @@ h2{
 
     .contenedor-principal {
         padding: 0;
+        padding-left: 70px;
         
     }
 
