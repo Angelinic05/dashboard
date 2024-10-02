@@ -402,41 +402,38 @@ body {
 /* Estilos generales para el contenedor de tablas */
 #salesTables { 
   display: flex;
+  flex-wrap: wrap; /* Permitir que las tablas se ajusten si no caben en una fila */
   justify-content: space-around;
   align-items: center;
   padding: 20px;
-  border-radius: 10px; /* Bordes redondeados */
   margin-right: 5vh;
 }
 
 /* Estilos para las tablas */
 .sales-table {
   text-align: center;
-  /* flex: 1; Permitir que las tablas crezcan igualmente */
-  min-width: 400px; /* Ancho mínimo para las tablas */
-  max-width: 400px; /* Ancho máximo para las tablas */
-  margin-bottom: 20px; /* Espacio inferior para separación */
-  border-collapse: collapse; /* Sin espacio entre bordes */
-  border-radius: 10px; /* Bordes redondeados */
-  overflow: hidden; /* Para mostrar bordes redondeados */
-  box-shadow: 0 0 30px #000000; /* Sombra */
-
+  flex: 1; /* Permitir que las tablas crezcan o se reduzcan */
+  width: 100%; /* Ancho del 100% para que sea completamente responsivo */
+  max-width: 400px; /* Ancho máximo */
+  margin: 10px; /* Margen para separación */
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 30px #000000;
 }
 
 /* Estilos para encabezados y celdas */
 .sales-table th {
-  align-items: center;
-  background-color: #0d1b44; /* Fondo para encabezados */
-  color: #ffffff; /* Color de texto blanco */
-  padding: 12px; /* Espaciado interno */
-  
-  font-weight: bold; /* Negrita */
+  background-color: #0d1b44;
+  color: #ffffff;
+  padding: 12px;
+  font-weight: bold;
 }
 
 .sales-table td {
-  background-color: #172344; /* Fondo para celdas */
-  color: #ffffff; /* Color de texto blanco */
-  padding: 12px; /* Espaciado interno */
+  background-color: #172344;
+  color: #ffffff;
+  padding: 12px;
 }
 
 .sales-table tr:nth-child(even) td {
@@ -533,34 +530,9 @@ body {
     flex-direction: column;
   }
 
-  #salesTables { 
-    flex-direction: column;
-  }
-  
-  /* Estilos para las tablas */
   .sales-table {
-    font-size: 12px;
-    min-width: 400px; /* Ancho mínimo para las tablas */
-    margin-bottom: 0; /* Espacio inferior para separación */
-  }
-
-  
-  /* Estilos para encabezados y celdas */
-  .sales-table th {
-    background-color: #0d1b44; /* Fondo para encabezados */
-    color: #ffffff; /* Color de texto blanco */
-    padding: 12px; /* Espaciado interno */
-    font-weight: bold; /* Negrita */
-  }
-  
-  .sales-table td {
-    background-color: #172344; /* Fondo para celdas */
-    color: #ffffff; /* Color de texto blanco */
-    padding: 12px; /* Espaciado interno */
-  }
-  
-  .sales-table tr:nth-child(even) td {
-    background-color: rgb(47, 58, 90);
+    min-width: 300px; /* Reducir el ancho mínimo en pantallas pequeñas */
+    max-width: 100%; /* Asegurarse de que ocupe todo el espacio disponible */
   }
 
   .canva1, .canva2 {
@@ -608,34 +580,13 @@ body {
     
   }
 
-    #salesTables { 
-      flex-direction: column;
-    }
-    
-    /* Estilos para las tablas */
-    .sales-table {
-      font-size: 12px;
-      min-width: 400px; /* Ancho mínimo para las tablas */
-      margin-bottom: 0; /* Espacio inferior para separación */
-    }
+  .sales-table {
+    min-width: 100%; /* Ocupa el ancho completo en pantallas muy pequeñas */
+  }
 
-  
-  /* Estilos para encabezados y celdas */
-  .sales-table th {
-    background-color: #0d1b44; /* Fondo para encabezados */
-    color: #ffffff; /* Color de texto blanco */
-    padding: 12px; /* Espaciado interno */
-    font-weight: bold; /* Negrita */
-  }
-  
-  .sales-table td {
-    background-color: #172344; /* Fondo para celdas */
-    color: #ffffff; /* Color de texto blanco */
-    padding: 12px; /* Espaciado interno */
-  }
-  
-  .sales-table tr:nth-child(even) td {
-    background-color: rgb(47, 58, 90);
+  .sales-table th, .sales-table td {
+    padding: 8px; /* Reducir padding en pantallas pequeñas */
+    font-size: 12px; /* Ajustar el tamaño del texto */
   }
 
 
