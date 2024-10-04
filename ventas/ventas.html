@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Perfect Launch</title>
     <link rel="stylesheet" href="ventas.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
     <script src="Main.js" defer></script>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
@@ -165,7 +165,7 @@
   <div class="contenedor-centro">
       <div class="grafico" id="barChart">Cargando...</div>
       <div class="grafico" id="pieChart">Cargando...</div>
-      <div class="otro">ccalendario</div>
+      <!-- <div id="calendar" class="otro"></div> -->
     </div>
 
   <!-- Contenedor separado para el diagrama lineal -->
@@ -183,6 +183,7 @@
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/e267099c50.js" crossorigin="anonymous"></script>
@@ -201,8 +202,12 @@
         sidebarBtn.addEventListener("click", () => {
             sidebar.classList.toggle("close");
         });
+        // --------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
 
         document.addEventListener('DOMContentLoaded', function () {
+
     const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec';
 
     async function fetchData() {
@@ -232,8 +237,8 @@
         const barTotals = Object.values(salesByMonth).map(sales => sales.reduce((sum, val) => sum + val, 0));
 
         const screenWidth = window.innerWidth;
-        const fontSize = screenWidth < 768 ? 9 : 17;
-        const barWidth = screenWidth < 768 ? 30 : 50;
+        const fontSize = screenWidth < 768 ? 7 : 17;
+        const barWidth = screenWidth < 768 ? 20 : 50;
         const labelFontSize = screenWidth < 768 ? 10 : 15;
         const widthLine = screenWidth < 768 ? 2 : 6;
 
@@ -303,8 +308,8 @@
                         const colors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
                         return colors[params.dataIndex];
                     },
-                    borderRadius: [15, 15, 0, 0],
-                    shadowBlur: 20,
+                    borderRadius: [20, 20, 0, 0],
+                    shadowBlur: 10,
                     shadowColor: function (params) {
                         const shadowColors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
                         return shadowColors[params.dataIndex];
@@ -313,7 +318,7 @@
                     shadowOffsetY: 5,
                     emphasis: {
                         shadowBlur: 30,
-                        shadowColor: 'rgba(255, 255, 255, 1)'
+                        shadowColor: '#11375e'
                     }
                 },
                 label: {
@@ -359,10 +364,10 @@
             splitLine: { lineStyle: { color: '#11375e', width: 3 } }
         },
         series: [
-            { name: 'Enero', type: 'line', data: dataEnero, lineStyle: { color: '#BF00B9', width: widthLine, shadowColor: '#FF00F7', shadowBlur: 10 }, itemStyle: { color: 'white' } },
-            { name: 'Abril', type: 'line', data: dataAbril, lineStyle: { color: '#0287E0', width: widthLine, shadowColor: '#0287E0', shadowBlur: 10 }, itemStyle: { color: 'white' } },
-            { name: 'Julio', type: 'line', data: dataJulio, lineStyle: { color: '#E08400', width: widthLine, shadowColor: '#E08400', shadowBlur: 10 }, itemStyle: { color: 'white' } },
-            { name: 'Septiembre', type: 'line', data: dataSeptiembre, lineStyle: { color: '#49E000', width: widthLine, shadowColor: '#49E000', shadowBlur: 10 }, itemStyle: { color: 'white' } }
+            { name: 'Enero', type: 'line', data: dataEnero, lineStyle: { color: '#BF00B9', width: widthLine, shadowColor: '#FF00F7', shadowBlur: 10 }, itemStyle: { color: '#FF00F7' } },
+            { name: 'Abril', type: 'line', data: dataAbril, lineStyle: { color: '#0287E0', width: widthLine, shadowColor: '#0287E0', shadowBlur: 10 }, itemStyle: { color: '#0287E0' } },
+            { name: 'Julio', type: 'line', data: dataJulio, lineStyle: { color: '#E08400', width: widthLine, shadowColor: '#E08400', shadowBlur: 10 }, itemStyle: { color: '#E08400' } },
+            { name: 'Septiembre', type: 'line', data: dataSeptiembre, lineStyle: { color: '#49E000', width: widthLine, shadowColor: '#49E000', shadowBlur: 10 }, itemStyle: { color: '#49E000' } }
         ],
         animationEasing: 'elasticOut',
         animationDuration: 1500

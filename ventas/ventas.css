@@ -352,7 +352,7 @@ body {
 /* Contenedor para gráficos de barras y tortas */
 .contenedor-centro {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Dos columnas */
+  grid-template-columns: 1fr 1fr; /* Dos columnas */
   height: 40vh;
   gap: 20px;
   margin-left: 5vh;
@@ -380,13 +380,13 @@ body {
   align-items: center;
 }
 
-.otro {
+/* .otro {
   margin-top: 15px;
   background-color: #08112c;
   width: 100%; 
   height: 370px; 
 }
-
+ */
 
 
 
@@ -411,6 +411,9 @@ body {
   width: 100%; 
   height: 370px; 
 }
+
+
+
 
 
 
@@ -445,6 +448,8 @@ body {
     margin-right: 2vh;
     gap: 20px;
   }
+
+  
 
 }
 
@@ -491,29 +496,30 @@ body {
     font-size: 1rem;
     font-weight: 550;
     background-clip: text;
-    
-    
   }
 
-  .contenedor-centro {
-    flex-direction: column;
+  #barChart {
+    width: 100%;
+    height: 300px; /* Ajustar el tamaño del gráfico de barras */
+    margin: auto;
   }
-
-  .sales-table {
-    min-width: 300px; 
-    max-width: 100%; 
+  
+  #lineChart {
+    padding-top: 5px;
+    width: 95%;
+    height: 450px; /* Ajustar el tamaño del gráfico lineal */
+    margin: auto;
   }
-
-  /* .canva1, .canva2 {
-    width: 100%; 
-    height: 90vh; 
-    font-size: 10px;
-  } */
-
-  #barChart, #lineChart {
-    width: 100%; /* Ajustar el tamaño según la pantalla */
-    height: 400px;
+  
+  #pieChart {
+    margin-top: 35px;
+    width: 80%; 
+    height: 300px; 
   }
+  
+  
+  
+  
 
 }
 
@@ -552,15 +558,26 @@ body {
     
     
   }
-  .sales-table {
-    min-width: 80%; /* Ocupa el ancho completo en pantallas muy pequeñas */
-  }
 
-  .sales-table th, .sales-table td {
-    padding: 8px; /* Reducir padding en pantallas pequeñas */
-    font-size: 12px; /* Ajustar el tamaño del texto */
+  
+  #barChart {
+    width: 100%;
+    height: 300px; /* Ajustar el tamaño del gráfico de barras */
+    margin: auto;
   }
-
+  
+  #lineChart {
+    padding-top: 5px;
+    width: 100%;
+    height: 300px; /* Ajustar el tamaño del gráfico lineal */
+    margin: auto;
+  }
+  
+  #pieChart {
+    margin-top: 35px;
+    width: 100%; 
+    height: 300px; 
+  }
 
 
 }
