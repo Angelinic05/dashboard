@@ -1,93 +1,193 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de Ventas y Gráficas</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+<title>Calendario | Ecab |</title>
+  <meta charset="utf-8">
+<!-- // Por Ao Kin Ecab Gutiérrez González L. -->
+  <style>
+    body {
+      line-height: 1;
+      margin: 50px;
+    }
+    #calendario{
+      background: rgba(0, 0, 0, .1);
+      border-radius: 5px;
+      box-sizing: border-box;
+      padding: 15px;
+      width: 300px;
+	  margin: 0 auto;
+		display: inline-block;
+		vertical-align: top;
+    }
+	 #formulario
+	  {
+		  display: inline-block;
+		  vertical-align: top;
+	  }
+    header {
+      overflow: clear;
+      position: relative;
+    }
+    h2 {
+      font-family: 'PT Sans Narrow', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      text-align: center;
+    }
+    button {
+      position: absolute;
+      top: -4px;
+    }
+    button:first-child {
+      left: 0;
+    }
+    button:last-child {
+      right: 0;
+    }
+    table {
+      background: #fff;
+      border-collapse: collapse;
+      color: #222;
+      font-family: 'PT Sans', sans-serif;
+      font-size: 13px;
+      width: 100%;
+    }
+    td {
+      color: #444;
+      line-height: 22px;
+      text-align: center;
+    }
+    tr:first-child td {
+      color: #222;
+      font-weight: 700;
+    }
+  </style>
+
 </head>
+
 <body>
-
-    <h1>Datos de Ventas</h1>
-    <div id="chartContainer">
-        <!-- Aquí se agregarán las gráficas -->
-    </div>
+<div id="wrapper" style="text-align: center">
+<div id="calendario">
+  <header>
+<h2>Noviembre 2017</h2>
     
-    <table id="ventasTable">
-        <thead>
-            <tr>
-                <th>Tipo</th>
-                <th>Total Ventas Enero</th>
-                <th>Total Ventas Abril</th>
-                <th>Total Ventas Julio</th>
-                <th>Total Ventas Septiembre</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-            <!-- Aquí se llenarán los datos -->
-        </tbody>
-    </table>
+  </header>
+<table>
+  <tr>
+    <td>L</td>
+    <td>M</td>
+    <td>Mi</td>
+    <td>J</td>
+    <td>V</td>
+    <td>S</td>
+    <td>D</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td><input type="button" value="1" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="2" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="3" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="4" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="5" onClick="computadora(this.value)"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="6" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="7" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="8" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="9" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="10" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="11" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="12" onClick="computadora(this.value)"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="13" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="14" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="15" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="16" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="17" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="18" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="19" onClick="computadora(this.value)"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="20" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="21" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="22" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="23" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="24" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="25" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="26" onClick="computadora(this.value)"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="27" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="28" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="29" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="30" onClick="computadora(this.value)"></td>
+    <td><input type="button" value="31" onClick="computadora(this.value)"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</div>
+<div id="formulario">
+	<form>
+		<form>
+<textarea id="cuadroTexto" cols="40" rows="7">
+Aqui va el texto
+</textarea>
+<br />
+<input type="button" value="Limpiar" onClick="limpiar()">
+</form>
 
-    <script>
-        async function fetchData() {
-            const url = 'https://script.google.com/macros/s/AKfycbyEKcO_o0uHWrjTDx33whPQ3xP_-CKgLuAWeIBIRMlKRQQCq6aiR0GmNVuoaydwRf0MQQ/exec'; // Cambia esto por tu URL
 
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Error en la solicitud: ' + response.statusText);
-                }
-                const data = await response.json();
-                console.log('Datos obtenidos:', data); // Para depuración
-                populateTable(data.tabla);
-                populateChart(data.graficas);
-            } catch (error) {
-                console.error('Error al obtener los datos de la tabla y gráficas:', error);
-            }
-        }
-
-        function populateTable(data) {
-            const tableBody = document.getElementById('tableBody');
-            tableBody.innerHTML = ''; // Limpiar tabla existente
-
-            // Recorre los datos y crea filas
-            data.forEach((row) => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${row[0]}</td>
-                    <td>${row[1]}</td>
-                    <td>${row[2]}</td>
-                    <td>${row[3]}</td>
-                    <td>${row[4]}</td>
-                `;
-                tableBody.appendChild(newRow);
-            });
-        }
-
-        function populateChart(data) {
-            // Aquí puedes agregar el código para crear gráficas utilizando la librería de gráficos que prefieras
-            // Ejemplo: Chart.js o Google Charts
-            console.log('Datos para gráficas:', data);
-            // Implementa el código para mostrar las gráficas
-        }
-
-        // Llama a la función al cargar el documento
-        document.addEventListener('DOMContentLoaded', fetchData);
-    </script>
-    
+	</form>
+</div>
+</div>
+<p align="center">https://github.com/Alquimerico</p>
+<script language="javascript">
+	var dia1 = 'Día de los santos inocentes';
+			var agenda = ["Error",
+					  "Día de los santos inocentes",
+						"Día de muertos",
+						  "Se funda la villa de San Luis Potosí, hoy ciudad capital del estado del mismo nombre",
+						  "Se establece la inquisición en México",
+						  "Beber mucha agua",
+						  "Empieza el gobierno del presidente Francisco I. Madero",
+						  "Muere en sonora \"El héroe de Nacozari\", el ferrocarrilero Jésus García Corona ",
+						  "Primer encuentro de Moctezuma con Hernán Cortés",
+						  "La villa de tulancingo es elevada a la categoría de ciudad",
+						  "Hoy será un buen día",
+						  "Nace en la ciudad de México el escritor, novelista y ensayista Carlos Fuentes",
+						  "Nace la poetisa mexicana Juana de ASbaje y Ramírez de Santillana, conocida como Sor Juana Inés de la Cruz",
+						  "Muere asesinado Ignacio Comonfort, quien fuuera presidente de México",
+						  "DÍA MUNDIAL DE LA DIABETES",
+						  "Hoy seguro fue un buen día",
+						  "Día del 16 de noviembre",
+						  "Muere Alejandro Dumas hijo, autor de la celebre novela \"Las dama de las Camelias\"",
+						  "Nace en la ciudad de San Luis Potosí, Ponciano Arriaga, abogado, periodista, orador y político liberal.",
+						  "Nace en Guamúchil, Sinaloa, Pedro Infante Cruz, cantante y actor",
+						  "Inicia el movimiento de la revolución mexicana",
+						  "Muere el pintor Mario Orozco Rivera",
+						  "Es asesinado el presidente de Estados Unidos John F. Kennedy.",
+						  "Muere el compositor mexicano José Alfredo Jiménez en la ciudad de México",
+						  "Por decreto de Porfirio Díaz, es creado en la parte oriental de la peninsula de yucatán, el territorio federal de Quintana Roo",
+						  "Día de estudio",
+						  "Muere el diseñador gráfico estadounidense Paul Rand a los 82 añs. Diseño los logotipos de IBM Wetinghouse, United Parcel Service y ABC",
+						  "Preparación para finales 1",
+						  "Un día especial",
+						  "Un día no tan especial",
+						  "Un gran dia",
+						  "Nace jorge Negrete, cantante y actor del cine mexicano. "
+					 ];
+	function limpiar()
+	{
+		document.getElementById('cuadroTexto').value ='';
+	}
+	function computadora(day=dia1,form='cuadroTexto')
+	{
+		document.getElementById(form).value = agenda[day];
+	}
+	</script>
 </body>
 </html>

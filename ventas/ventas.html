@@ -164,8 +164,8 @@
   <!-- Contenedor para gráficos de barras y tortas -->
   <div class="contenedor-centro">
       <div class="grafico" id="barChart">Cargando...</div>
-      <div class="grafico" id="pieChart">Selecciona un mes</div>
-      <div class="otro"></div>
+      <div class="grafico" id="pieChart">Cargando...</div>
+      <div class="otro">ccalendario</div>
     </div>
 
   <!-- Contenedor separado para el diagrama lineal -->
@@ -220,6 +220,8 @@
     }
 
     function createCharts(combinedValues) {
+
+      const salesData = combinedValues.slice(0, combinedValues.length - 2);
         const salesByMonth = {
             enero: combinedValues.map(row => row[1]),
             abril: combinedValues.map(row => row[2]),
@@ -251,7 +253,7 @@
         window.addEventListener('resize', () => {
             barChart.resize();
             lineChart.resize();
-            createPieChart(combinedValues, highlightedMonth);
+            createPieChart(salesData, highlightedMonth);
         });
 
         let highlightedMonth = 'enero'; // Mantiene el mes resaltado
@@ -264,11 +266,11 @@
             if (highlightedMonth === month) {
                 highlightedMonth = 'enero'; // Resaltar a enero si el mismo mes se hace clic
                 resetHighlighting(barOption, lineOption, colors);
-                createPieChart(combinedValues, highlightedMonth); // Regresa a enero
+                createPieChart(salesData, highlightedMonth); // Regresa a enero
             } else {
                 highlightedMonth = month;
                 applyHighlighting(barOption, lineOption, monthIndex, colors, fadedColor);
-                createPieChart(combinedValues, highlightedMonth); // Actualiza gráfico de torta para el mes resaltado
+                createPieChart(salesData, highlightedMonth); // Actualiza gráfico de torta para el mes resaltado
             }
             barChart.setOption(barOption);
             lineChart.setOption(lineOption);
@@ -334,33 +336,38 @@
     }
 
     function createLineChartOption(combinedValues, salesByMonth, fontSize, widthLine) {
-        return {
-            tooltip: { trigger: 'axis' },
-            legend: {
-                data: ['Enero', 'Abril', 'Julio', 'Septiembre'],
-                textStyle: { color: 'white', fontSize: fontSize }
-            },
-            xAxis: {
-                type: 'category',
-                data: combinedValues.map(row => row[0]),
-                axisLabel: { color: 'white', fontSize: fontSize }
-            },
-            yAxis: {
-                type: 'value',
-                axisLabel: { color: 'white', fontSize: fontSize },
-                splitLine: { lineStyle: { color: '#11375e', width: 3 } }
-            },
-            series: [
-                { name: 'Enero', type: 'line', data: salesByMonth.enero, lineStyle: { color: '#BF00B9', width: widthLine, shadowColor: '#FF00F7', shadowBlur: 10 }, itemStyle: { color: 'white' } },
-                { name: 'Abril', type: 'line', data: salesByMonth.abril, lineStyle: { color: '#0287E0', width: widthLine, shadowColor: '#0287E0', shadowBlur: 10 }, itemStyle: { color: 'white' } },
-                { name: 'Julio', type: 'line', data: salesByMonth.julio, lineStyle: { color: '#E08400', width: widthLine, shadowColor: '#E08400', shadowBlur: 10 }, itemStyle: { color: 'white' } },
-                { name: 'Septiembre', type: 'line', data: salesByMonth.septiembre, lineStyle: { color: '#49E000', width: widthLine, shadowColor: '#49E000', shadowBlur: 10 }, itemStyle: { color: 'white' } }
-            ],
-            animationEasing: 'elasticOut',
-            animationDuration: 1500
-        };
-    }
+      const xAxisData = combinedValues.slice(0, combinedValues.length - 2).map(row => row[0]); // Excluye CONTADO y CRÉDITO
+    const dataEnero = salesByMonth.enero.slice(0, salesByMonth.enero.length - 2);
+    const dataAbril = salesByMonth.abril.slice(0, salesByMonth.abril.length - 2);
+    const dataJulio = salesByMonth.julio.slice(0, salesByMonth.julio.length - 2);
+    const dataSeptiembre = salesByMonth.septiembre.slice(0, salesByMonth.septiembre.length - 2);
 
+    return {
+        tooltip: { trigger: 'axis' },
+        legend: {
+            data: ['Enero', 'Abril', 'Julio', 'Septiembre'],
+            textStyle: { color: 'white', fontSize: fontSize }
+        },
+        xAxis: {
+            type: 'category',
+            data: xAxisData, // Eje X ajustado
+            axisLabel: { color: 'white', fontSize: fontSize }
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: { color: 'white', fontSize: fontSize },
+            splitLine: { lineStyle: { color: '#11375e', width: 3 } }
+        },
+        series: [
+            { name: 'Enero', type: 'line', data: dataEnero, lineStyle: { color: '#BF00B9', width: widthLine, shadowColor: '#FF00F7', shadowBlur: 10 }, itemStyle: { color: 'white' } },
+            { name: 'Abril', type: 'line', data: dataAbril, lineStyle: { color: '#0287E0', width: widthLine, shadowColor: '#0287E0', shadowBlur: 10 }, itemStyle: { color: 'white' } },
+            { name: 'Julio', type: 'line', data: dataJulio, lineStyle: { color: '#E08400', width: widthLine, shadowColor: '#E08400', shadowBlur: 10 }, itemStyle: { color: 'white' } },
+            { name: 'Septiembre', type: 'line', data: dataSeptiembre, lineStyle: { color: '#49E000', width: widthLine, shadowColor: '#49E000', shadowBlur: 10 }, itemStyle: { color: 'white' } }
+        ],
+        animationEasing: 'elasticOut',
+        animationDuration: 1500
+    };
+}
     function createPieChart(combinedValues, month, fontSize) {
     const monthMap = {
         enero: 1,
