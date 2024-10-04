@@ -148,25 +148,31 @@
   <!-- Fila superior con 4 contenedores -->
   <div class="fila-superior2">
       <div id="enero" class="contenedor-pequeño2">
-              <div class="statnum2">ENERO</div>
+          <div class="statnum2">ENERO</div>
       </div>
       <div id="abril" class="contenedor-pequeño2">
-              <div class="statnum2">ABRIL</div>
+          <div class="statnum2">ABRIL</div>
       </div>
       <div id="julio" class="contenedor-pequeño2">
-              <div class="statnum2">JULIO</div>
+          <div class="statnum2">JULIO</div>
       </div>
       <div id="septiembre" class="contenedor-pequeño2">
-              <div class="statnum2">SEPT</div>
+          <div class="statnum2">SEPT</div>
       </div>
   </div>
 
-
+  <!-- Contenedor para gráficos de barras y tortas -->
   <div class="contenedor-centro">
-      <div id="barChart" ></div>
-      <div id="lineChart" ></div>
-      <div id="pieChartContainer"></div>
-  </div>
+      <div class="grafico" id="barChart">Cargando...</div>
+      <div class="grafico" id="pieChart">Selecciona un mes</div>
+      <div class="otro"></div>
+    </div>
+
+  <!-- Contenedor separado para el diagrama lineal -->
+  <div class="grafico-lineal" id="lineChart">Cargando...</div>
+</div>
+
+
 
   <!-- <div id="salesTables"></div> -->
   
@@ -239,31 +245,37 @@
         const lineOption = createLineChartOption(combinedValues, salesByMonth, fontSize, widthLine);
         lineChart.setOption(lineOption);
 
+        // Inicializar gráfico de torta
+        createPieChart(combinedValues, 'enero'); // Muestra el gráfico de torta para enero por defecto
+
         window.addEventListener('resize', () => {
             barChart.resize();
             lineChart.resize();
+            createPieChart(combinedValues, highlightedMonth);
         });
 
-        let highlightedIndex = -1;
+        let highlightedMonth = 'enero'; // Mantiene el mes resaltado
 
-        function highlightMonth(index) {
-            const colors = ['#EEB84C', '#D474C7', '#13C3E9', '#90EE90'];
+        function highlightMonth(month) {
+            const colors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
             const fadedColor = 'rgba(28,59,137,0.5)';
+            const monthIndex = ['enero', 'abril', 'julio', 'septiembre'].indexOf(month);
 
-            if (highlightedIndex === index) {
-                highlightedIndex = -1;
+            if (highlightedMonth === month) {
+                highlightedMonth = 'enero'; // Resaltar a enero si el mismo mes se hace clic
                 resetHighlighting(barOption, lineOption, colors);
+                createPieChart(combinedValues, highlightedMonth); // Regresa a enero
             } else {
-                highlightedIndex = index;
-                applyHighlighting(barOption, lineOption, index, colors, fadedColor);
-                createPieChart(combinedValues, index);
+                highlightedMonth = month;
+                applyHighlighting(barOption, lineOption, monthIndex, colors, fadedColor);
+                createPieChart(combinedValues, highlightedMonth); // Actualiza gráfico de torta para el mes resaltado
             }
             barChart.setOption(barOption);
             lineChart.setOption(lineOption);
         }
 
-        ['enero', 'abril', 'julio', 'septiembre'].forEach((month, index) => {
-            document.getElementById(month).addEventListener('click', () => highlightMonth(index));
+        ['enero', 'abril', 'julio', 'septiembre'].forEach(month => {
+            document.getElementById(month).addEventListener('click', () => highlightMonth(month));
         });
     }
 
@@ -278,7 +290,7 @@
             yAxis: {
                 type: 'value',
                 axisLabel: { color: 'white', fontSize: fontSize },
-                splitLine: { lineStyle: { color: '#070707', width: 3 } }
+                splitLine: { lineStyle: { color: '#11375e', width: 3 } }
             },
             series: [{
                 name: 'Ventas',
@@ -286,14 +298,21 @@
                 data: barTotals,
                 itemStyle: {
                     color: function (params) {
-                        const colors = ['#EEB84C', '#D474C7', '#13C3E9', '#90EE90'];
+                        const colors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
                         return colors[params.dataIndex];
                     },
-                    borderRadius: [10, 10, 0, 0],
-                    shadowBlur: 10,
-                    shadowColor: 'rgba(0, 0, 0, 0.8)',
+                    borderRadius: [15, 15, 0, 0],
+                    shadowBlur: 20,
+                    shadowColor: function (params) {
+                        const shadowColors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
+                        return shadowColors[params.dataIndex];
+                    },
                     shadowOffsetX: 5,
                     shadowOffsetY: 5,
+                    emphasis: {
+                        shadowBlur: 30,
+                        shadowColor: 'rgba(255, 255, 255, 1)'
+                    }
                 },
                 label: {
                     show: true,
@@ -302,7 +321,7 @@
                     fontSize: labelFontSize,
                     fontWeight: 'bold',
                     textShadowColor: '#000',
-                    textShadowBlur: 5
+                    textShadowBlur: 10
                 },
                 barWidth: barWidth,
                 animationDelay: function (idx) {
@@ -329,81 +348,62 @@
             yAxis: {
                 type: 'value',
                 axisLabel: { color: 'white', fontSize: fontSize },
-                splitLine: { lineStyle: {  color: '#070707', width: 3 } }
+                splitLine: { lineStyle: { color: '#11375e', width: 3 } }
             },
             series: [
-                { name: 'Enero', type: 'line', data: salesByMonth.enero, lineStyle: { color: '#EEB84C', width: widthLine }, itemStyle: { color: '#EEB84C' } },
-                { name: 'Abril', type: 'line', data: salesByMonth.abril, lineStyle: { color: '#D474C7', width: widthLine }, itemStyle: { color: '#D474C7' } },
-                { name: 'Julio', type: 'line', data: salesByMonth.julio, lineStyle: { color: '#13C3E9', width: widthLine }, itemStyle: { color: '#13C3E9' } },
-                { name: 'Septiembre', type: 'line', data: salesByMonth.septiembre, lineStyle: { color: '#90EE90', width: widthLine }, itemStyle: { color: '#90EE90' } }
+                { name: 'Enero', type: 'line', data: salesByMonth.enero, lineStyle: { color: '#BF00B9', width: widthLine, shadowColor: '#FF00F7', shadowBlur: 10 }, itemStyle: { color: 'white' } },
+                { name: 'Abril', type: 'line', data: salesByMonth.abril, lineStyle: { color: '#0287E0', width: widthLine, shadowColor: '#0287E0', shadowBlur: 10 }, itemStyle: { color: 'white' } },
+                { name: 'Julio', type: 'line', data: salesByMonth.julio, lineStyle: { color: '#E08400', width: widthLine, shadowColor: '#E08400', shadowBlur: 10 }, itemStyle: { color: 'white' } },
+                { name: 'Septiembre', type: 'line', data: salesByMonth.septiembre, lineStyle: { color: '#49E000', width: widthLine, shadowColor: '#49E000', shadowBlur: 10 }, itemStyle: { color: 'white' } }
             ],
             animationEasing: 'elasticOut',
             animationDuration: 1500
         };
     }
 
-    function resetHighlighting(barOption, lineOption, colors) {
-        barOption.series[0].itemStyle.color = function (params) {
-            return colors[params.dataIndex];
-        };
-        lineOption.series.forEach((serie, i) => {
-            serie.lineStyle.color = colors[i];
-        });
-    }
+    function createPieChart(combinedValues, month, fontSize) {
+    const monthMap = {
+        enero: 1,
+        abril: 2,
+        julio: 3,
+        septiembre: 4
+    };
+    const selectedMonthIndex = monthMap[month];
 
-    function applyHighlighting(barOption, lineOption, index, colors, fadedColor) {
-        barOption.series[0].itemStyle.color = function (params) {
-            return params.dataIndex === index ? colors[params.dataIndex] : fadedColor;
-        };
-        lineOption.series.forEach((serie, i) => {
-            serie.lineStyle.color = i === index ? colors[i] : fadedColor;
-        });
-    }
-    function createPieChart(data, monthIndex) {
-    const canvasContainer = document.getElementById('pieChartContainer');
-    canvasContainer.innerHTML = ''; // Limpiar contenido anterior
+    // Obtener los valores de CONTADO y CRÉDITO según el mes seleccionado
+    const contado = combinedValues[combinedValues.length - 2][selectedMonthIndex]; // Valor de CONTADO
+    const credito = combinedValues[combinedValues.length - 1][selectedMonthIndex]; // Valor de CRÉDITO
 
-    const contado = data[monthIndex][1];
-    const credito = data[monthIndex][2];
-
-    const pieChartCanvas = document.createElement('canvas');
-    canvasContainer.appendChild(pieChartCanvas);
-
-    const pieChart = echarts.init(pieChartCanvas);
-    const total = contado + credito;
-
-    // Colores para cada mes y sus tonos más oscuros
-    const colors = [
-        { contado: '#EEB84C', credito: '#BFA640' }, // Enero
-        { contado: '#D474C7', credito: '#A85B9D' }, // Abril
-        { contado: '#13C3E9', credito: '#0FA1B6' }, // Julio
-        { contado: '#90EE90', credito: '#74B974' }  // Septiembre
+    const pieData = [
+        { value: contado, name: 'CONTADO' },
+        { value: credito, name: 'CRÉDITO' }
     ];
-    
-    const option = {
-        title: {
-            text: `Ventas ${['Enero', 'Abril', 'Julio', 'Septiembre'][monthIndex]}`,
-            left: 'center',
-            top: 'top',
-            textStyle: {
-                color: 'white'
-            }
-        },
+
+    // Mapeo de colores por mes
+    const colorMap = {
+        enero: ['#FF00F7', '#970093'], // Colores para enero
+        abril: ['#0287E0', '#005086'],  // Colores para abril
+        julio: ['#E08400', '#8e5300'],   // Colores para julio
+        septiembre: ['#49E000', '#2a8100'] // Colores para septiembre
+    };
+
+    const selectedColors = colorMap[month];
+
+    const pieChart = echarts.init(document.getElementById('pieChart'));
+    const pieOption = {
         tooltip: {
-            trigger: 'item',
-            formatter: (params) => {
-                const percent = ((params.data.value / total) * 100).toFixed(2);
-                return `${params.data.name}: ${params.data.value} (${percent}%)`;
-            }
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            textStyle: { color: 'white' },
+            fontSize: fontSize
         },
         series: [{
-            name: 'Ventas',
+            name: 'Tipo de Venta',
             type: 'pie',
-            radius: '100%', // Aumentar el tamaño de la torta
-            data: [
-                { value: contado, name: 'Contado', itemStyle: { color: colors[monthIndex].contado } }, // Color para "Contado"
-                { value: credito, name: 'Crédito', itemStyle: { color: colors[monthIndex].credito } } // Color más oscuro para "Crédito"
-            ],
+            data: pieData,
             emphasis: {
                 itemStyle: {
                     shadowBlur: 10,
@@ -411,38 +411,49 @@
                     shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
             },
+            itemStyle: {
+                borderRadius: 0,
+                borderWidth: 2,
+                color: function (params) {
+                    return selectedColors[params.dataIndex]; // Asignar colores según el mes
+                }
+            },
             label: {
                 show: true,
-                position: 'center', // Mostrar en el centro
-                formatter: function(params) {
-                    return `${params.data.name}\n${params.data.value}\n${((params.data.value / total) * 100).toFixed(2)}%`;
-                },
-                color: '#ffffff', // Color de texto
-                fontSize: 16,
-                fontWeight: 'bold'
+                position: 'inside', // Colocar etiquetas dentro de la torta
+                formatter: '{b}: {c}', // Muestra el nombre y el valor
+                color: '#fff' // Color del texto
             }
         }],
-        animationType: 'scale',
-        animationEasing: 'elasticOut',
-        animationDelay: (idx) => idx * 100
+        animation: true,
+        animationDuration: 1500
     };
 
-    pieChart.setOption(option);
-
-
-
-    // Hacer que el gráfico sea responsivo
-    window.addEventListener('resize', function() {
-        pieChart.resize();
-    });
+    pieChart.setOption(pieOption);
 }
 
 
-// Llamada para obtener datos
-fetchData();
+    function resetHighlighting(barOption, lineOption, colors) {
+        barOption.series[0].itemStyle.color = function (params) {
+            return colors[params.dataIndex]; // Reestablecer color original
+        };
+        lineOption.series.forEach((series, index) => {
+            series.lineStyle.color = colors[index]; // Reestablecer color original
+        });
+    }
 
+    function applyHighlighting(barOption, lineOption, monthIndex, colors, fadedColor) {
+        barOption.series[0].itemStyle.color = function (params) {
+            return params.dataIndex === monthIndex ? colors[params.dataIndex] : fadedColor; // Resaltar mes seleccionado
+        };
+        lineOption.series.forEach((series, index) => {
+            series.lineStyle.color = index === monthIndex ? colors[index] : fadedColor; // Resaltar mes seleccionado
+        });
+    }
 
+    fetchData();
 });
+
 
 
 
