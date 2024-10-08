@@ -134,17 +134,18 @@
 
 <div class="contenedor-principal">
   <!-- Primera fila con 4 contenedores pequeños -->
-  <div class="fila">
-      <div class="contenedor-pequeño">1</div>
-      <div class="contenedor-pequeño">2</div>
-      <div class="contenedor-pequeño">3</div>
-      <div class="contenedor-pequeño">4</div>
-  </div>
+  
 
   <!-- Segunda fila con 2 contenedores grandes -->
   <div class="fila">
       <!-- Contenedor 5 con dos contenedores internos -->
       <div class="contenedor-grande">
+        <div class="fila">
+        <button class="contenedor-pequeño" ">ENERO</button>
+        <button class="contenedor-pequeño" >ABRIL</button>
+        <button class="contenedor-pequeño" >JULIO</button>
+        <button class="contenedor-pequeño" >SEPTIEMBRE</button>
+      </div>
         <h1>LEADS</h1>
           <div class="contenedor-interno">
              <table id="datos-tabla">
@@ -169,11 +170,14 @@
 
       <!-- Contenedor 6 con dos contenedores uno encima del otro -->
       <div class="contenedor-grande">
-        <h1>ASISTENCIA</h1>
           <div class="contenedor-interno">
-            <div id="grafico" style="width: 600px; height: 400px;"></div>
+            <div id="grafico" ></div>
           </div>
-          <div class="contenedor-interno">6B</div>
+          <div class="contenedor-interno2">
+            <div id="graficoRosquilla1" ></div>
+            <div id="graficoRosquilla2" ></div>
+            <div id="graficoRosquilla3" ></div>
+          </div>
       </div>
   </div>
 
@@ -225,6 +229,9 @@
                 mostrarDatos(data.slice(0, 5)); // Mostrar solo las primeras 5 filas
                 mostrarBarrasProgreso(data); // Mostrar las barras de progreso
                 mostrarGrafico(data.slice(5, 18)); // Mostrar el gráfico
+                mostrarGraficosRosquilla(data.slice(29, 32));
+                console.log(data);
+
               
             })
             .catch(error => {
@@ -257,6 +264,21 @@ function mostrarDatos(data) {
     });
 }
 
+const solidColors = [
+    '#ff32c8', // Color sólido para ENERO
+    '#6657ff', // Color sólido para ABRIL
+    '#3ab1f5', // Color sólido para JULIO
+    '#67f213', // Color sólido para SEPTIEMBRE
+];
+
+const solidColors2 = [
+    '#e17080', // Color sólido para ENERO
+    '#b745fd', // Color sólido para ABRIL
+    '#38e3bf', // Color sólido para JULIO
+    '#a8ed20', // Color sólido para SEPTIEMBRE
+];
+
+
 function mostrarBarrasProgreso(data) {
     const contenedor = document.querySelector('#contenedor-barras');
     contenedor.innerHTML = ''; // Limpiar cualquier contenido previo
@@ -267,7 +289,7 @@ function mostrarBarrasProgreso(data) {
     const leadsFrios = data[1];
     const leadsTibios = data[2];
 
-    meses.forEach(mes => {
+    meses.forEach((mes, i) => {
         const total = leadsTotales[mes];
         const frio = leadsFrios[mes];
         const tibio = leadsTibios[mes];
@@ -283,11 +305,11 @@ function mostrarBarrasProgreso(data) {
         fila.innerHTML = `
             <div class="columna-mes">${mes}</div>
             <div class="columna-barra">
-                <div class="barra-contenedor">
-                    <div class="barra-frio" style="width: ${porcentajeFrio}%;">
+                <div class="barra-contenedor" style="height: 25px;">
+                    <div class="barra-frio" style="width: ${porcentajeFrio}%; height: 25px; background-color: ${solidColors[i]};">
                         <span class="texto-barra">Frío ${porcentajeFrio}%</span>
                     </div>
-                    <div class="barra-tibio" style="width: ${porcentajeTibio}%;">
+                    <div class="barra-tibio" style="width: ${porcentajeTibio}%; height: 25px; background-color: ${solidColors2[i]};">
                         <span class="texto-barra">Tibio ${porcentajeTibio}%</span>
                     </div>
                 </div>
@@ -300,8 +322,9 @@ function mostrarBarrasProgreso(data) {
 
 
 
+
 function mostrarGrafico(data) {
-  console.log(data)
+    console.log(data);
     const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
     const clases = ['Clase 1', 'Clase 2', 'Clase 3', 'Clase 4', 'Clase 5', 'Clase 6'];
 
@@ -321,27 +344,188 @@ function mostrarGrafico(data) {
     const chartDom = document.getElementById('grafico');
     const myChart = echarts.init(chartDom);
 
+    // Definir colores de degradado para cada mes
+    const colorGradients = [
+    ['#ff32c8', '#e17080'], // Degradado para ENERO - más claro
+    ['#6657ff', '#b745fd'], // Degradado para ABRIL - más claro
+    ['#3ab1f5', '#38e3bf'], // Degradado para JULIO - más claro
+    ['#67f213', '#a8ed20 '], // Degradado para SEPTIEMBRE - más claro
+];
+
+
     const option = {
         title: {
-            text: 'Porcentaje de Asistencia por Clase'
+            text: 'ASISTENCIA POR CLASE',
+            left: 'center',  // Centrar el título
+            top: '5px',     // Espacio desde la parte superior
+            textStyle: {
+                fontSize: 20, // Tamaño de fuente
+                color: 'white' // Color del título
+            }
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                return `${params.seriesName}<br/>${params.name}: ${params.value}`;
+            }
+        },
         legend: {
-            data: clases // Cambia a clases en la leyenda
+            data: clases, // Cambia a clases en la leyenda
+            bottom: '10%', // Posicionar la leyenda
+            textStyle: {
+                fontSize: 14, // Tamaño de fuente de la leyenda
+                color: 'white' // Color de la leyenda
+            }
         },
         xAxis: {
-            data: clases // Las clases en el eje X
+            data: clases, // Las clases en el eje X
+            axisLabel: {
+                fontSize: 12, // Tamaño de fuente de etiquetas
+                color: 'white'  // Color de las etiquetas
+            }
         },
-        yAxis: {},
+        yAxis: {
+            axisLabel: {
+                fontSize: 12, // Tamaño de fuente de etiquetas
+                color: 'white'  // Color de las etiquetas
+            },
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed', // Líneas de división punteadas
+                    color: '#333'   // Color de las líneas de división
+                }
+            }
+        },
         series: meses.map((mes, index) => ({
             name: mes,
             type: 'bar',
             data: seriesData.map(series => series[index]), // Obtener los datos para cada mes
+            itemStyle: {
+                borderRadius: [5, 5, 0, 0],
+                shadowBlur: 10,
+                // Aplicar un degradado de color a cada barra
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [
+                        { offset: 0, color: colorGradients[index][0] }, // Color superior
+                        { offset: 1, color: colorGradients[index][1] }  // Color inferior
+                    ],
+                    global: false // Usar valores de color locales
+                }
+            },
+            label: {
+                show: true,
+                position: 'inside', // Posicionar las etiquetas dentro de la barra
+                formatter: '{c}', // Mostrar el valor
+                color: '#fff', // Color de la etiqueta
+                fontSize: 14, // Tamaño de la fuente de la etiqueta
+                rotate: 90 // Rotar la etiqueta verticalmente
+            }
         })),
+        animationEasing: 'elasticOut',
+            animationDuration: 3000
     };
-
     myChart.setOption(option);
+
 }
+const colorGradients = [
+    ['#ff32c8', '#e17080'], // Degradado para ENERO - más claro
+    ['#6657ff', '#b745fd'], // Degradado para ABRIL - más claro
+    ['#3ab1f5', '#38e3bf'], // Degradado para JULIO - más claro
+    ['#67f213', '#a8ed20 '], // Degradado para SEPTIEMBRE - más claro
+];
+function mostrarGraficosRosquilla(data) {
+    console.log("rosquilla" + data);
+    const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
+
+    // Para cada gráfico de facturación (facturación, contado y crédito)
+    const graficos = ['Facturación Total', 'Facturación Contado', 'Facturación Crédito'];
+
+    // Recorrer cada categoría de facturación
+    data.forEach((facturacion, index) => {
+        const containerId = `graficoRosquilla${index + 1}`;
+        const container = document.getElementById(containerId);
+        if (container) {
+            const valores = meses.map(mes => facturacion[mes]);
+
+            // Inicializar ECharts para el gráfico de rosquilla
+            const chart = echarts.init(container);
+            const option = {
+                title: {
+                    text: graficos[index],
+                    left: 'center',
+                    top: '5px',
+                    textStyle: {
+                        fontSize: 16,
+                        color: 'white'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    bottom: '1%',
+                    textStyle: {
+                        fontSize: 12,
+                        color: 'white'
+                    }
+                },
+                series: [{
+                    name: graficos[index],
+                    type: 'pie',
+                    radius: ['40%', '70%'], // Radio interno y externo para rosquilla
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: meses.map((mes, i) => ({
+                        value: valores[i],
+                        name: mes,
+                        itemStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 1,
+                                y2: 1,
+                                colorStops: [
+                                    { offset: 0, color: colorGradients[i][0] }, // Color inicial del degradado
+                                    { offset: 1, color: colorGradients[i][1] }  // Color final del degradado
+                                ]
+                            }
+                        }
+                    }))
+                }]
+            };
+
+            // Renderizar el gráfico
+            chart.setOption(option);
+        }
+    });
+}
+
+
 
 
 
