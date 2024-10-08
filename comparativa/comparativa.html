@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Perfect Launch</title>
+    <link rel="stylesheet" href="comparativa.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
+    <script src="Main.js" defer></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            font-family: 'Montserrat';
+        }
+    </style>
+</head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">Dashboard</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="../Index.html">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Dashboard</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="../ventas/ventas.html">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Lanzamientos</span>
+          </a>
+        </div>
+
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Comparativa</span>
+          </a>
+        </div>
+
+      </li>
+      <li>
+        <a href="../ventas/ventas.html">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Lanzamientos</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analytics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Chart</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Chart</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="ventas/ventas.html">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Lanzamientos</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Lanzamientos</a></li>
+          <li><a href="#">Enero</a></li>
+          <li><a href="#">Abril</a></li>
+          <li><a href="#">Julio</a></li>
+          <li><a href="../Index.html">Septiembre</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-compass' ></i>
+          <span class="link_name">Explore</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Explore</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-history'></i>
+          <span class="link_name">History</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu'></i>
+        <img src="logo.png" alt="Logo"><!-- Agregar texto relevante -->
+    </div>
+</section>
+
+
+<div class="contenedor-principal">
+  <!-- Primera fila con 4 contenedores pequeños -->
+  <div class="fila">
+      <div class="contenedor-pequeño">1</div>
+      <div class="contenedor-pequeño">2</div>
+      <div class="contenedor-pequeño">3</div>
+      <div class="contenedor-pequeño">4</div>
+  </div>
+
+  <!-- Segunda fila con 2 contenedores grandes -->
+  <div class="fila">
+      <!-- Contenedor 5 con dos contenedores internos -->
+      <div class="contenedor-grande">
+        <h1>LEADS</h1>
+          <div class="contenedor-interno">
+             <table id="datos-tabla">
+                <thead>
+                    <tr>
+                        <th>Fuente</th>
+                        <th>Enero</th>
+                        <th>Abril</th>
+                        <th>Julio</th>
+                        <th>Septiembre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table> 
+          </div>
+          <div class="contenedor-interno">
+            <div id="contenedor-barras"></div>
+          </div>
+          
+      </div>
+
+      <!-- Contenedor 6 con dos contenedores uno encima del otro -->
+      <div class="contenedor-grande">
+        <h1>ASISTENCIA</h1>
+          <div class="contenedor-interno">
+            <div id="grafico" style="width: 600px; height: 400px;"></div>
+          </div>
+          <div class="contenedor-interno">6B</div>
+      </div>
+  </div>
+
+  <!-- Fila con dos contenedores adicionales (uno al lado del otro) -->
+  <div class="fila">
+      <div class="contenedor-lado-a-lado">7A</div>
+      <div class="contenedor-lado-a-lado">7B</div>
+  </div>
+</div>
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/e267099c50.js" crossorigin="anonymous"></script>
+
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        arrow.forEach((arrowElement) => {
+            arrowElement.addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement; // selecciona el padre principal de la flecha
+                arrowParent.classList.toggle("showMenu");
+            });
+        });
+
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+
+        // -------------------------------------------------------------------------------------------------------------------------
+
+        // URL del script
+        document.addEventListener('DOMContentLoaded', () => {
+        const url = 'https://script.google.com/macros/s/AKfycbwjSeUDaWCgFsqfDNzofny941snzXxKa3Dr-sQ16_jCXSP5cbZ66Z6w_LyQwQKSCCwC/exec';
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                mostrarDatos(data.slice(0, 5)); // Mostrar solo las primeras 5 filas
+                mostrarBarrasProgreso(data); // Mostrar las barras de progreso
+                mostrarGrafico(data.slice(5, 18)); // Mostrar el gráfico
+              
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    });
+
+function mostrarDatos(data) {
+    
+    
+    const tablaCuerpo = document.querySelector('#datos-tabla tbody');
+    tablaCuerpo.innerHTML = ''; // Limpia la tabla antes de agregar nuevas filas
+
+    data.forEach(item => {
+        const fila = document.createElement('tr');
+        const eneroPorcentaje = item.ENERO && item.ENERO < 1 ? (item.ENERO * 100).toFixed(2) + '%' : item.ENERO;
+        const abrilPorcentaje = item.ABRIL && item.ABRIL < 1 ? (item.ABRIL * 100).toFixed(2) + '%' : item.ABRIL;
+        const julioPorcentaje = item.JULIO && item.JULIO < 1 ? (item.JULIO * 100).toFixed(2) + '%' : item.JULIO;
+        const septiembrePorcentaje = item.SEPTIEMBRE && item.SEPTIEMBRE < 1 ? (item.SEPTIEMBRE * 100).toFixed(2) + '%' : item.SEPTIEMBRE;
+
+        fila.innerHTML = `
+            <td>${item.FUENTE}</td>
+            <td>${eneroPorcentaje}</td>
+            <td>${abrilPorcentaje}</td>
+            <td>${julioPorcentaje}</td>
+            <td>${septiembrePorcentaje}</td>
+        `;
+
+        tablaCuerpo.appendChild(fila);
+    });
+}
+
+function mostrarBarrasProgreso(data) {
+    const contenedor = document.querySelector('#contenedor-barras');
+    contenedor.innerHTML = ''; // Limpiar cualquier contenido previo
+
+    // Definir los meses y los totales por mes
+    const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
+    const leadsTotales = data[0]; // Asumimos que la primera fila es el total de leads
+    const leadsFrios = data[1];
+    const leadsTibios = data[2];
+
+    meses.forEach(mes => {
+        const total = leadsTotales[mes];
+        const frio = leadsFrios[mes];
+        const tibio = leadsTibios[mes];
+
+        // Calcular los porcentajes
+        const porcentajeFrio = ((frio / total) * 100).toFixed(2);
+        const porcentajeTibio = ((tibio / total) * 100).toFixed(2);
+
+        // Crear la estructura para cada mes
+        const fila = document.createElement('div');
+        fila.classList.add('fila-mes');
+
+        fila.innerHTML = `
+            <div class="columna-mes">${mes}</div>
+            <div class="columna-barra">
+                <div class="barra-contenedor">
+                    <div class="barra-frio" style="width: ${porcentajeFrio}%;">
+                        <span class="texto-barra">Frío ${porcentajeFrio}%</span>
+                    </div>
+                    <div class="barra-tibio" style="width: ${porcentajeTibio}%;">
+                        <span class="texto-barra">Tibio ${porcentajeTibio}%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="columna-total">${total}</div>
+        `;
+        contenedor.appendChild(fila);
+    });
+}
+
+
+
+function mostrarGrafico(data) {
+  console.log(data)
+    const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
+    const clases = ['Clase 1', 'Clase 2', 'Clase 3', 'Clase 4', 'Clase 5', 'Clase 6'];
+
+    // Crear un objeto para almacenar los datos por clase y mes
+    const seriesData = clases.map(clase => {
+        // Filtrar las filas que contengan la clase actual
+        const asistencia = data.filter(row => row.FUENTE.includes(clase));
+        
+        // Mapear los valores de asistencia para cada mes
+        return meses.map(mes => {
+            const found = asistencia.find(a => a[mes] !== undefined);
+            return found ? found[mes] : 0; // Devuelve el valor encontrado o 0
+        });
+    });
+
+    // Inicializar ECharts
+    const chartDom = document.getElementById('grafico');
+    const myChart = echarts.init(chartDom);
+
+    const option = {
+        title: {
+            text: 'Porcentaje de Asistencia por Clase'
+        },
+        tooltip: {},
+        legend: {
+            data: clases // Cambia a clases en la leyenda
+        },
+        xAxis: {
+            data: clases // Las clases en el eje X
+        },
+        yAxis: {},
+        series: meses.map((mes, index) => ({
+            name: mes,
+            type: 'bar',
+            data: seriesData.map(series => series[index]), // Obtener los datos para cada mes
+        })),
+    };
+
+    myChart.setOption(option);
+}
+
+
+
+    </script>
+</body>
+</html>

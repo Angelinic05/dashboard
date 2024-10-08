@@ -303,162 +303,151 @@ body {
     object-fit: cover;
 }
 
-
-/* Contenedor principal ----------------------------------------*/
-/* Contenedor principal */
 .contenedor-principal {
   width: 100%;
   max-width: 3000px;
-  margin: 0 auto;
   padding: 5px;
   padding-left: 90px;
-  box-sizing: border-box; /* Para evitar que el padding aumente el ancho */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-height: 100vh; /* Para ocupar el alto completo de la pantalla */
 }
 
-/* Fila superior con 4 contenedores */
-.fila-superior2 {
+.fila {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
-  gap: 20px; /* Espacio entre los contenedores */
+  flex-wrap: wrap; /* Permite que los contenedores se envuelvan en pantallas más pequeñas */
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.contenedor-pequeño2 {
+/* Contenedores pequeños en la primera fila */
+.contenedor-pequeño {
+  width: 23%;
+  height: 100px;
   background-color: var(--container);
-  border: 5px solid rgba(0, 0, 0, 0.1);
-  height: 1vh;
-  min-width: 100px; /* Ancho mínimo */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
-.contenedor-pequeño2:hover {
+/* Contenedores grandes en la segunda fila */
+.contenedor-grande {
+  width: 48%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%; /* Ajuste del tamaño del contenedor */
+}
+
+/* Contenedores internos dentro de contenedor 5 y 6 (uno encima del otro) */
+.contenedor-interno {
+  height: 100%; /* Ocupan la mitad del contenedor padre */
   background-color: var(--container);
-  transform: scale(1.1); /* Efecto hover */
+  margin-bottom: 4px;
+  border-radius: 4px;
 }
 
-.statnum2 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: white;
-}
-
-/* Contenedor para gráficos de barras y tortas */
-.contenedor-centro {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas */
-  height: 40vh;
-  gap: 20px;
-  margin-left: 5vh;
-  margin-right: 5vh;
-}
-
-.grafico {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
+/* Contenedores adicionales al final (7A y 7B uno al lado del otro) */
+.contenedor-lado-a-lado {
+  width: 100%;
+  height: 100px;
+  background-color: var(--container);
   border-radius: 8px;
+}
+
+h1{
+
+  font-size: 30px;
+}
+
+#datos-tabla {
+  width: 100%;
+  border-radius: 8px;
+  
+}
+
+#datos-tabla th, #datos-tabla td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #16285e;
+}
+
+#datos-tabla th {
+  background-color: #08163f;;
+}
+
+/* Estilo para los contenedores */
+.contenedor-interno {
   padding: 10px;
 }
 
-/* Contenedor para el gráfico lineal que ocupa todo el ancho */
-.grafico-lineal {
-  width: 80%;
-  height: 40vh;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  margin-top: 20px;
+#contenedor-barras {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 20px;
+}
+
+.fila-mes {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
 }
 
-/* .otro {
-  margin-top: 15px;
-  background-color: #08112c;
-  width: 100%; 
-  height: 370px; 
+.columna-mes, .columna-total {
+  width: 15%; /* Ajusta según el tamaño deseado */
+  text-align: center;
+  font-weight: bold;
 }
- */
 
+.columna-barra {
+  width: 70%; /* Ajusta según el tamaño deseado */
+}
 
+.barra-contenedor {
+  display: flex;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
 
-#barChart {
-  background-color: var(--container);
+.barra-frio, .barra-tibio {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: white;
+}
+
+.barra-frio {
+  background-color: var(--glow-violet); /* Color para Leads Fríos */
+}
+
+.barra-tibio {
+  background-color: var(--glow-violet-c); /* Color para Leads Tibios */
+}
+
+.texto-barra {
+  position: absolute;
   width: 100%;
-  height: 370px; /* Ajustar el tamaño del gráfico de barras */
-  margin: auto;
+  text-align: center;
+  font-size: 12px;
+  color: white;
 }
-
-#lineChart {
-  padding-top: 65px;
-  background-color: var(--container);
-  width: 95%;
-  height: 450px; /* Ajustar el tamaño del gráfico lineal */
-  margin: auto;
-}
-
-#pieChart {
-  margin-top: 15px;
-  background-color: var(--container);
-  width: 100%; 
-  height: 370px; 
-}
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 1024px) {
-  .contenedor-principal {
-    padding-left: 30px;
-  }
-
-  .fila-superior2 {
-    padding-top: 20px;
-    gap: 20px;
-    margin-bottom: 15px;
-  }
-
-  .contenedor-pequeño2 {
-    padding: 15px;
-    min-width: 80px;
-  }
-
-  .statnum2 {
-    font-size: 1rem;
-  }
-
-  .contenedor-centro {
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 2vh;
-    margin-right: 2vh;
-    gap: 20px;
-  }
 
   
 
 }
 
-
-
 @media (max-width: 768px) {
 
-    .sidebar.close {
+  .sidebar.close {
       left: -100px; /* Ocultar el menú en móviles */
   }
 
@@ -477,57 +466,18 @@ body {
     width:100%;
   }
 
-  .contenedor-principal {
-    padding: 0;
-    /* padding-left: 70px; */
-    
-}
-
-  .fila-superior2 {
-    align-items: center;
-    height: auto;
-    gap: 15px;
-  }
-
-  .contenedor-pequeño2 {
-    width: 15%;
-  }
-
-  .statnum2 {
-    font-size: 1rem;
-    font-weight: 550;
-    background-clip: text;
-  }
-
-  #barChart {
+  .contenedor-pequeño, .contenedor-grande {
     width: 100%;
-    height: 300px; /* Ajustar el tamaño del gráfico de barras */
-    margin: auto;
-  }
-  
-  #lineChart {
-    padding-top: 5px;
-    width: 95%;
-    height: 450px; /* Ajustar el tamaño del gráfico lineal */
-    margin: auto;
-  }
-  
-  #pieChart {
-    margin-top: 35px;
-    width: 80%; 
-    height: 300px; 
-  }
-  
-  
-  
-  
-
+    margin-bottom: 10px;
 }
 
+.fila {
+    flex-direction: column;
+}
+}
 
 /* Ajustes para pantallas muy pequeñas */
 @media (max-width: 480px) {
-
     .sidebar.close {
       left: -100px; /* Ocultar el menú en móviles */
   }
@@ -541,44 +491,6 @@ body {
       margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
   }
 
-
-  .fila-superior2 {
-    align-items: center;
-    height: auto;
-    gap: 15px;
-  }
-
-  .contenedor-pequeño2 {
-    width: 15%;
-  }
-
-  .statnum2 {
-    font-size: 1rem;
-    font-weight: 550;
-    background-clip: text;
-    
-    
-  }
-
-  
-  #barChart {
-    width: 100%;
-    height: 300px; /* Ajustar el tamaño del gráfico de barras */
-    margin: auto;
-  }
-  
-  #lineChart {
-    padding-top: 5px;
-    width: 100%;
-    height: 300px; /* Ajustar el tamaño del gráfico lineal */
-    margin: auto;
-  }
-  
-  #pieChart {
-    margin-top: 35px;
-    width: 100%; 
-    height: 300px; 
-  }
 
 
 }
