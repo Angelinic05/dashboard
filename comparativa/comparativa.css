@@ -324,23 +324,28 @@ body {
 
 
 .contenedor-pequeño {
-  width: 20%;
-  height: 50px;
-  background-color: var(--container); 
-  border-radius: 12px; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 21%;
+  background-color: var(--container);
+  border-radius: 12px;
   border: none;
-  color: white; 
-  font-size: 18px; 
-  font-weight: bold;
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
-  cursor: pointer; 
-  letter-spacing: 1px; 
-  margin: 0; 
+  color: white;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
 }
+
 
 /* Efecto hover */
 .contenedor-pequeño:hover {
-  background-color: #27254b; 
+  background-color: #1b1f3d; 
   transform: translateY(-5px); /* Levantar el botón hacia arriba */
 }
 
@@ -472,14 +477,14 @@ h1{
   position: absolute;
   width: 100%;
   text-align: center;
-  font-size: 12px;
-  color: white;
+  font-size: 13px;
+  color: #08112c;
+  font-weight: 800;
 }
 
 #grafico{
   width: 980px;
   height: 400px;
-
 }
 
 #graficoRosquilla1, 

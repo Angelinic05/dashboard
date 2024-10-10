@@ -34,7 +34,7 @@
       <li>
         <div class="iocn-link">
           <a href="../ventas/ventas.html">
-            <i class='bx bx-collection' ></i>
+            <i class='bx bxs-rocket' ></i>
             <span class="link_name">Lanzamientos</span>
           </a>
         </div>
@@ -43,7 +43,7 @@
       <li>
         <div class="iocn-link">
           <a href="#">
-            <i class='bx bx-book-alt' ></i>
+            <i class='bx bx-bar-chart-alt-2' ></i>
             <span class="link_name">Comparativa</span>
           </a>
         </div>
@@ -141,10 +141,10 @@
       <!-- Contenedor 5 con dos contenedores internos -->
       <div class="contenedor-grande">
         <div class="fila">
-        <button class="contenedor-pequeño" ">ENERO</button>
-        <button class="contenedor-pequeño" >ABRIL</button>
-        <button class="contenedor-pequeño" >JULIO</button>
-        <button class="contenedor-pequeño" >SEPTIEMBRE</button>
+        <button class="contenedor-pequeño" >Cargando...</button>
+        <button class="contenedor-pequeño" >Cargando...</button>
+        <button class="contenedor-pequeño" >Cargando...</button>
+        <button class="contenedor-pequeño" >Cargando...</button>
       </div>
         <h1>LEADS</h1>
           <div class="contenedor-interno">
@@ -163,7 +163,7 @@
             </table> 
           </div>
           <div class="contenedor-interno">
-            <div id="contenedor-barras"></div>
+            <div id="contenedor-barras">Cargando...</div>
           </div>
           
       </div>
@@ -171,12 +171,12 @@
       <!-- Contenedor 6 con dos contenedores uno encima del otro -->
       <div class="contenedor-grande">
           <div class="contenedor-interno">
-            <div id="grafico" ></div>
+            <div id="grafico">Cargando...</div>
           </div>
           <div class="contenedor-interno2">
-            <div id="graficoRosquilla1" ></div>
-            <div id="graficoRosquilla2" ></div>
-            <div id="graficoRosquilla3" ></div>
+            <div id="graficoRosquilla1">Cargando...</div>
+            <div id="graficoRosquilla2">Cargando...</div>
+            <div id="graficoRosquilla3">Cargando...</div>
           </div>
       </div>
   </div>
@@ -212,7 +212,8 @@
             sidebar.classList.toggle("close");
         });
 
-        // -------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
         // URL del script
         document.addEventListener('DOMContentLoaded', () => {
@@ -226,10 +227,11 @@
                 return response.json();
             })
             .then(data => {
-                mostrarDatos(data.slice(0, 5)); // Mostrar solo las primeras 5 filas
+                mostrarDatos(data.slice(0, 3)); // Mostrar solo las primeras 5 filas
                 mostrarBarrasProgreso(data); // Mostrar las barras de progreso
                 mostrarGrafico(data.slice(5, 18)); // Mostrar el gráfico
                 mostrarGraficosRosquilla(data.slice(29, 32));
+                mostrarUltimosDatos(data);
                 console.log(data);
 
               
@@ -239,9 +241,73 @@
             });
     });
 
+  //--------------------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------
+    
+  function mostrarUltimosDatos(data) {
+    const ultimosDatos = data.slice(-4); // Obtener las 4 últimas filas
+    console.log("últimos datos", ultimosDatos);
+
+    // Selecciona todos los botones de los meses
+    const botones = document.querySelectorAll('.contenedor-pequeño');
+
+    // Limpiar contenido de los botones antes de asignar nuevos datos
+    botones.forEach(boton => {
+        boton.innerHTML = ''; // Usar innerHTML para poder agregar <br>
+    });
+
+    // Iterar sobre las últimas 4 filas y asignar los datos a los botones
+    ultimosDatos.forEach((fuenteDatos) => {
+        if (fuenteDatos) {
+            // Los botones para cada mes están en el mismo orden
+            const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
+            meses.forEach((mes, mesIndex) => {
+                // Asignar el contenido a cada botón según el mes
+                const boton = botones[mesIndex];
+                // Asegúrate de que el botón está definido antes de acceder a innerHTML
+                if (boton) {
+                    if (fuenteDatos.FUENTE) {
+                        // Si el botón está vacío, agrega el nombre del mes
+                        if (boton.innerHTML === '') {
+                            boton.innerHTML += `${mes}<br><br>`; // Agregar el nombre del mes una vez
+                        }
+
+                        // Depuración: verificar las fuentes que se están procesando
+                        console.log("Procesando fuente:", fuenteDatos.FUENTE);
+
+                        // Lógica condicional para formato personalizado
+                        let valor = fuenteDatos[mes];
+                        // Formatear según la fuente
+                        if (fuenteDatos.FUENTE ==='CAC') {
+                            // CAC sin decimales y con signo $
+                            valor = `$${Math.round(valor)}`;
+                        } else if (fuenteDatos.FUENTE === 'CPL Tibio' || fuenteDatos.FUENTE === 'CPL Frio') {
+                            valor = `$${valor.toFixed(2)}`;
+                        } else {
+                            valor = valor.toFixed(2);
+                        }
+
+                        // Añadir los datos de la fuente correspondiente
+                        boton.innerHTML += `${fuenteDatos.FUENTE} ${valor}<br>`;
+                    }
+                } else {
+                    console.error(`Botón para ${mes} no encontrado`);
+                }
+            });
+        }
+    });
+}
+
+
+
+
+
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------
+
 function mostrarDatos(data) {
-    
-    
     const tablaCuerpo = document.querySelector('#datos-tabla tbody');
     tablaCuerpo.innerHTML = ''; // Limpia la tabla antes de agregar nuevas filas
 
@@ -263,6 +329,9 @@ function mostrarDatos(data) {
         tablaCuerpo.appendChild(fila);
     });
 }
+
+  //--------------------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------
 
 const solidColors = [
     '#ff32c8', // Color sólido para ENERO
@@ -321,7 +390,8 @@ function mostrarBarrasProgreso(data) {
 }
 
 
-
+  //--------------------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------
 
 function mostrarGrafico(data) {
     console.log(data);
@@ -421,7 +491,8 @@ function mostrarGrafico(data) {
                 show: true,
                 position: 'inside', // Posicionar las etiquetas dentro de la barra
                 formatter: '{c}', // Mostrar el valor
-                color: '#fff', // Color de la etiqueta
+                fontWeight: 'bold',
+                color: '#08112c', // Color de la etiqueta
                 fontSize: 14, // Tamaño de la fuente de la etiqueta
                 rotate: 90 // Rotar la etiqueta verticalmente
             }
@@ -432,6 +503,11 @@ function mostrarGrafico(data) {
     myChart.setOption(option);
 
 }
+
+  //--------------------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------
+
+
 const colorGradients = [
     ['#ff32c8', '#e17080'], // Degradado para ENERO - más claro
     ['#6657ff', '#b745fd'], // Degradado para ABRIL - más claro
@@ -458,9 +534,9 @@ function mostrarGraficosRosquilla(data) {
                 title: {
                     text: graficos[index],
                     left: 'center',
-                    top: '5px',
+                    top: '35px',
                     textStyle: {
-                        fontSize: 16,
+                        fontSize: 20,
                         color: 'white'
                     }
                 },
@@ -471,17 +547,17 @@ function mostrarGraficosRosquilla(data) {
                 legend: {
                     bottom: '1%',
                     textStyle: {
-                        fontSize: 12,
+                        fontSize: 10,
                         color: 'white'
                     }
                 },
                 series: [{
                     name: graficos[index],
                     type: 'pie',
-                    radius: ['40%', '70%'], // Radio interno y externo para rosquilla
-                    avoidLabelOverlap: false,
+                    radius: ['30%', '70%'], // Radio interno y externo para rosquilla
+                    avoidLabelOverlap:false,
                     itemStyle: {
-                        borderRadius: 10,
+                        borderRadius: 5,
                         borderColor: '',
                         borderWidth: 2
                     },
@@ -524,10 +600,6 @@ function mostrarGraficosRosquilla(data) {
         }
     });
 }
-
-
-
-
 
     </script>
 </body>
