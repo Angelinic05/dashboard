@@ -181,11 +181,6 @@
       </div>
   </div>
 
-  <!-- Fila con dos contenedores adicionales (uno al lado del otro) -->
-  <div class="fila">
-      <div class="contenedor-lado-a-lado">7A</div>
-      <div class="contenedor-lado-a-lado">7B</div>
-  </div>
 </div>
 
 
@@ -217,69 +212,60 @@
 
         // URL del script
         document.addEventListener('DOMContentLoaded', () => {
-        const url = 'https://script.google.com/macros/s/AKfycbwjSeUDaWCgFsqfDNzofny941snzXxKa3Dr-sQ16_jCXSP5cbZ66Z6w_LyQwQKSCCwC/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbwjSeUDaWCgFsqfDNzofny941snzXxKa3Dr-sQ16_jCXSP5cbZ66Z6w_LyQwQKSCCwC/exec';
 
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                mostrarDatos(data.slice(0, 3)); // Mostrar solo las primeras 5 filas
-                mostrarBarrasProgreso(data); // Mostrar las barras de progreso
-                mostrarGrafico(data.slice(5, 18)); // Mostrar el gráfico
-                mostrarGraficosRosquilla(data.slice(29, 32));
-                mostrarUltimosDatos(data);
-                console.log(data);
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            mostrarDatos(data.slice(0, 3)); // Mostrar solo las primeras 5 filas
+            mostrarBarrasProgreso(data); // Mostrar las barras de progreso
+            mostrarGrafico(data.slice(5, 18)); // Mostrar el gráfico
+            mostrarGraficosRosquilla(data.slice(29, 32));
+            mostrarUltimosDatos(data);
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+});
 
-              
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    });
+// Responsividad: Ajustar tamaños según el ancho de pantalla
+const screenWidth = window.innerWidth;
+const fontSize = screenWidth < 768 ? 7 : 17;
+const barWidth = screenWidth < 768 ? 20 : 20;
+const labelFontSize = screenWidth < 768 ? 10 : 15;
+const widthLine = screenWidth < 768 ? 2 : 6;
 
-  //--------------------------------------------------------------------------------------------------------------------------------------
-  //--------------------------------------------------------------------------------------------------------------------------------------
-    
-  function mostrarUltimosDatos(data) {
+//--------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+function mostrarUltimosDatos(data) {
     const ultimosDatos = data.slice(-4); // Obtener las 4 últimas filas
     console.log("últimos datos", ultimosDatos);
 
-    // Selecciona todos los botones de los meses
     const botones = document.querySelectorAll('.contenedor-pequeño');
-
-    // Limpiar contenido de los botones antes de asignar nuevos datos
     botones.forEach(boton => {
         boton.innerHTML = ''; // Usar innerHTML para poder agregar <br>
     });
 
-    // Iterar sobre las últimas 4 filas y asignar los datos a los botones
     ultimosDatos.forEach((fuenteDatos) => {
         if (fuenteDatos) {
-            // Los botones para cada mes están en el mismo orden
             const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
             meses.forEach((mes, mesIndex) => {
-                // Asignar el contenido a cada botón según el mes
                 const boton = botones[mesIndex];
-                // Asegúrate de que el botón está definido antes de acceder a innerHTML
                 if (boton) {
                     if (fuenteDatos.FUENTE) {
-                        // Si el botón está vacío, agrega el nombre del mes
                         if (boton.innerHTML === '') {
                             boton.innerHTML += `${mes}<br><br>`; // Agregar el nombre del mes una vez
                         }
 
-                        // Depuración: verificar las fuentes que se están procesando
-                        console.log("Procesando fuente:", fuenteDatos.FUENTE);
-
-                        // Lógica condicional para formato personalizado
                         let valor = fuenteDatos[mes];
-                        // Formatear según la fuente
-                        if (fuenteDatos.FUENTE ==='CAC') {
-                            // CAC sin decimales y con signo $
+                        if (fuenteDatos.FUENTE === 'CAC') {
                             valor = `$${Math.round(valor)}`;
                         } else if (fuenteDatos.FUENTE === 'CPL Tibio' || fuenteDatos.FUENTE === 'CPL Frio') {
                             valor = `$${valor.toFixed(2)}`;
@@ -287,7 +273,6 @@
                             valor = valor.toFixed(2);
                         }
 
-                        // Añadir los datos de la fuente correspondiente
                         boton.innerHTML += `${fuenteDatos.FUENTE} ${valor}<br>`;
                     }
                 } else {
@@ -298,14 +283,8 @@
     });
 }
 
-
-
-
-
-
-
-    //--------------------------------------------------------------------------------------------------------------------------------------
-  //--------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------
 
 function mostrarDatos(data) {
     const tablaCuerpo = document.querySelector('#datos-tabla tbody');
@@ -330,31 +309,18 @@ function mostrarDatos(data) {
     });
 }
 
-  //--------------------------------------------------------------------------------------------------------------------------------------
-  //--------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------
 
-const solidColors = [
-    '#ff32c8', // Color sólido para ENERO
-    '#6657ff', // Color sólido para ABRIL
-    '#3ab1f5', // Color sólido para JULIO
-    '#67f213', // Color sólido para SEPTIEMBRE
-];
-
-const solidColors2 = [
-    '#e17080', // Color sólido para ENERO
-    '#b745fd', // Color sólido para ABRIL
-    '#38e3bf', // Color sólido para JULIO
-    '#a8ed20', // Color sólido para SEPTIEMBRE
-];
-
+const solidColors = ['#ff32c8', '#6657ff', '#3ab1f5', '#67f213'];
+const solidColors2 = ['#e17080', '#b745fd', '#38e3bf', '#a8ed20'];
 
 function mostrarBarrasProgreso(data) {
     const contenedor = document.querySelector('#contenedor-barras');
     contenedor.innerHTML = ''; // Limpiar cualquier contenido previo
 
-    // Definir los meses y los totales por mes
     const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
-    const leadsTotales = data[0]; // Asumimos que la primera fila es el total de leads
+    const leadsTotales = data[0];
     const leadsFrios = data[1];
     const leadsTibios = data[2];
 
@@ -363,11 +329,9 @@ function mostrarBarrasProgreso(data) {
         const frio = leadsFrios[mes];
         const tibio = leadsTibios[mes];
 
-        // Calcular los porcentajes
         const porcentajeFrio = ((frio / total) * 100).toFixed(2);
         const porcentajeTibio = ((tibio / total) * 100).toFixed(2);
 
-        // Crear la estructura para cada mes
         const fila = document.createElement('div');
         fila.classList.add('fila-mes');
 
@@ -389,48 +353,39 @@ function mostrarBarrasProgreso(data) {
     });
 }
 
-
-  //--------------------------------------------------------------------------------------------------------------------------------------
-  //--------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------
 
 function mostrarGrafico(data) {
-    console.log(data);
     const meses = ['ENERO', 'ABRIL', 'JULIO', 'SEPTIEMBRE'];
     const clases = ['Clase 1', 'Clase 2', 'Clase 3', 'Clase 4', 'Clase 5', 'Clase 6'];
 
-    // Crear un objeto para almacenar los datos por clase y mes
     const seriesData = clases.map(clase => {
-        // Filtrar las filas que contengan la clase actual
         const asistencia = data.filter(row => row.FUENTE.includes(clase));
-        
-        // Mapear los valores de asistencia para cada mes
         return meses.map(mes => {
             const found = asistencia.find(a => a[mes] !== undefined);
-            return found ? found[mes] : 0; // Devuelve el valor encontrado o 0
+            return found ? found[mes] : 0;
         });
     });
 
-    // Inicializar ECharts
     const chartDom = document.getElementById('grafico');
     const myChart = echarts.init(chartDom);
 
-    // Definir colores de degradado para cada mes
     const colorGradients = [
-    ['#ff32c8', '#e17080'], // Degradado para ENERO - más claro
-    ['#6657ff', '#b745fd'], // Degradado para ABRIL - más claro
-    ['#3ab1f5', '#38e3bf'], // Degradado para JULIO - más claro
-    ['#67f213', '#a8ed20 '], // Degradado para SEPTIEMBRE - más claro
-];
-
+        ['#ff32c8', '#e17080'], // ENERO
+        ['#6657ff', '#b745fd'], // ABRIL
+        ['#3ab1f5', '#38e3bf'], // JULIO
+        ['#67f213', '#a8ed20 '] // SEPTIEMBRE
+    ];
 
     const option = {
         title: {
             text: 'ASISTENCIA POR CLASE',
-            left: 'center',  // Centrar el título
-            top: '5px',     // Espacio desde la parte superior
+            left: 'center',
+            top: '5px',
             textStyle: {
-                fontSize: 20, // Tamaño de fuente
-                color: 'white' // Color del título
+                fontSize: fontSize, // Tamaño ajustable
+                color: 'white'
             }
         },
         tooltip: {
@@ -440,36 +395,36 @@ function mostrarGrafico(data) {
             }
         },
         legend: {
-            data: clases, // Cambia a clases en la leyenda
-            bottom: '10%', // Posicionar la leyenda
+            data: clases,
+            bottom: '10%',
             textStyle: {
-                fontSize: 14, // Tamaño de fuente de la leyenda
-                color: 'white' // Color de la leyenda
+                fontSize: labelFontSize, // Tamaño ajustable
+                color: 'white'
             }
         },
         xAxis: {
-            data: clases, // Las clases en el eje X
+            data: clases,
             axisLabel: {
-                fontSize: 12, // Tamaño de fuente de etiquetas
-                color: 'white'  // Color de las etiquetas
+                fontSize: labelFontSize, // Tamaño ajustable
+                color: 'white'
             }
         },
         yAxis: {
             axisLabel: {
-                fontSize: 12, // Tamaño de fuente de etiquetas
-                color: 'white'  // Color de las etiquetas
+                fontSize: labelFontSize, // Tamaño ajustable
+                color: 'white'
             },
             splitLine: {
                 lineStyle: {
-                    type: 'dashed', // Líneas de división punteadas
-                    color: '#333'   // Color de las líneas de división
+                    type: 'dashed',
+                    color: '#333'
                 }
             }
         },
         series: meses.map((mes, index) => ({
             name: mes,
             type: 'bar',
-            data: seriesData.map(series => series[index]), // Obtener los datos para cada mes
+            data: seriesData.map(series => series[index]),
             itemStyle: {
                 borderRadius: [5, 5, 0, 0],
                 shadowBlur: 10,
@@ -495,14 +450,15 @@ function mostrarGrafico(data) {
                 color: '#08112c', // Color de la etiqueta
                 fontSize: 14, // Tamaño de la fuente de la etiqueta
                 rotate: 90 // Rotar la etiqueta verticalmente
-            }
-        })),
-        animationEasing: 'elasticOut',
-            animationDuration: 3000
+            },
+            barWidth: barWidth // Ancho ajustable
+        }))
     };
-    myChart.setOption(option);
 
+    option && myChart.setOption(option);
 }
+
+
 
   //--------------------------------------------------------------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------------------------------------------------------------

@@ -154,11 +154,11 @@
       <div class="grafico" id="barChart">Cargando...</div>
       <div class="grafico" id="pieChart">Cargando...</div>
       <!-- <div id="calendar" class="otro"></div> -->
-    </div>
+  </div>
 
   <!-- Contenedor separado para el diagrama lineal -->
   <div class="grafico-lineal" id="lineChart">Cargando...</div>
-</div>
+
 
 
 
@@ -256,7 +256,7 @@
         let highlightedMonth = 'enero'; // Mantiene el mes resaltado
 
         function highlightMonth(month) {
-            const colors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
+            const colors = ['#ff32c8', '#6657ff', '#3ab1f5', '#67f213'];
             const fadedColor = 'rgba(28,59,137,0.5)';
             const monthIndex = ['enero', 'abril', 'julio', 'septiembre'].indexOf(month);
 
@@ -281,59 +281,73 @@
         });
     }
 
+    const solidColors = ['#ff32c8', '#6657ff', '#3ab1f5', '#67f213'];
+const solidColors2 = ['#e17080', '#b745fd', '#38e3bf', '#a8ed20'];
+
     function createBarChartOption(barTotals, fontSize, barWidth, labelFontSize) {
-        return {
-            tooltip: {},
-            xAxis: {
-                type: 'category',
-                data: ['ENERO', 'ABRIL', 'JULIO', 'SEPT'],
-                axisLabel: { color: 'white', fontSize: fontSize }
-            },
-            yAxis: {
-                type: 'value',
-                axisLabel: { color: 'white', fontSize: fontSize },
-                splitLine: { lineStyle: { color: '#11375e', width: 3 } }
-            },
-            series: [{
-                name: 'Ventas',
-                type: 'bar',
-                data: barTotals,
-                itemStyle: {
-                    color: function (params) {
-                        const colors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
-                        return colors[params.dataIndex];
-                    },
-                    borderRadius: [10, 10, 0, 0],
-                    shadowBlur: 10,
-                    shadowColor: function (params) {
-                        const shadowColors = ['#FF00F7', '#0287E0', '#E08400', '#49E000'];
-                        return shadowColors[params.dataIndex];
-                    },
-                    shadowOffsetX: 5,
-                    shadowOffsetY: 5,
-                    emphasis: {
-                        shadowBlur: 30,
-                        shadowColor: '#11375e'
-                    }
+    return {
+        tooltip: {},
+        xAxis: {
+            type: 'category',
+            data: ['ENERO', 'ABRIL', 'JULIO', 'SEPT'],
+            axisLabel: { color: 'white', fontSize: fontSize }
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: { color: 'white', fontSize: fontSize },
+            splitLine: { lineStyle: { color: '#11375e', width: 3 } }
+        },
+        series: [{
+            name: 'Ventas',
+            type: 'bar',
+            data: barTotals,
+            itemStyle: {
+                color: function (params) {
+                    const colors = solidColors.map((color, index) => {
+                        return {
+                            colorStops: [
+                                { offset: 0, color: solidColors[index] },
+                                { offset: 1, color: solidColors2[index] }
+                            ],
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                        };
+                    });
+                    return colors[params.dataIndex];
                 },
-                label: {
-                    show: true,
-                    position: 'top',
-                    color: '#ffffff',
-                    fontSize: labelFontSize,
-                    fontWeight: 'bold',
-                    textShadowColor: '#000',
-                    textShadowBlur: 10
+                borderRadius: [10, 10, 0, 0],
+                shadowBlur: 10,
+                shadowColor: function (params) {
+                    const shadowColors = ['#ff32c8', '#6657ff', '#3ab1f5', '#67f213'];
+                    return shadowColors[params.dataIndex];
                 },
-                barWidth: barWidth,
-                animationDelay: function (idx) {
-                    return idx * 200;
+                shadowOffsetX: 5,
+                shadowOffsetY: 5,
+                emphasis: {
+                    shadowBlur: 30,
+                    shadowColor: '#11375e'
                 }
-            }],
-            animationEasing: 'elasticOut',
-            animationDuration: 2000
-        };
-    }
+            },
+            label: {
+                show: true,
+                position: 'top',
+                color: '#ffffff',
+                fontSize: labelFontSize,
+                fontWeight: 'bold',
+                textShadowColor: '#000',
+                textShadowBlur: 10
+            },
+            barWidth: barWidth,
+            animationDelay: function (idx) {
+                return idx * 200;
+            }
+        }],
+        animationEasing: 'elasticOut',
+        animationDuration: 2000
+    };
+}
 
     function createLineChartOption(combinedValues, salesByMonth, fontSize, widthLine) {
       const xAxisData = combinedValues.slice(0, combinedValues.length - 2).map(row => row[0]); // Excluye CONTADO y CRÉDITO
@@ -360,8 +374,8 @@
         },
         series: [
             { name: 'Enero', type: 'line', data: dataEnero, lineStyle: { color: '#BF00B9', width: widthLine, shadowColor: '#FF00F7', shadowBlur: 10 }, itemStyle: { color: '#FF00F7' } },
-            { name: 'Abril', type: 'line', data: dataAbril, lineStyle: { color: '#0287E0', width: widthLine, shadowColor: '#0287E0', shadowBlur: 10 }, itemStyle: { color: '#0287E0' } },
-            { name: 'Julio', type: 'line', data: dataJulio, lineStyle: { color: '#E08400', width: widthLine, shadowColor: '#E08400', shadowBlur: 10 }, itemStyle: { color: '#E08400' } },
+            { name: 'Abril', type: 'line', data: dataAbril, lineStyle: { color: '#6657ff', width: widthLine, shadowColor: '#6657ff', shadowBlur: 10 }, itemStyle: { color: '#6657ff' } },
+            { name: 'Julio', type: 'line', data: dataJulio, lineStyle: { color: '#3ab1f5', width: widthLine, shadowColor: '#3ab1f5', shadowBlur: 10 }, itemStyle: { color: '#3ab1f5' } },
             { name: 'Septiembre', type: 'line', data: dataSeptiembre, lineStyle: { color: '#49E000', width: widthLine, shadowColor: '#49E000', shadowBlur: 10 }, itemStyle: { color: '#49E000' } }
         ],
         animationEasing: 'elasticOut',
@@ -392,10 +406,10 @@
 
     // Mapeo de colores por mes
     const colorMap = {
-        enero: ['#FF00F7', '#970093'], // Colores para enero
-        abril: ['#0287E0', '#005086'],  // Colores para abril
-        julio: ['#E08400', '#8e5300'],   // Colores para julio
-        septiembre: ['#49E000', '#2a8100'] // Colores para septiembre
+        enero: ['#ff32c8', '#e17080'], // Colores para enero
+        abril: ['#6657ff', '#b745fd'],  // Colores para abril
+        julio: ['#3ab1f5', '#38e3bf'],   // Colores para julio
+        septiembre: ['#67f213', '#a8ed20'] // Colores para septiembre
     };
 
     const selectedColors = colorMap[month];
