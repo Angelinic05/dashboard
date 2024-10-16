@@ -550,7 +550,11 @@ body {
       transition: all 0.5s ease;
       margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
   }
-
+  .contenedor-principal {
+    padding: 0;
+    /* padding-left: 70px; */
+    
+}
 
   .fila-superior2 {
     align-items: center;
@@ -566,8 +570,6 @@ body {
     font-size: 1rem;
     font-weight: 550;
     background-clip: text;
-    
-    
   }
 
   .contenedor-centro {
@@ -596,6 +598,8 @@ body {
     width: 80%; 
     height: 250px; 
   }
+  
+  
 
 
 }
