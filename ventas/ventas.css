@@ -576,7 +576,7 @@ body {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    height: 28vh;
+    height: 34vh;
     gap: 2vh;
     margin-bottom: 1vh;
   }
@@ -588,9 +588,9 @@ body {
   }
   
   #lineChart {
-    margin-top: 3vh;
+    margin-top: 5vh;
     padding-top: 5px;
-    width: 95%;
+    width: 92%;
     height: 250px; /* Ajustar el tamaño del gráfico lineal */
   }
   
