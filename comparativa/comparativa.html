@@ -140,7 +140,7 @@
   <div class="fila">
       <!-- Contenedor 5 con dos contenedores internos -->
       <div class="contenedor-grande">
-        <div class="fila">
+        <div class="fila2">
         <button class="contenedor-pequeño" >Cargando...</button>
         <button class="contenedor-pequeño" >Cargando...</button>
         <button class="contenedor-pequeño" >Cargando...</button>
@@ -240,6 +240,10 @@ const fontSize = screenWidth < 768 ? 7 : 17;
 const barWidth = screenWidth < 768 ? 20 : 20;
 const labelFontSize = screenWidth < 768 ? 10 : 15;
 const widthLine = screenWidth < 768 ? 2 : 6;
+const chartTitleFontSize = screenWidth < 768 ? 0 : 20;
+const chartLegendFontSize = screenWidth < 768 ? 10 : 14;
+const chartLabelFontSize = screenWidth < 768 ? 10 : 14;
+const chartBarItemWidth = screenWidth < 768 ? 10 : 20;
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------
@@ -338,11 +342,11 @@ function mostrarBarrasProgreso(data) {
         fila.innerHTML = `
             <div class="columna-mes">${mes}</div>
             <div class="columna-barra">
-                <div class="barra-contenedor" style="height: 25px;">
-                    <div class="barra-frio" style="width: ${porcentajeFrio}%; height: 25px; background-color: ${solidColors[i]};">
+                <div class="barra-contenedor">
+                    <div class="barra-frio" style="width: ${porcentajeFrio}%; background-color: ${solidColors[i]};">
                         <span class="texto-barra">Frío ${porcentajeFrio}%</span>
                     </div>
-                    <div class="barra-tibio" style="width: ${porcentajeTibio}%; height: 25px; background-color: ${solidColors2[i]};">
+                    <div class="barra-tibio" style="width: ${porcentajeTibio}%;  background-color: ${solidColors2[i]};">
                         <span class="texto-barra">Tibio ${porcentajeTibio}%</span>
                     </div>
                 </div>
@@ -384,7 +388,7 @@ function mostrarGrafico(data) {
             left: 'center',
             top: '5px',
             textStyle: {
-                fontSize: fontSize, // Tamaño ajustable
+                fontSize: chartTitleFontSize, // Tamaño ajustable
                 color: 'white'
             }
         },
@@ -398,7 +402,7 @@ function mostrarGrafico(data) {
             data: clases,
             bottom: '10%',
             textStyle: {
-                fontSize: labelFontSize, // Tamaño ajustable
+                fontSize: chartTitleFontSize, // Tamaño ajustable
                 color: 'white'
             }
         },
@@ -448,10 +452,10 @@ function mostrarGrafico(data) {
                 formatter: '{c}', // Mostrar el valor
                 fontWeight: 'bold',
                 color: '#08112c', // Color de la etiqueta
-                fontSize: 14, // Tamaño de la fuente de la etiqueta
+                fontSize: chartTitleFontSize, // Tamaño de la fuente de la etiqueta
                 rotate: 90 // Rotar la etiqueta verticalmente
             },
-            barWidth: barWidth // Ancho ajustable
+            barWidth: chartBarItemWidth  // Ancho ajustable
         }))
     };
 
