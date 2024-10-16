@@ -240,11 +240,12 @@ const fontSize = screenWidth < 768 ? 7 : 17;
 const barWidth = screenWidth < 768 ? 20 : 20;
 const labelFontSize = screenWidth < 768 ? 10 : 15;
 const widthLine = screenWidth < 768 ? 2 : 6;
-const chartTitleFontSize = screenWidth < 768 ? 0 : 20;
-const chartLegendFontSize = screenWidth < 768 ? 10 : 14;
-const chartLabelFontSize = screenWidth < 768 ? 10 : 14;
+const chartTitleFontSize = screenWidth < 768 ? 0 : 12;
+const chartLegendFontSize = screenWidth < 768 ? 10 : 10;
+const chartLabelFontSize = screenWidth < 768 ? 10 : 10;
 const chartBarItemWidth = screenWidth < 768 ? 7 : 20;
-const labelFontSizeRosquilla= screenWidth < 768 ? 10 : 20;
+const labelFontSizeRosquilla= screenWidth < 768 ? 10 : 15;
+const FontSizeRosquilla= screenWidth < 768 ? 10 : 16;
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------
@@ -497,7 +498,7 @@ function mostrarGraficosRosquilla(data) {
                     left: 'center',
                     top: '35px',
                     textStyle: {
-                        fontSize: labelFontSizeRosquilla,
+                        fontSize: FontSizeRosquilla,
                         color: 'white'
                     }
                 },
