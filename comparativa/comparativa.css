@@ -489,7 +489,7 @@ h1{
 }
 
 #grafico{
-  width: 980px;
+  width: 900px;
   height: 400px;
 }
 
@@ -758,13 +758,13 @@ h1{
 
     .barra-frio, .barra-tibio {
       height: 100%;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     .texto-barra {
       width: 100%;
       text-align: center;
-      font-size: 11px;
+      font-size: 9px;
       color: #08112c;
       font-weight: 600;
     }
