@@ -778,7 +778,7 @@ h2{
     /* Estilos para los ítems de la lista como fila de tabla */
     .card.personal-bests li {
         display: grid;
-        grid-template-columns: 1.5fr 2.8fr 0.4fr; 
+        grid-template-columns: 1.4fr 2.8fr 0.4fr; 
         /* align-items: center; */
         /* margin-bottom: 15px; */
     }
@@ -980,7 +980,7 @@ h2{
     /* Estilos para los ítems de la lista como fila de tabla */
     .card.personal-bests li {
         display: grid;
-        grid-template-columns: 2fr 2.3fr 0.4fr; 
+        grid-template-columns: 1.9fr 2.3fr 0.4fr; 
         /* align-items: center; */
         /* margin-bottom: 15px; */
     }
@@ -1163,7 +1163,7 @@ h2{
 
     .card.personal-bests li {
         display: grid;
-        grid-template-columns: 2fr 2.5fr 0.9fr; 
+        grid-template-columns: 1.9fr 2.5fr 0.9fr; 
 
     }
 
