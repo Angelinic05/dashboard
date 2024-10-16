@@ -370,26 +370,6 @@ body {
   padding: 10px;
 }
 
-/* Contenedor para el gráfico lineal que ocupa todo el ancho */
-/* .grafico-lineal {
-  margin-top: 20%;
-  width: 80%;
-  height: 40vh;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .otro {
-  margin-top: 15px;
-  background-color: #08112c;
-  width: 100%; 
-  height: 370px; 
-}
- */
 
 
 
@@ -415,15 +395,7 @@ body {
   height: 350px; 
 }
 
-
-
-
-
-
-
-
-
-
+/* ------------------------------------------------------------------------------------------------------------------------------------*/
 
 @media (max-width: 1024px) {
   .contenedor-principal {
@@ -461,7 +433,7 @@ body {
 @media (max-width: 768px) {
 
     .sidebar.close {
-      left: -100px; /* Ocultar el menú en móviles */
+      left: -100px; 
     }
 
     .sidebar {
@@ -470,7 +442,7 @@ body {
 
     .home-section {
         transition: all 0.5s ease;
-        margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+        margin-left: 0; 
     }
 
       
@@ -528,13 +500,9 @@ body {
     height: 250px; 
   }
   
-  
-  
-  
-
 }
 
-
+/* ------------------------------------------------------------------------------------------------------------------------------------*/
 /* Ajustes para pantallas muy pequeñas */
 @media (max-width: 480px) {
 

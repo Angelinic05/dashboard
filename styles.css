@@ -273,17 +273,6 @@ body {
   }
 
 
-  
-/* Estilo para el contenedor del título ---------------------------------*/
-/* .contenedor-titulo {
-    background-color: #131313; /* Fondo
-    height: 5%;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    box-sizing: border-box; 
-} */
-
 .contenedor-titulo h1 {
     margin: 0;
     font-size: 2em;
@@ -574,33 +563,6 @@ h2{
     text-anchor: middle;
     dominant-baseline: middle;
 }
-
-/* Contenedor final --------------------------------------------------*/
-/* .countdown{
-    background-color: #131313;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1vh; 
-    margin-bottom: 20px;
-}
-
-.date{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 3rem;
-    width: 16vh;
-    font-weight: 900;
-    background: linear-gradient(90deg, #8F00FF, #b230c4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-} */
-
-
-
-
 .countdown {
     
     /* background-color: #1f1f1f; */
@@ -659,12 +621,7 @@ h2{
     color: #444;
 }
 
-
-
-
-
-
-
+/* ------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* Responsividad para dispositivos móviles */
 @media (max-width: 768px) {
@@ -694,8 +651,6 @@ h2{
         left: 0;
         width:100%;
     }
-
-    
 
 
     h2{
@@ -813,18 +768,6 @@ h2{
         padding: 2vh;
     }
 
-    /* .subcontenedor-der-circle {
-        background-color: #131313;   
-        height: 24.5%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* margin-bottom: 20px; 
-        box-sizing: border-box;
-        border-radius: 8px;
-        overflow: hidden;
-        padding: 2.3vh;
-    } */
 
     .card>.bigstats2 {
         grid-template-columns: repeat(3, 1fr);
@@ -875,11 +818,11 @@ h2{
 
 
 }
-
+/* ------------------------------------------------------------------------------------------------------------------------------------*/
 
 @media (max-width: 480px) {
     .sidebar.close {
-        left: -100px; /* Ocultar el menú en móviles */
+        left: -100px;
     }
 
     .sidebar {
@@ -888,7 +831,7 @@ h2{
 
     .home-section {
         transition: all 0.5s ease;
-        margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
+        margin-left: 0; 
     }
 
 
@@ -916,7 +859,7 @@ h2{
 
     .fila-superior {
         flex-direction: column;
-        gap: 20; /* Elimina el espacio entre contenedores en pantallas pequeñas */
+        gap: 20; 
     }
 
     .contenedor-pequeño {
@@ -935,7 +878,7 @@ h2{
     .subcontenedor-der {
         height: auto;
         display: flex;
-        margin-bottom: 5px; /* Ajusta el espacio entre subcontenedores */
+        margin-bottom: 5px; 
     }
 
     .subcontenedor-izq,
@@ -994,10 +937,6 @@ h2{
         color: #fff;
         padding: 0;
     }
-
-
-    
-    /* Estilos para la parte de progreso dentro de la barra */
     
 
     .progress-bar {
@@ -1062,7 +1001,7 @@ h2{
     }
 }
 
- 
+/* ------------------------------------------------------------------------------------------------------------------------------------*/
 @media (max-width: 430px) {
     .sidebar.close {
         left: -100px; /* Ocultar el menú en móviles */
@@ -1124,14 +1063,9 @@ h2{
         margin-bottom: 5px; 
     }
 
-
-
-
     .subcontenedor-der {
         height: 100%;
     }
-
-    
 
     .card.schedule-table {
         padding: 5px;
@@ -1167,8 +1101,6 @@ h2{
 
     }
 
-
-    
     .card.personal-bests span {
 
         font-size: 0.7rem;
@@ -1176,16 +1108,9 @@ h2{
         padding: 0;
     }
 
-
-    
-
-    
-
     .progress-bar {
         height: 90%;
     }
-
-    
 
     .card.schedule-table {
         padding: 2px;
