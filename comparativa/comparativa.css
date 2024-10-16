@@ -502,6 +502,27 @@ h1{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
 
   .sidebar.close {
@@ -526,49 +547,6 @@ h1{
   .fila {
     flex-direction: column;
   } 
-
-  /* .contenedor-pequeño, .contenedor-grande {
-    width: 100%;
-    margin-bottom: 10px; */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     .contenedor-principal {
       margin: 2vh;
@@ -648,57 +626,53 @@ h1{
 
     .contenedor-interno {
       padding: 15px ;
+
     }
 
     #grafico{
       width: 100%;
-      height: 290px;
+      height: 300px;
     }
 
 
     .contenedor-interno2 {
-      display: flex;
-      justify-content: center;
-      height: 50%; /* Ocupan la mitad del contenedor padre */
-      background-color: var(--container);
-      margin-bottom: 4px;
-      border-radius: 4px;
-      gap: 50px;
+      height: 100%; /* Ocupan la mitad del contenedor padre */
+      gap: 5px;
     }
 
 
     #graficoRosquilla1, 
     #graficoRosquilla2,
     #graficoRosquilla3 {
-      width:250px;
-      height: 300px;
+      width: 150px;
+      height: 310px;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
   
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Ajustes para pantallas muy pequeñas */
 @media (max-width: 480px) {
@@ -715,7 +689,109 @@ h1{
       margin-left: 0; /* Ajustar el margen del contenido principal cuando el menú esté visible */
   }
 
+  .fila {
+    flex-direction: column;
+  } 
 
+    .contenedor-principal {
+      margin: 2vh;
+      padding: 5px;
+    }
+    
+    .fila {
+      margin-top: 2px;
+      margin-bottom: 20px;
+    }
+
+    .fila2 {
+      margin-top: 2px;
+      width: 100%;
+    }
+
+
+      .contenedor-pequeño {
+        padding: 10px;
+        width: 50%;
+        font-size: 12px;
+      }
+
+    .contenedor-grande {
+      width: 91%;
+    }
+
+    h1{
+
+      font-size: 20px;
+    }
+
+    #datos-tabla {
+      width: 100%;
+    }
+
+    #datos-tabla th, #datos-tabla td {
+      padding: 0;
+      font-size: 13px;;
+    }
+
+
+    .columna-mes{
+      width: 15%; 
+      font-size: 11px;
+    }
+
+    .columna-barra {
+      width: 50%; /* Ajusta según el tamaño deseado */
+    }
+
+    #contenedor-barras {
+      margin-top: 10px;
+    }
+
+    .columna-total {
+      font-size: 11px;
+      width: 15%; /* Ajusta según el tamaño deseado */
+    }
+
+    .barra-contenedor {
+      height: 18px;
+    }
+
+    .barra-frio, .barra-tibio {
+      height: 100%;
+      font-size: 11px;
+    }
+
+    .texto-barra {
+      width: 100%;
+      text-align: center;
+      font-size: 11px;
+      color: #08112c;
+      font-weight: 600;
+    }
+
+    .contenedor-interno {
+      padding: 15px ;
+
+    }
+
+    #grafico{
+      width: 100%;
+      height: 300px;
+    }
+
+
+    .contenedor-interno2 {
+      height: 100%; /* Ocupan la mitad del contenedor padre */
+      gap: 5px;
+    }
+
+
+    #graficoRosquilla1, 
+    #graficoRosquilla2,
+    #graficoRosquilla3 {
+      width: 150px;
+      height: 310px;
+    }
 
 }
 
