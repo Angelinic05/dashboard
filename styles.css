@@ -301,7 +301,7 @@ body {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
     gap: 10px; /* Espacio entre los contenedores */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .contenedor-pequeño {
@@ -326,7 +326,7 @@ body {
 .statnum {
     background: var(--glow-violet);
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 700;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -340,10 +340,11 @@ body {
 
 /* Contenedor inferior con 2 columnas -------------------------------*/
 h2{
+    margin: auto;
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     font-weight: 900;
     background: linear-gradient(90deg, var(--glow-violet), var(--glow-violet-c));
     -webkit-background-clip: text;
@@ -407,7 +408,7 @@ h2{
 
 /* Estilos para la tarjeta de la tabla */
 .card.schedule-table {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     width: 100%;/* Fondo de la tarjeta */
     /* padding: 15px; Espaciado interno */
     border-radius: 8px; /* Bordes redondeados */
