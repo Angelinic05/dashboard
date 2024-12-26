@@ -403,12 +403,12 @@ function mostrarGrafico(data) {
             }
         },
         legend: {
-            data: clases,
-            bottom: '10%',
+            data: meses,
+            bottom: '5%',
             textStyle: {
                 fontSize: chartTitleFontSize, // Tamaño ajustable
-                color: 'white'
-            }
+              },
+              itemGap: 20 // Ajusta el espacio entre los "cositos"
         },
         xAxis: {
             data: clases,
