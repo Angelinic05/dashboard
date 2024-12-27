@@ -180,108 +180,61 @@ rel='stylesheet' type='text/css'>
                     <h2>LEADS CAPTACIÓN</h2>
                     <div class="subcontenedor-izq">
                         <div class="card schedule-table">
-                            <table>
+                            <table id="leadsTable">
                                 <tr>
                                     <th>FUENTE</th>
                                     <th>META</th>
                                     <th>LOGRADO</th>
                                     <th>%LOGRADO</th>
                                 </tr>
-                                <tr>
-                                    <td>FB FRIO</td>
-                                    <td>134.110</td>
-                                    <td>330</td>
-                                    <td>0.25%</td>
-                                </tr>
-                                <tr>
-                                    <td>FB AUD</td>
-                                    <td>56.790</td>
-                                    <td>0</td>
-                                    <td>0.00%</td>
-                                </tr>
-                                <tr>
-                                    <td>RRSS</td>
-                                    <td>5.800</td>
-                                    <td>293</td>
-                                    <td>5.05%</td>
-                                </tr>
-                                <tr>
-                                    <td>WA</td>
-                                    <td>6.000</td>
-                                    <td>2.061</td>
-                                    <td>34.35%</td>
-                                </tr>
-                                <tr>
-                                    <td>CORREO</td>
-                                    <td>3.000</td>
-                                    <td>656</td>
-                                    <td>21.87%</td>
-                                </tr>
-                                <tr>
-                                    <td>REFERIDO</td>
-                                    <td>800</td>
-                                    <td>10</td>
-                                    <td>1.25%</td>
-                                </tr>
-                                <tr>
-                                    <td class="total">TOTAL</td>
-                                    <td class="total">206.500</td>
-                                    <td class="total">3.350</td>
-                                    <td class="total">1.62%</td>
-                                </tr>
-                                
                             </table>
                         </div>
                     </div>
+                    
                     <div class="subcontenedor-izq">
                         <div class="card personal-bests">
-                            <ul>
-                                <li>
+                            <ul id="progressList">
+                                <li data-index="0">
                                     <span>FB FRIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
-                                        <div class="progress" style="width: 0.25%;"></div>
+                                        <div class="progress" style="width: 0%;"></div>
                                     </div>
-                                    <span class="progress-text">0.25%</span>
-                                        
+                                    <span class="progress-text">0.00%</span>
                                 </li>
-                                <li>
+                                <li data-index="1">
                                     <span>FB AUD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
                                         <div class="progress" style="width: 0%;"></div>
                                     </div>
                                     <span class="progress-text">0.00%</span>
-                                        
                                 </li>
-                                <li>
+                                <li data-index="2">
                                     <span>RRSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
-                                        <div class="progress" style="width: 5.05%;"></div>
+                                        <div class="progress" style="width: 0%;"></div>
                                     </div>
-                                    <span class="progress-text">5.05%</span>
-                                        
+                                    <span class="progress-text">0.00%</span>
                                 </li>
-                                <li>
+                                <li data-index="3">
                                     <span>WA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
-                                        <div class="progress" style="width: 34.35%;"></div>
+                                        <div class="progress" style="width: 0%;"></div>
                                     </div>
-                                    <span class="progress-text">34.35%</span>
+                                    <span class="progress-text">0.00%</span>
                                 </li>
-                                <li>
+                                <li data-index="4">
                                     <span>CORREO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
-                                        <div class="progress" style="width: 21.87%;"></div>
+                                        <div class="progress" style="width: 0%;"></div>
                                     </div>
-                                    <span class="progress-text">21.87%</span>
-                                        
+                                    <span class="progress-text">0.00%</span>
                                 </li>
-                                <li>
+                                <li data-index="5">
                                     <span>REF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
-                                        <div class="progress" style="width: 1.25%;"></div>
+                                        <div class="progress" style="width: 0%;"></div>
                                     </div>
-                                    <span class="progress-text">1.25%</span>
-                                        
+                                    <span class="progress-text">0.00%</span>
                                 </li>
                             </ul>
                         </div>
@@ -291,56 +244,33 @@ rel='stylesheet' type='text/css'>
                     <h2>INVERSIÓN</h2>
                     <div class="subcontenedor-der">
                         <!-- Copia la tabla al primer contenedor de la derecha -->
-                        
                         <div class="card schedule-table">
-                            <table>
+                            <table id="investmentTable">
                                 <tr>
                                     <th>FUENTE</th>
                                     <th>PROYECTADO</th>
                                     <th>INVERTIDO</th>
                                     <th>%LOGRADO</th>
                                 </tr>
-                                <tr>
-                                    <td>FB FRIO</td>
-                                    <td>$120.000</td>
-                                    <td>$0.00</td>
-                                    <td>0.00%</td>
-                                </tr>
-                                <tr>
-                                    <td>FB AUD</td>
-                                    <td>$40.000</td>
-                                    <td>$0.00</td>
-                                    <td>0.00%</td>
-                                </tr>
-                                
-                                <tr>
-                                    <td class="total">TOTAL</td>
-                                    <td class="total">$160.000</td>
-                                    <td class="total">$0.00</td>
-                                    <td class="total">0.00%</td>
-                                </tr>
                             </table>
                         </div>
                     </div>
-                    <div class="subcontenedor-der">
-                        <!-- Copia las barras de progreso al segundo contenedor de la derecha -->
+                    <div class="subcontenedor-der"> 
                         <div class="card personal-bests">
-                            <ul>
-                                <li>
+                            <ul id="investmentProgressList">
+                                <li data-index="0">
                                     <span>FB FRIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
                                         <div class="progress" style="width: 0%;"></div>
                                     </div>
                                     <span class="progress-text">0.00%</span>
-                                        
                                 </li>
-                                <li>
+                                <li data-index="1">
                                     <span>FB AUD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <div class="progress-bar">
                                         <div class="progress" style="width: 0%;"></div>
                                     </div>
                                     <span class="progress-text">0.00%</span>
-                                        
                                 </li>
                             </ul>
                         </div>
@@ -350,37 +280,41 @@ rel='stylesheet' type='text/css'>
                             <div class="bigstats2">
                                 <div class="stat">
                                     <div class="statnum2">Leads</div>
-                                    <div class="progress-container2">
+                                    <div class="progress-container2" data-progress="0"> <!-- Cambia 75 por el valor que desees -->
                                         <svg class="progress-svg" viewBox="0 0 100 100">
                                             <circle class="progress-background" cx="50" cy="50" r="40"></circle>
-                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"></circle>
-                                            <text class="progress-text" x="50" y="50">0%</text>
+                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                            <text class="progress-text" x="50" y="50">Cargando...</text>
                                         </svg>
                                     </div>
                                 </div>
                                 <div class="stat">
                                     <div class="statnum2">Inversión</div>
-                                    <div class="progress-container">
+                                    <div class="progress-container" data-progress="0"> <!-- Cambia 50 por el valor que desees -->
                                         <svg class="progress-svg" viewBox="0 0 100 100">
                                             <circle class="progress-background" cx="50" cy="50" r="40"></circle>
-                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"></circle>
-                                            <text class="progress-text" x="50" y="50">0%</text>
+                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                            <text class="progress-text" x="50" y="50">Cargando...</text>
                                         </svg>
                                     </div>
                                 </div>
                                 <div class="stat">
                                     <div class="statnum2">Whatsapp</div>
-                                    <div class="progress-container3">
+                                    <div class="progress-container3" data-progress="0"> <!-- Cambia 30 por el valor que desees -->
                                         <svg class="progress-svg" viewBox="0 0 100 100">
-                                            <circle class="progress-background " cx="50" cy="50" r="40"></circle>
-                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"></circle>
-                                            <text class="progress-text" x="50" y="50">0%</text>
+                                            <circle class="progress-background" cx="50" cy="50" r="40"></circle>
+                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                            <text class="progress-text" x="50" y="50">Cargando...</text>
                                         </svg>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
 
@@ -413,7 +347,146 @@ rel='stylesheet' type='text/css'>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/e267099c50.js" crossorigin="anonymous"></script>
+    <script>
+        // URL de tu Google Apps Script
+        const url = 'https://script.google.com/macros/s/AKfycbxEtl7J0XXiTf2BZb-HAiJf6ftQcmg2YTMsG4R-mDYDDVdP7ZYU5h0BHiQYGOXL5HAXeQ/exec';
+    
+        // Función para obtener datos de Google Sheets
+        async function fetchData() {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                console.log('Datos de Leads:', data.leads);
+                console.log('Datos de Inversiones:', data.investments);
+                console.log('Datos de Inversiones:', data.circle);
+                updateTable(data.leads);
+                updateProgressBars(data.leads);
+                updateInvestmentTable(data.investments);
+                updateInvestmentProgressBars(data.investments);
+                updateCircleProgress(data.circle)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+    
+        // Función para actualizar la tabla de leads
+        function updateTable(data) {
+            const table = document.getElementById('leadsTable');
+            table.innerHTML = `
+                <tr>
+                    <th>FUENTE</th>
+                    <th>META</th>
+                    <th>LOGRADO</th>
+                    <th>%LOGRADO</th>
+                </tr>
+            `;
+    
+            const fuentes = ["FB FRIO", "FB AUD", "RRSS", "WA", "CORREO", "REF", "TOTAL"];
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${fuentes[index]}</td>
+                    <td>${(item.meta)}</td> 
+                    <td>${(item.logrado)}</td>
+                    <td>${(item.porcentaje * 100).toFixed(2)}%</td>
+                `;
+                table.appendChild(row);
+            });
+        }
+    
+        // Función para actualizar las barras de progreso de leads
+        function updateProgressBars(data) {
+            const progressList = document.getElementById('progressList');
+            data.forEach((item, index) => {
+                const progressItem = progressList.querySelector(`li[data-index="${index}"]`);
+                if (progressItem) { // Verifica si progressItem existe
+                    const progressBar = progressItem.querySelector('.progress');
+                    const progressText = progressItem.querySelector('.progress-text');
+    
+                    const percentage = (item.porcentaje * 100).toFixed(2);
+                    progressBar.style.width = `${percentage}%`;
+                    progressText.textContent = `${percentage}%`;
+                } else {
+                    console.warn(`No se encontró el elemento para el índice ${index}`);
+                }
+            });
+        }
+    
+        // Función para actualizar la tabla de inversiones
+        function updateInvestmentTable(data) {
+            const table = document.getElementById('investmentTable');
+            table.innerHTML = `
+                <tr>
+                    <th>FUENTE</th>
+                    <th>PROYECTADO</th>
+                    <th>INVERTIDO</th>
+                    <th>%LOGRADO</th>
+                </tr>
+            `;
+    
+            const fuentes = ["FB FRIO", "FB AUD", "TOTAL"];
+    
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${fuentes[index]}</td>
+                    <td>$${parseFloat(item.proyectado).toLocaleString('es-ES')}</td>
+                    <td>$${parseFloat(item.invertido).toLocaleString('es-ES')}</td>
+                    <td>${(item.logrado * 100).toFixed(2)}%</td>
+                `;
+                table.appendChild(row);
+            });
+    
 
+        }
+    
+        // Función para actualizar las barras de progreso de inversiones
+        function updateInvestmentProgressBars(data) {
+            const investmentProgressList = document.getElementById('investmentProgressList');
+            data.forEach((item, index) => {
+                const progressItem = investmentProgressList.querySelector(`li[data-index="${index}"]`);
+                if (progressItem) { // Verifica si progressItem existe
+                    const progressBar = progressItem.querySelector('.progress');
+                    const progressText = progressItem.querySelector('.progress-text');
+    
+                    const percentage = (item.logrado * 100).toFixed(2);
+                    progressBar.style.width = `${percentage}%`;
+                    progressText.textContent = `${percentage}%`;
+                } else {
+                    console.warn(`No se encontró el elemento para el índice ${index}`);
+                }
+            });
+        }
+
+        function updateCircleProgress(circleData) {
+    // Actualizar Leads
+        const leadsProgress = document.querySelector('.progress-container2');
+        const leadsPercentage = (circleData.leads).toFixed(1); // Suponiendo que 10 es el total
+        updateProgressCircle(leadsProgress, leadsPercentage);
+
+        // Actualizar Inversión
+        const inversionProgress = document.querySelector('.progress-container');
+        const inversionPercentage = (circleData.inversion).toFixed(1); // Suponiendo que 10 es el total
+        updateProgressCircle(inversionProgress, inversionPercentage);
+
+        // Actualizar Whatsapp
+        const waProgress = document.querySelector('.progress-container3');
+        const waPercentage = (circleData.wa).toFixed(1); // Suponiendo que 10 es el total
+        updateProgressCircle(waProgress, waPercentage);
+    }
+
+    function updateProgressCircle(container, percentage) {
+        const progressBar = container.querySelector('.progress-bar');
+        const progressText = container.querySelector('.progress-text');
+
+        const strokeDashoffset = 251.2 - (percentage / 100) * 251.2; // Calcular el offset
+        progressBar.style.strokeDashoffset = strokeDashoffset; // Actualizar el offset
+        progressText.textContent = `${percentage}%`; // Actualizar el texto
+    }
+    
+        // Llamar a la función para obtener los datos al cargar la página
+        window.onload = fetchData;
+    </script>
     <script>
         let arrow = document.querySelectorAll(".arrow");
         for (var i = 0; i < arrow.length; i++) {
@@ -430,36 +503,28 @@ rel='stylesheet' type='text/css'>
         });
 
 
-        function updateCircularProgressBar(svgElement, url) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var value = parseFloat(xhr.responseText);
-                    var adjustedValue = Math.min(value, 100); // Ajustar el valor para asegurarse de que no sea mayor que 100%
-                    console.log("Porcentaje recibido de Google Sheets: " + adjustedValue + "%");
+        function updateCircularProgressBar(svgElement) {
+        var adjustedValue = parseFloat(svgElement.getAttribute('data-progress'));
+        adjustedValue = Math.min(adjustedValue, 100); // Asegurarse de que no sea mayor que 100%
+        console.log("Porcentaje establecido en HTML: " + adjustedValue + "%");
 
-                    var progressCircle = svgElement.querySelector('.progress-bar');
-                    var progressText = svgElement.querySelector('.progress-text');
+        var progressCircle = svgElement.querySelector('.progress-bar');
+        var progressText = svgElement.querySelector('.progress-text');
 
-                    var circumference = 2 * Math.PI * progressCircle.getAttribute('r');
-                    var dashOffset = circumference * (1 - adjustedValue / 100);
+        var circumference = 2 * Math.PI * progressCircle.getAttribute('r');
+        var dashOffset = circumference * (1 - adjustedValue / 100);
 
-                    progressCircle.style.strokeDasharray = circumference;
-                    progressCircle.style.strokeDashoffset = dashOffset;
-                    progressText.textContent = adjustedValue.toFixed(1) + "%";
-                }
-            };
-            xhr.open("GET", url, true);
-            xhr.send();
+        progressCircle.style.strokeDasharray = circumference;
+        progressCircle.style.strokeDashoffset = dashOffset;
+        progressText.textContent = adjustedValue.toFixed(1) + "%";
         }
 
-        function formatPercentage(percentage) {
-            if (percentage < 10) {
-                return percentage.toFixed(2).replace(/\.?0*$/, '') + '%';
-            } else {
-                return percentage.toFixed(1) + '%';
-            }
-        }
+        // Llama a la función para cada contenedor de progreso
+        var circularProgressBars = document.querySelectorAll('.progress-container, .progress-container2, .progress-container3');
+        circularProgressBars.forEach(function(container) {
+            updateCircularProgressBar(container);
+        });
+
 
         // Set the date we're counting down to
         var countDownDate = new Date("jan 27, 2025 19:00:00").getTime();
@@ -496,19 +561,6 @@ rel='stylesheet' type='text/css'>
                 document.getElementById("countdown").innerHTML = "EXPIRED";
             }
         }, 1000);
-
-
-
-        var circularProgressBar = document.querySelector('.progress-container');
-        updateCircularProgressBar(circularProgressBar, 'https://script.google.com/macros/s/AKfycbwVomay5O25QzyL63hUPdJszUeZ2nceiUiP9CQjWm8yFSfA8-o08UkeeXOHOdFbJqEx/exec');
-
-        var circularProgressBar = document.querySelector('.progress-container2');
-        updateCircularProgressBar(circularProgressBar, 'https://script.google.com/macros/s/AKfycby8a6tfUuW_4mWk75sTAhSQfHEiGAC37EtzrAel8oE8boOOjgg8CCYTltkWOCBl7H8/exec');
-
-        var circularProgressBar = document.querySelector('.progress-container3');
-        updateCircularProgressBar(circularProgressBar, 'https://script.google.com/macros/s/AKfycbxDuIz6RbAdjr-pDzZcQYQpb_jML_28tAfYqx7_Inqq5CLFq_qruGnVFA4_aYeWIEs0/exec');
-
-
 
     </script>
 </body>
