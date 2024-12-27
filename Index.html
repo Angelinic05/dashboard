@@ -380,14 +380,14 @@ rel='stylesheet' type='text/css'>
                     <th>%LOGRADO</th>
                 </tr>
             `;
-    
+        
             const fuentes = ["FB FRIO", "FB AUD", "RRSS", "WA", "CORREO", "REF", "TOTAL"];
             data.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${fuentes[index]}</td>
-                    <td>${(item.meta)}</td> 
-                    <td>${(item.logrado)}</td>
+                    <td>${(Number(item.meta).toLocaleString())}</td> 
+                    <td>${(Number(item.logrado).toLocaleString())}</td>
                     <td>${(item.porcentaje * 100).toFixed(2)}%</td>
                 `;
                 table.appendChild(row);
