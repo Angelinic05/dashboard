@@ -507,7 +507,8 @@ h2{
 /* Estilos para la parte de progreso dentro de la barra */
 .progress {
     height: 100%;
-    background: linear-gradient(90deg, var(--glow-violet), var(--glow-violet-c));
+    /* background: linear-gradient(90deg, var(--glow-violet), var(--glow-violet-c)); */
+    /* background: linear-gradient(90deg, #0077d8, #37BCDB ); */
     border-radius: 8px;
     width: 0%; /* Ancho inicial */
 }
