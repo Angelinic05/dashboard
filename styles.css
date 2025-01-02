@@ -992,7 +992,7 @@ h2{
 
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .sidebar.close {
         left: -100px;
     }
@@ -1115,9 +1115,10 @@ h2{
         height: 90%;
     }
 
+
     .progress-container, .progress-container2, .progress-container3, .progress-container4, .progress-container5 {
-        width: 100%; 
-        height: 100%; 
+        width: 130%; 
+        height: 130%; 
     }
 
     .subcontenedor-der-circle {
@@ -1127,7 +1128,7 @@ h2{
 
     .card>.bigstats2 {
         grid-template-columns: repeat(5, 1fr);
-        gap: 0.2rem;
+        gap: 1rem;
     }
 
     .statnum2 {
