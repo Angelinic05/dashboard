@@ -363,6 +363,18 @@ h2{
     -webkit-text-fill-color: transparent;    */
 }
 
+.leads{
+    background: linear-gradient(90deg, #0077d8, #37BCDB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.inversion{
+    background: linear-gradient(90deg, #c9009d, #c730ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .contenedor-inferior {
     display: flex;
     flex-wrap: wrap; 
@@ -511,6 +523,15 @@ h2{
     /* background: linear-gradient(90deg, #0077d8, #37BCDB ); */
     border-radius: 8px;
     width: 0%; /* Ancho inicial */
+}
+
+.stylebarleads{
+    width: 0%; background: linear-gradient(90deg, #0077d8, #37BCDB );
+}
+
+
+.stylebarinver{
+    width: 0%; background: linear-gradient(90deg, #c9009d, #c730ce);
 }
 
 /* Estilos para el texto del progreso */
