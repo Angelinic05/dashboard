@@ -571,11 +571,18 @@ h2{
 }
 .progress-bar {
     fill: none;
-    stroke: #8C0FE0;
+    /* stroke: #8C0FE0; */
     stroke-width: 10;
     stroke-linecap: round;
     stroke-dasharray: 0, 1000;
+}
 
+.progress-bar1 {
+    stroke: #37BCDB;
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 0, 1000;
 }
 
 
@@ -696,7 +703,6 @@ h2{
 @media (max-width: 2200px) {    
 
     .izq{
-        border: 1px soplid darkcyan;
         margin-top: 5%;
     }
 
@@ -1140,6 +1146,7 @@ h2{
     .date {
         width: 14vh;
     }
+
 
 
 }

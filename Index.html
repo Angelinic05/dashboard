@@ -296,10 +296,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="subcontenedor-cen hour centro" style="background-color: transparent;">
+                    <div class="subcontenedor-cen hour centro" style="background-color: transparent;" id="time">
                             <h2 style="text-align: center; font-size: 1.6rem;">NUESTRO PRÓXIMO RECORD SERÁ EN:</h2>
                             <div class="countdown">
-                            
                             <div class="date">
                                 <span id="days" class="lispan"></span>
                                 <div class="label">Days</div>
@@ -340,7 +339,8 @@
                                             <svg class="progress-svg" viewBox="0 0 100 100">
                                                 <circle class="progress-background" cx="50" cy="50" r="40"></circle>
                                                 <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                        stroke="#37BCDB" stroke-dasharray="251.2" stroke-dashoffset="0">
+                                                </circle>
                                                 <text class="progress-text" x="50" y="50">Cargando...</text>
                                             </svg>
                                         </div>
@@ -351,7 +351,7 @@
                                             <svg class="progress-svg" viewBox="0 0 100 100">
                                                 <circle class="progress-background" cx="50" cy="50" r="40"></circle>
                                                 <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                stroke="#c730ce" stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
                                                 <text class="progress-text" x="50" y="50">Cargando...</text>
                                             </svg>
                                         </div>
@@ -362,18 +362,7 @@
                                             <svg class="progress-svg" viewBox="0 0 100 100">
                                                 <circle class="progress-background" cx="50" cy="50" r="40"></circle>
                                                 <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
-                                                <text class="progress-text" x="50" y="50">Cargando...</text>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="stat">
-                                        <div class="statnum2">LIKES</div>
-                                        <div class="progress-container4" data-progress="0"> <!-- Cambia 30 por el valor que desees -->
-                                            <svg class="progress-svg" viewBox="0 0 100 100">
-                                                <circle class="progress-background" cx="50" cy="50" r="40"></circle>
-                                                <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                stroke="#37BCDB" stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
                                                 <text class="progress-text" x="50" y="50">Cargando...</text>
                                             </svg>
                                         </div>
@@ -384,22 +373,37 @@
                                             <svg class="progress-svg" viewBox="0 0 100 100">
                                                 <circle class="progress-background" cx="50" cy="50" r="40"></circle>
                                                 <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                stroke="#c730ce" stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
                                                 <text class="progress-text" x="50" y="50">Cargando...</text>
                                             </svg>
                                         </div>
                                     </div>
+                                    <div class="stat">
+                                        <div class="statnum2">LIKES</div>
+                                        <div class="progress-container4" data-progress="0"> <!-- Cambia 30 por el valor que desees -->
+                                            <svg class="progress-svg" viewBox="0 0 100 100">
+                                                <circle class="progress-background" cx="50" cy="50" r="40"></circle>
+                                                <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                stroke="#37BCDB" stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                <text class="progress-text" x="50" y="50">Cargando...</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                </div>
-            </div>
 
+                </div>
+                
+            </div>
+            
                 
                 
             </div>
+            
         </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -558,7 +562,7 @@
                 
                 // Forzar el re-renderizado para reiniciar la animación
                 setTimeout(() => {
-                    progressBar.style.transition = 'width 1s ease-in-out'; // Reactiva la animación
+                    progressBar.style.transition = 'width 1s ease-in-out';
                     progressBar.style.width = `${percentage}%`; // Establece el nuevo ancho
                 }, 50);
                 
