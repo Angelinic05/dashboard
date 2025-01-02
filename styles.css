@@ -651,11 +651,6 @@ h2{
     }
 
 
-
-    /* .centro{
-        margin-top: 0;
-    } */
-
     .izq{
         margin-top: 7%;
     }
@@ -665,7 +660,7 @@ h2{
         margin: 0 12; 
     }
     
-        
+
     /* .card.schedule-table th,
     .card.schedule-table td {
         font-size: 1.3rem;
@@ -698,16 +693,18 @@ h2{
 
 }
 
-/* @media (max-width: 2200px) {    
+@media (max-width: 2200px) {    
 
     .izq{
         border: 1px soplid darkcyan;
-        margin-top: 0;
+        margin-top: 5%;
     }
 
 
-
-} */
+    .centro{
+        margin-top: 14px;
+    }
+} 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
 @media (max-width: 1400px) {    
