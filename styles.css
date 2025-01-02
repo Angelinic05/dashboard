@@ -644,6 +644,60 @@ h2{
     color: #444;
 }
 
+
+@media (max-width: 2500px) {    
+    .fila-superior {
+        margin-top: 1%;
+    }
+
+
+
+    /* .centro{
+        margin-top: 0;
+    } */
+
+    .izq{
+        margin-top: 7%;
+    }
+
+
+    h2{
+        margin: 0 12; 
+    }
+    
+        
+    .card.schedule-table th,
+    .card.schedule-table td {
+        font-size: 1.3rem;
+        padding: 10px;
+    }
+
+    .card.personal-bests li {
+        display: grid;
+        grid-template-columns: 0.8fr 3fr 0.7fr;
+        margin-bottom: 10px;
+    }
+
+    .card.personal-bests span {
+        font-size: 1.3em;
+    }
+
+    .countdown {
+        gap: 0.2rem;
+        margin: 2px auto;
+    }
+
+    .date {
+        width: 11vh;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 5px;
+    }
+
+
+
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
 @media (max-width: 1400px) {    
     .contenedor-pequeño {
