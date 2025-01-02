@@ -666,11 +666,11 @@ h2{
     }
     
         
-    .card.schedule-table th,
+    /* .card.schedule-table th,
     .card.schedule-table td {
         font-size: 1.3rem;
         padding: 10px;
-    }
+    } */
 
     .card.personal-bests li {
         display: grid;
@@ -678,9 +678,9 @@ h2{
         margin-bottom: 10px;
     }
 
-    .card.personal-bests span {
+    /* .card.personal-bests span {
         font-size: 1.3em;
-    }
+    } */
 
     .countdown {
         gap: 0.2rem;
