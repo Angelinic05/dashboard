@@ -7,15 +7,36 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="../logo.png">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' 
-rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-
     <style>
         body {
         font-family: 'Montserrat';
         }
+
+        #chart {
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .apexcharts-tooltip {
+            background-color: #333 !important;
+            color: white !important;
+        }
+
+        .apexcharts-tooltip .apexcharts-tooltip-text {
+            font-size: 14px !important;
+        }
+
     </style>
     
     <div class="sidebar close">
@@ -177,72 +198,72 @@ rel='stylesheet' type='text/css'>
             <!-- Contenedor inferior con 2 columnas -->
             <div class="contenedor-inferior">
                 <div class="contenedor-izquierdo">
-                    <h2>LEADS CAPTACIÓN</h2>
-                    <div class="subcontenedor-izq">
-                        <div class="card schedule-table">
-                            <table id="leadsTable">
-                                <tr>
-                                    <th>FUENTE</th>
-                                    <th>META</th>
-                                    <th>LOGRADO</th>
-                                    <th>%LOGRADO</th>
-                                </tr>
-                            </table>
+                        <h2>LEADS CAPTACIÓN</h2>
+                        <div class="subcontenedor-izq">
+                            <div class="card schedule-table">
+                                <table id="leadsTable">
+                                    <tr>
+                                        <th>FUENTE</th>
+                                        <th>META</th>
+                                        <th>LOGRADO</th>
+                                        <th>%LOGRADO</th>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                     
-                    <div class="subcontenedor-izq">
-                        <div class="card personal-bests">
-                            <ul id="progressList">
-                                <li data-index="0">
-                                    <span>FB FRIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 0%;"></div>
-                                    </div>
-                                    <span class="progress-text">0.00%</span>
-                                </li>
-                                <li data-index="1">
-                                    <span>FB AUD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 0%;"></div>
-                                    </div>
-                                    <span class="progress-text">0.00%</span>
-                                </li>
-                                <li data-index="2">
-                                    <span>RRSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 0%;"></div>
-                                    </div>
-                                    <span class="progress-text">0.00%</span>
-                                </li>
-                                <li data-index="3">
-                                    <span>WA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 0%;"></div>
-                                    </div>
-                                    <span class="progress-text">0.00%</span>
-                                </li>
-                                <li data-index="4">
-                                    <span>CORREO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 0%;"></div>
-                                    </div>
-                                    <span class="progress-text">0.00%</span>
-                                </li>
-                                <li data-index="5">
-                                    <span>REF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 0%;"></div>
-                                    </div>
-                                    <span class="progress-text">0.00%</span>
-                                </li>
-                            </ul>
+                        <div class="subcontenedor-izq">
+                            <div class="card personal-bests">
+                                <ul id="progressList">
+                                    <li data-index="0">
+                                        <span>FB FRIO</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-text">0.00%</span>
+                                    </li>
+                                    <li data-index="1">
+                                        <span>FB AUD</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-text">0.00%</span>
+                                    </li>
+                                    <li data-index="2">
+                                        <span>RRSS</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-text">0.00%</span>
+                                    </li>
+                                    <li data-index="3">
+                                        <span>WA</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-text">0.00%</span>
+                                    </li>
+                                    <li data-index="4">
+                                        <span>CORREO</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-text">0.00%</span>
+                                    </li>
+                                    <li data-index="5">
+                                        <span>REF</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span class="progress-text">0.00%</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
                 </div>
-                <div class="contenedor-derecho">
+                <div class="contenedor-centro">
                     <h2>INVERSIÓN</h2>
-                    <div class="subcontenedor-der">
+                    <div class="subcontenedor-cen">
                         <!-- Copia la tabla al primer contenedor de la derecha -->
                         <div class="card schedule-table">
                             <table id="investmentTable">
@@ -255,18 +276,18 @@ rel='stylesheet' type='text/css'>
                             </table>
                         </div>
                     </div>
-                    <div class="subcontenedor-der"> 
+                    <div class="subcontenedor-cen centro"> 
                         <div class="card personal-bests">
                             <ul id="investmentProgressList">
                                 <li data-index="0">
-                                    <span>FB FRIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span>FB FRIO</span>
                                     <div class="progress-bar">
                                         <div class="progress" style="width: 0%;"></div>
                                     </div>
                                     <span class="progress-text">0.00%</span>
                                 </li>
                                 <li data-index="1">
-                                    <span>FB AUD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span>FB AUD</span>
                                     <div class="progress-bar">
                                         <div class="progress" style="width: 0%;"></div>
                                     </div>
@@ -275,81 +296,204 @@ rel='stylesheet' type='text/css'>
                             </ul>
                         </div>
                     </div>
-                    <div class="subcontenedor-der-circle">
-                        <div class="card exercise-table" style="grid-row: 2; grid-column: 2;">
-                            <div class="bigstats2">
-                                <div class="stat">
-                                    <div class="statnum2">Leads</div>
-                                    <div class="progress-container2" data-progress="0"> <!-- Cambia 75 por el valor que desees -->
-                                        <svg class="progress-svg" viewBox="0 0 100 100">
-                                            <circle class="progress-background" cx="50" cy="50" r="40"></circle>
-                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
-                                            <text class="progress-text" x="50" y="50">Cargando...</text>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="stat">
-                                    <div class="statnum2">Inversión</div>
-                                    <div class="progress-container" data-progress="0"> <!-- Cambia 50 por el valor que desees -->
-                                        <svg class="progress-svg" viewBox="0 0 100 100">
-                                            <circle class="progress-background" cx="50" cy="50" r="40"></circle>
-                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
-                                            <text class="progress-text" x="50" y="50">Cargando...</text>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="stat">
-                                    <div class="statnum2">Whatsapp</div>
-                                    <div class="progress-container3" data-progress="0"> <!-- Cambia 30 por el valor que desees -->
-                                        <svg class="progress-svg" viewBox="0 0 100 100">
-                                            <circle class="progress-background" cx="50" cy="50" r="40"></circle>
-                                            <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
-                                                stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
-                                            <text class="progress-text" x="50" y="50">Cargando...</text>
-                                        </svg>
-                                    </div>
-                                </div>
+                    <div class="subcontenedor-cen hour" style="background-color: transparent;">
+                            <h2 style="text-align: center; font-size: 1.6rem;">NUESTRO PRÓXIMO RECORD SERÁ EN:</h2>
+                            <div class="countdown">
+                            
+                            <div class="date">
+                                <span id="days" class="lispan"></span>
+                                <div class="label">Days</div>
+                            </div>
+                            <h1>:</h1>
+                            <div class="date">
+                                <span id="hours" class="lispan"></span>
+                                <div class="label">Hrs</div>
+                            </div>
+                            <h1>:</h1>
+                            <div class="date">
+                                <span id="minutes" class="lispan"></span>
+                                <div class="label">Min</div>
+                            </div>
+                            <h1>:</h1>
+                            <div class="date">
+                                <span id="seconds" class="lispan"></span>
+                                <div class="label">Sec</div>
                             </div>
                         </div>
                     </div>
                     
                 </div>
-            </div>
 
-                <h2 style="text-align: center;">NUESTRO PRÓXIMO RECORD SERÁ EN:</h2>
-                <div class="countdown">
-                    
-                    <div class="date">
-                        <span id="days" class="lispan"></span>
-                        <div class="label">Days</div>
+
+                <div class="contenedor-izquierdo">
+                    <h2>EMBUDO</h2>
+                    <div class="subcontenedor-izq">
+                        <div id="chart"></div>
                     </div>
-                    <h1>:</h1>
-                    <div class="date">
-                        <span id="hours" class="lispan"></span>
-                        <div class="label">Hrs</div>
-                    </div>
-                    <h1>:</h1>
-                    <div class="date">
-                        <span id="minutes" class="lispan"></span>
-                        <div class="label">Min</div>
-                    </div>
-                    <h1>:</h1>
-                    <div class="date">
-                        <span id="seconds" class="lispan"></span>
-                        <div class="label">Sec</div>
+                    <div class="subcontenedor-izq izq-aba" >
+                        <div class="subcontenedor-der-circle">
+                            <div class="card exercise-table" style="grid-row: 2; grid-column: 2;">
+                                <div class="bigstats2">
+                                    <div class="stat">
+                                        <div class="statnum2">LEADS</div>
+                                        <div class="progress-container2" data-progress="0"> <!-- Cambia 75 por el valor que desees -->
+                                            <svg class="progress-svg" viewBox="0 0 100 100">
+                                                <circle class="progress-background" cx="50" cy="50" r="40"></circle>
+                                                <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                <text class="progress-text" x="50" y="50">Cargando...</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="statnum2">INVERSIÓN</div>
+                                        <div class="progress-container" data-progress="0"> <!-- Cambia 50 por el valor que desees -->
+                                            <svg class="progress-svg" viewBox="0 0 100 100">
+                                                <circle class="progress-background" cx="50" cy="50" r="40"></circle>
+                                                <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                <text class="progress-text" x="50" y="50">Cargando...</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="statnum2">CHAT 1-1</div>
+                                        <div class="progress-container3" data-progress="0"> <!-- Cambia 30 por el valor que desees -->
+                                            <svg class="progress-svg" viewBox="0 0 100 100">
+                                                <circle class="progress-background" cx="50" cy="50" r="40"></circle>
+                                                <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                <text class="progress-text" x="50" y="50">Cargando...</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="statnum2">LIKES</div>
+                                        <div class="progress-container4" data-progress="0"> <!-- Cambia 30 por el valor que desees -->
+                                            <svg class="progress-svg" viewBox="0 0 100 100">
+                                                <circle class="progress-background" cx="50" cy="50" r="40"></circle>
+                                                <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                <text class="progress-text" x="50" y="50">Cargando...</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="statnum2">GRUPOS</div>
+                                        <div class="progress-container5" data-progress="0"> <!-- Cambia 30 por el valor que desees -->
+                                            <svg class="progress-svg" viewBox="0 0 100 100">
+                                                <circle class="progress-background" cx="50" cy="50" r="40"></circle>
+                                                <circle class="progress-bar progress-bar-circle" cx="50" cy="50" r="40"
+                                                    stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+                                                <text class="progress-text" x="50" y="50">Cargando...</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </div>
+
+                
                 
             </div>
         </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/e267099c50.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxv1HS76_XglbXNhQvMmlZQG1Ih3xMoiahust9pUvQZkgJDNt-E95TDjm2w2oT0d3EdIQ/exec";
+        const screenWidth = window.innerWidth;
+        const heightChart = screenWidth < 1000 ? 200 : 400;
+        // Función para inicializar el gráfico
+        function renderChart(data, heightChart) {
+            var options = {
+                series: [
+                    {
+                        name: "",
+                        data: data,
+                    },
+                ],
+                chart: {
+                    type: 'bar',
+                    height: 320,
+                    dropShadow: {
+                        enabled: true,
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        borderRadius: 0,
+                        horizontal: true,
+                        distributed: true,
+                        barHeight: '80%',
+                        isFunnel: true,
+                    },
+                },
+                colors: [
+                    '#37BCDB',
+                    '#306CCE',
+                    '#760FFC',
+                    '#c730ce'
+                ],
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val, opt) {
+                        return opt.w.globals.labels[opt.dataPointIndex] + ':  ' + val;
+                    },
+                    dropShadow: {
+                        enabled: true,
+                    },
+                },
+                xaxis: {
+                    categories: ['REGISTROS', 'CHAT 1-1', 'GRUPOS', 'LIKES CLASE #1'],
+                },
+                legend: {
+                    show: false,
+                },
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // Obtener los datos de funnel del App Script
+        async function fetchFunnelData() {
+            try {
+                const response = await fetch(scriptURL);
+                const jsonData = await response.json();
+
+                // Extraer solo los datos de funnel
+                const funnelData = jsonData.funnel;
+
+                // Transformar los datos en un arreglo para el gráfico
+                const chartData = [
+                    funnelData.registros,
+                    funnelData.chat11,
+                    funnelData.likes_yt,
+                    funnelData.grupos_wpp
+                ];
+
+                // Llamar a la función para renderizar el gráfico
+                renderChart(chartData);
+            } catch (error) {
+                console.error("Error al obtener los datos del funnel:", error);
+            }
+        }
+
+        // Llamar a la función para obtener y mostrar los datos
+        fetchFunnelData();
+
+
+    </script>
     <script>
         // URL de tu Google Apps Script
-        const url = 'https://script.google.com/macros/s/AKfycbxEtl7J0XXiTf2BZb-HAiJf6ftQcmg2YTMsG4R-mDYDDVdP7ZYU5h0BHiQYGOXL5HAXeQ/exec';
+        const url = 'https://script.google.com/macros/s/AKfycbxv1HS76_XglbXNhQvMmlZQG1Ih3xMoiahust9pUvQZkgJDNt-E95TDjm2w2oT0d3EdIQ/exec';
     
         // Función para obtener datos de Google Sheets
         async function fetchData() {
@@ -394,23 +538,43 @@ rel='stylesheet' type='text/css'>
             });
         }
     
+        // Simular datos obtenidos del Sheets
+
+
         // Función para actualizar las barras de progreso de leads
         function updateProgressBars(data) {
-            const progressList = document.getElementById('progressList');
-            data.forEach((item, index) => {
-                const progressItem = progressList.querySelector(`li[data-index="${index}"]`);
-                if (progressItem) { // Verifica si progressItem existe
-                    const progressBar = progressItem.querySelector('.progress');
-                    const progressText = progressItem.querySelector('.progress-text');
-    
-                    const percentage = (item.porcentaje * 100).toFixed(2);
-                    progressBar.style.width = `${percentage}%`;
-                    progressText.textContent = `${percentage}%`;
-                } else {
-                    console.warn(`No se encontró el elemento para el índice ${index}`);
-                }
-            });
-        }
+        const progressList = document.getElementById('progressList');
+        data.forEach((item, index) => {
+            const progressItem = progressList.querySelector(`li[data-index="${index}"]`);
+            if (progressItem) {
+                const progressBar = progressItem.querySelector('.progress');
+                const progressText = progressItem.querySelector('.progress-text');
+                
+                const percentage = (item.porcentaje * 100).toFixed(2);
+                
+                // Reiniciar la animación
+                progressBar.style.transition = 'none'; // Desactiva la animación
+                progressBar.style.width = '0%'; // Restablece el ancho
+                
+                // Forzar el re-renderizado para reiniciar la animación
+                setTimeout(() => {
+                    progressBar.style.transition = 'width 1s ease-in-out'; // Reactiva la animación
+                    progressBar.style.width = `${percentage}%`; // Establece el nuevo ancho
+                }, 50);
+                
+                progressText.textContent = `${percentage}%`;
+            } else {
+                console.warn(`No se encontró el elemento para el índice ${index}`);
+            }
+        });
+    }
+
+    // Llamar a la función de animación cada 10 segundos
+    setInterval(() => {
+        fetchData(); // Opcional: obtener nuevos datos antes de actualizar
+        updateProgressBars(lastFetchedData); // Usar los datos obtenidos (lastFetchedData)
+    }, 30000);
+
     
         // Función para actualizar la tabla de inversiones
         function updateInvestmentTable(data) {
@@ -442,24 +606,41 @@ rel='stylesheet' type='text/css'>
     
         // Función para actualizar las barras de progreso de inversiones
         function updateInvestmentProgressBars(data) {
-            const investmentProgressList = document.getElementById('investmentProgressList');
-            data.forEach((item, index) => {
-                const progressItem = investmentProgressList.querySelector(`li[data-index="${index}"]`);
-                if (progressItem) { // Verifica si progressItem existe
-                    const progressBar = progressItem.querySelector('.progress');
-                    const progressText = progressItem.querySelector('.progress-text');
-    
-                    const percentage = (item.logrado * 100).toFixed(2);
-                    progressBar.style.width = `${percentage}%`;
-                    progressText.textContent = `${percentage}%`;
-                } else {
-                    console.warn(`No se encontró el elemento para el índice ${index}`);
-                }
-            });
-        }
+        const investmentProgressList = document.getElementById('investmentProgressList');
+        data.forEach((item, index) => {
+            const progressItem = investmentProgressList.querySelector(`li[data-index="${index}"]`);
+            if (progressItem) {
+                const progressBar = progressItem.querySelector('.progress');
+                const progressText = progressItem.querySelector('.progress-text');
+                
+                const percentage = (item.logrado * 100).toFixed(2);
+                
+                // Reiniciar la animación
+                progressBar.style.transition = 'none'; // Desactiva la animación
+                progressBar.style.width = '0%'; // Restablece el ancho
+                
+                // Forzar el re-renderizado para reiniciar la animación
+                setTimeout(() => {
+                    progressBar.style.transition = 'width 1s ease-in-out'; // Reactiva la animación
+                    progressBar.style.width = `${percentage}%`; // Establece el nuevo ancho
+                }, 50);
+                
+                progressText.textContent = `${percentage}%`;
+            } else {
+                console.warn(`No se encontró el elemento para el índice ${index}`);
+            }
+        });
+    }
+
+    // Llamar a la función de animación cada 10 segundos
+    setInterval(() => {
+        fetchData(); // Opcional: obtener nuevos datos antes de actualizar
+        updateInvestmentProgressBars(lastFetchedInvestmentData); // Usar los datos obtenidos (lastFetchedInvestmentData)
+    }, 30000);
+
 
         function updateCircleProgress(circleData) {
-    // Actualizar Leads
+        // Actualizar Leads
         const leadsProgress = document.querySelector('.progress-container2');
         const leadsPercentage = (circleData.leads).toFixed(1); // Suponiendo que 10 es el total
         updateProgressCircle(leadsProgress, leadsPercentage);
@@ -470,19 +651,41 @@ rel='stylesheet' type='text/css'>
         updateProgressCircle(inversionProgress, inversionPercentage);
 
         // Actualizar Whatsapp
-        const waProgress = document.querySelector('.progress-container3');
-        const waPercentage = (circleData.wa).toFixed(1); // Suponiendo que 10 es el total
-        updateProgressCircle(waProgress, waPercentage);
+        const chatProgress = document.querySelector('.progress-container3');
+        const chatPercentage = (circleData.chat).toFixed(1); // Suponiendo que 10 es el total
+        updateProgressCircle(chatProgress, chatPercentage);
+
+        // Actualizar Likes
+        const likesProgress = document.querySelector('.progress-container4');
+        const likesPercentage = (circleData.likes).toFixed(1); // Suponiendo que 10 es el total
+        updateProgressCircle(likesProgress, likesPercentage);
+
+        // Actualizar Grupos
+        const gruposProgress = document.querySelector('.progress-container5');
+        const gruposPercentage = (circleData.grupos).toFixed(1); // Suponiendo que 10 es el total
+        updateProgressCircle(gruposProgress, gruposPercentage);
     }
 
     function updateProgressCircle(container, percentage) {
         const progressBar = container.querySelector('.progress-bar');
         const progressText = container.querySelector('.progress-text');
 
-        const strokeDashoffset = 251.2 - (percentage / 100) * 251.2; // Calcular el offset
-        progressBar.style.strokeDashoffset = strokeDashoffset; // Actualizar el offset
-        progressText.textContent = `${percentage}%`; // Actualizar el texto
+        // Reiniciar la animación
+        progressBar.style.transition = 'none'; // Desactiva la animación
+        progressBar.style.strokeDashoffset = 251.2; // Establece el offset al valor inicial
+
+        // Forzar re-renderizado para reiniciar la animación
+        setTimeout(() => {
+            progressBar.style.transition = 'stroke-dashoffset 1s ease-in-out'; // Reactiva la animación
+            const strokeDashoffset = 251.2 - (percentage / 100) * 251.2; // Calcular el offset
+            progressBar.style.strokeDashoffset = strokeDashoffset; // Actualizar el offset
+            progressText.textContent = `${percentage}%`; // Actualizar el texto
+        }, 50);
     }
+    setInterval(() => {
+        // Llamar a la función con los nuevos datos
+        updateCircleProgress(lastFetchedCircleData); // Usar los datos obtenidos (lastFetchedCircleData)
+    }, 30000);
     
         // Llamar a la función para obtener los datos al cargar la página
         window.onload = fetchData;
@@ -520,7 +723,7 @@ rel='stylesheet' type='text/css'>
         }
 
         // Llama a la función para cada contenedor de progreso
-        var circularProgressBars = document.querySelectorAll('.progress-container, .progress-container2, .progress-container3');
+        var circularProgressBars = document.querySelectorAll('.progress-container, .progress-container2, .progress-container3, .progress-container4, .progress-container5');
         circularProgressBars.forEach(function(container) {
             updateCircularProgressBar(container);
         });

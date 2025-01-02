@@ -28,6 +28,17 @@ body {
     color: var(--text); /* Texto en blanco */
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /* SIDENAV */
 
 .sidebar{
@@ -298,6 +309,7 @@ body {
 
 /* Fila superior con 5 contenedores -------------------------------------------*/
 .fila-superior {
+    margin-top: 0.4%;
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
     gap: 10px; /* Espacio entre los contenedores */
@@ -340,7 +352,7 @@ body {
 
 /* Contenedor inferior con 2 columnas -------------------------------*/
 h2{
-    margin: auto;
+    margin: 0 8;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -353,21 +365,23 @@ h2{
 
 .contenedor-inferior {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
-    gap: 10px; /* Espacio entre los contenedores */
+    flex-wrap: wrap; 
+    gap: 0; 
     margin-top: 0px;
 }
 
 .contenedor-izquierdo,
+.contenedor-centro,
 .contenedor-derecho {
     margin-bottom: 0;
-    flex: 1 1 calc(40% - 10px); /* Ajuste flexible con espacio para gap */
+    flex: 1 1 calc(20% - 10px); /* Ajuste flexible con espacio para gap */
     display: flex;
     flex-direction: column;
     box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
 }
 
 .subcontenedor-izq,
+.subcontenedor-cen,
 .subcontenedor-der {
     background-color: #08112c;   
     /* height: 100%; */
@@ -379,23 +393,28 @@ h2{
 }
 
 /* Estilos para el contenedor de la tabla ------------------------------*/
-.contenedor-izquierdo, .contenedor-derecho {
+.contenedor-izquierdo, .contenedor-centro, .contenedor-derecho {
     padding: 0px 10px 0px 10px;
     border-radius: 8px;
     box-sizing: border-box;
-    width: 100%;
+    width: 30%;
     height: 10%;
+    gap: 8px;
 }
 
 /* Estilos para el subcontenedor izquierdo */
-.subcontenedor-izq, .subcontenedor-der {
+.subcontenedor-izq, .subcontenedor-cen, .subcontenedor-der {
     border-radius: 8px;
     overflow: hidden;
 }
 
+.centro{
+    margin-top: 40px;
+} 
+
 .subcontenedor-der-circle {
     background-color: #08112c;   
-    height: 24.5%;
+    height: 12rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -403,7 +422,7 @@ h2{
     box-sizing: border-box;
     border-radius: 8px;
     overflow: hidden;
-    padding: 2.3vh;
+    padding: 2vh;
 }
 
 /* Estilos para la tarjeta de la tabla */
@@ -458,7 +477,7 @@ h2{
 /* Estilos para los ítems de la lista como fila de tabla */
 .card.personal-bests li {
     display: grid;
-    grid-template-columns: 0.9fr 2.5fr 0.3fr ;
+    grid-template-columns: 0.4fr 1.9fr 0.4fr ;
     align-items: center;
     margin-bottom: 15px;
 }
@@ -490,6 +509,7 @@ h2{
     height: 100%;
     background: linear-gradient(90deg, var(--glow-violet), var(--glow-violet-c));
     border-radius: 8px;
+    width: 0%; /* Ancho inicial */
 }
 
 /* Estilos para el texto del progreso */
@@ -512,10 +532,11 @@ h2{
 }
 .card>.bigstats2 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 9rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
     /* margin-bottom: 2rem; */
 }
+
 .card>.bigstats2>.stat {
     display: flex;
     flex-direction: column;
@@ -524,7 +545,7 @@ h2{
 }
 .statnum2 {
     background: var(--glow-violet);
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: 1000;
     background-clip: text;
     -webkit-background-clip: text;
@@ -532,13 +553,17 @@ h2{
     filter: drop-shadow(var(--glow-shadow-text) 0px 0px 5px);
     line-height: 0.9;
 }
+
 .progress-container,
 .progress-container2,
-.progress-container3 {
+.progress-container3,
+.progress-container4,
+.progress-container5 {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
+
 .progress-background {
     fill: none;
     stroke: #11245e;
@@ -550,8 +575,10 @@ h2{
     stroke-width: 10;
     stroke-linecap: round;
     stroke-dasharray: 0, 1000;
-    transition: stroke-dasharray 0.5s ease-in-out;
+
 }
+
+
 
 .progress-bar-circle{
     transform: rotate(-90deg); /* Rotación para empezar desde la parte superior */
@@ -565,21 +592,19 @@ h2{
     dominant-baseline: middle;
 }
 .countdown {
-    
     /* background-color: #1f1f1f; */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 0.5rem;
     /* padding: 2rem; */
     border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
     width: fit-content;
-    margin: 10px auto;
+    margin: 5px auto;
 }
 
 .date {
-    width: 15vh;
+    width: 12vh;
     text-align: center;
     font-size: 3rem;
     font-family: 'Poppins', sans-serif;
@@ -588,9 +613,6 @@ h2{
     padding: 10px;
     border-radius: 10px;
     background-color: #08112c;
-    /* background: linear-gradient(180deg, #8F00FF, #b230c4); */
-    /* box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4); */
-    /* transition: transform 0.2s ease-in-out; */
 }
 
 .date:hover {
@@ -623,9 +645,99 @@ h2{
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
+@media (max-width: 1400px) {    
+    .contenedor-pequeño {
+        flex: 1 1 calc(20% - 10px); /* Ajuste flexible con espacio para gap */
+        padding: 0;
+         /* Centra el texto horizontalmente dentro del contenedor */
+    }
 
+    .statnum {
+        font-size: 2rem;
+    }
+    
+    .stattext {
+        font-size: 0.8em; /* Tamaño de la fuente para el texto */
+    }
+
+    h2{
+        margin: 0;
+        font-size: 1.8rem;  
+    }
+
+    
+    .card.schedule-table th,
+    .card.schedule-table td {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .card.personal-bests li {
+        display: grid;
+        grid-template-columns: 0.8fr 3fr 0.7fr;
+        margin-bottom: 10px;
+    }
+
+    .card.personal-bests span {
+        font-size: 0.7em;
+    }
+
+    .centro{
+        margin-top: 14px;
+    } 
+    
+    .countdown {
+        gap: 0.2rem;
+        margin: 2px auto;
+    }
+
+    .date {
+        width: 11vh;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 5px;
+    }
+
+    .lispan {
+        font-size: 3rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+        color: #ffffff;
+        background: white;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 2px;
+    }
+
+    .subcontenedor-der-circle {
+        height: 7.6rem;
+        padding: 2vh;
+    }
+
+    .card>.bigstats2 {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2px;
+        /* margin-bottom: 2rem; */
+    }
+
+    .progress-container,
+    .progress-container2,
+    .progress-container3,
+    .progress-container4,
+    .progress-container5 {
+        position: relative;
+        width: 75px;
+        height: 75px;
+    }
+
+    .statnum2 {
+        font-size: 0.8rem;
+    }
+}
 /* Responsividad para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
 
         .sidebar.close {
             left: -100px; /* Ocultar el menú en móviles */
@@ -653,12 +765,20 @@ h2{
         width:100%;
     }
 
+    .statnum {
+        font-size: 1.5rem;
+    }
+    
+    .stattext {
+        font-size: 0.7em; /* Tamaño de la fuente para el texto */
+    }
+
 
     h2{
         display: flex;
         justify-content: center;
         width: 100%;
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 900;
     }
 
@@ -667,7 +787,6 @@ h2{
     }
 
     .fila-superior {
-        flex-direction: column;
         gap: 20; /* Elimina el espacio entre contenedores en pantallas pequeñas */
     }
 
@@ -678,21 +797,23 @@ h2{
     }
 
     .contenedor-izquierdo,
-    .contenedor-derecho {
+    .contenedor-derecho,
+    .contenedor-centro {
         flex: 1 1 100%;
-
         height: auto;
     }
 
     .subcontenedor-izq,
-    .subcontenedor-der {
+    .subcontenedor-der,
+    .subcontenedor-cen {
         height: auto;
         display: flex;
         margin-bottom: 5px; /* Ajusta el espacio entre subcontenedores */
     }
 
     .subcontenedor-izq,
-    .subcontenedor-der {   
+    .subcontenedor-der,
+    .subcontenedor-cen {   
         flex-direction: row;
 
     }
@@ -714,13 +835,13 @@ h2{
 
     .card.schedule-table th,
     .card.schedule-table td {
-        font-size:1rem;
+        font-size: 0.8rem;
         padding: 8px;
     }
 
 
     .card.personal-bests {
-        width: 80vh;
+        width: 100vh;
     }
     
     /* Estilos para la lista dentro de la tarjeta de progreso personal */
@@ -734,7 +855,7 @@ h2{
     /* Estilos para los ítems de la lista como fila de tabla */
     .card.personal-bests li {
         display: grid;
-        grid-template-columns: 1.4fr 2.8fr 0.4fr; 
+        grid-template-columns: 0.5fr 3.1fr 0.5fr; 
         /* align-items: center; */
         /* margin-bottom: 15px; */
     }
@@ -758,9 +879,9 @@ h2{
         height: 90%;
     }
 
-    .progress-container, .progress-container2, .progress-container3 {
-        width: 100%; 
-        height: 100%; 
+    .progress-container, .progress-container2, .progress-container3, .progress-container4, .progress-container5 {
+        width: 100px; 
+        height: 100px; 
     }
 
     .subcontenedor-der-circle {
@@ -771,12 +892,13 @@ h2{
 
 
     .card>.bigstats2 {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 0.2rem;
     }
 
+
     .statnum2 {
-        font-size: 1.6rem;
+        font-size: 1rem;
         font-weight: 600;
     }
 
@@ -784,41 +906,22 @@ h2{
         margin-top: 20px;
     }
 
-    .countdown{
-        gap: 0.5vh; /* Espacio entre los contenedores */
-        margin-bottom: 20px;
-        gap: 0.1rem; 
-        margin: 30px auto;
-    }
-    
-    .date{
-        width: 10vh;
-        font-size: 2rem;
-        font-weight: 400;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: #1f1f1f;
-        transition: transform 0.2s ease-in-out;
-        font-size: 3rem;
-        padding: 15px;
-        border-radius: 8px;
-    
+    .hour{
+        display: flex;
+        flex-direction: column;
+
     }
 
-    .lispan {
-        font-size: 1.9rem; /* Reduce el tamaño del texto */
+    .countdown {
+        gap: 1rem;
     }
 
-    .label {
-        font-size: 0.9rem;
+    .date {
+        width: 16vh;
     }
-
-    .countdown h1 {
-        font-size: 2.5rem;
-    }
-
 
 }
+
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
 
 @media (max-width: 480px) {
@@ -924,7 +1027,7 @@ h2{
     /* Estilos para los ítems de la lista como fila de tabla */
     .card.personal-bests li {
         display: grid;
-        grid-template-columns: 1.9fr 2.3fr 0.4fr; 
+        grid-template-columns: 1fr 3fr 0.8fr; 
         /* align-items: center; */
         /* margin-bottom: 15px; */
     }
@@ -944,7 +1047,7 @@ h2{
         height: 90%;
     }
 
-    .progress-container, .progress-container2, .progress-container3 {
+    .progress-container, .progress-container2, .progress-container3, .progress-container4, .progress-container5 {
         width: 100%; 
         height: 100%; 
     }
@@ -955,51 +1058,28 @@ h2{
     }
 
     .card>.bigstats2 {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 0.2rem;
     }
 
     .statnum2 {
-        font-size: 1.3rem;
-        font-weight: 600;
+        font-size: 0.8rem;
+        font-weight: 800;
     }
 
     .contenedor-final {
         margin-top: 20px;
     }
 
-    .countdown{
-        gap: 0.5vh; /* Espacio entre los contenedores */
-        margin-bottom: 20px;
-        gap: 0.1rem; 
-        margin: 30px auto;
-    }
-    
-    .date{
-        width: 7vh;
-        font-size: 2rem;
-        font-weight: 400;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: #1f1f1f;
-        transition: transform 0.2s ease-in-out;
-        font-size: 3rem;
-        padding: 15px;
-        border-radius: 8px;
-    
+    .countdown {
+        gap: 0.3rem;
     }
 
-    .lispan {
-        font-size: 1.9rem; /* Reduce el tamaño del texto */
+    .date {
+        width: 14vh;
     }
 
-    .label {
-        font-size: 0.9rem;
-    }
 
-    .countdown h1 {
-        font-size: 2.5rem;
-    }
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1096,12 +1176,6 @@ h2{
     }
     
 
-    .card.personal-bests li {
-        display: grid;
-        grid-template-columns: 1.9fr 2.5fr 0.9fr; 
-
-    }
-
     .card.personal-bests span {
 
         font-size: 0.7rem;
@@ -1137,7 +1211,7 @@ h2{
 
 
     .statnum2 {
-        font-size: 1.3rem;
+        font-size: 0.6rem;
     }
 
 
