@@ -544,7 +544,7 @@ h2{
     text-align: center;
 }
 .statnum2 {
-    background: var(--glow-violet);
+    background: var(--text);
     font-size: 1rem;
     font-weight: 1000;
     background-clip: text;

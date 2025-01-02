@@ -451,7 +451,7 @@
                     },
                 },
                 xaxis: {
-                    categories: ['REGISTROS', 'CHAT 1-1', 'GRUPOS', 'LIKES CLASE #1'],
+                    categories: ['REGISTROS', 'CHAT 1-1', 'GRUPOS', 'LIKES'],
                 },
                 legend: {
                     show: false,
@@ -529,7 +529,7 @@
             data.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${fuentes[index]}</td>
+                    <td><strong>${fuentes[index]}</td>
                     <td>${(Number(item.meta).toLocaleString())}</td> 
                     <td>${(Number(item.logrado).toLocaleString())}</td>
                     <td>${(item.porcentaje * 100).toFixed(2)}%</td>
@@ -573,7 +573,7 @@
     setInterval(() => {
         fetchData(); // Opcional: obtener nuevos datos antes de actualizar
         updateProgressBars(lastFetchedData); // Usar los datos obtenidos (lastFetchedData)
-    }, 30000);
+    }, 15000);
 
     
         // Función para actualizar la tabla de inversiones
@@ -593,7 +593,7 @@
             data.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${fuentes[index]}</td>
+                    <td><strong>${fuentes[index]}</td>
                     <td>$${parseFloat(item.proyectado).toLocaleString('es-ES')}</td>
                     <td>$${parseFloat(item.invertido).toLocaleString('es-ES')}</td>
                     <td>${(item.logrado * 100).toFixed(2)}%</td>
@@ -636,7 +636,7 @@
     setInterval(() => {
         fetchData(); // Opcional: obtener nuevos datos antes de actualizar
         updateInvestmentProgressBars(lastFetchedInvestmentData); // Usar los datos obtenidos (lastFetchedInvestmentData)
-    }, 30000);
+    }, 15000);
 
 
         function updateCircleProgress(circleData) {
