@@ -318,8 +318,8 @@ body {
 
 .contenedor-pequeño {
     background-color: #08112c;
-    flex: 1 1 calc(20% - 10px); /* Ajuste flexible con espacio para gap */
-    min-width: 100px; /* Ancho mínimo para evitar que se achique demasiado */
+    flex: 1 1 calc(10% - 10px); /* Ajuste flexible con espacio para gap */
+    min-width: 30px; /* Ancho mínimo para evitar que se achique demasiado */
     height: 100px;
     display: flex;
     justify-content: center;
@@ -337,7 +337,7 @@ body {
 
 .statnum {
     background: var(--glow-violet);
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     background-clip: text;
     -webkit-background-clip: text;
@@ -426,7 +426,7 @@ h2{
 
 .subcontenedor-der-circle {
     background-color: #08112c;   
-    height: 12rem;
+    height: 10.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -476,7 +476,7 @@ h2{
     border-radius: 8px;
     padding: 15px;
     box-sizing: border-box;
-    margin-top: 20px;
+    margin-top: 4px;
 }
 
 /* Estilos para la lista dentro de la tarjeta de progreso personal */
@@ -627,13 +627,13 @@ h2{
     align-items: center;
     gap: 0.5rem;
     /* padding: 2rem; */
-    border-radius: 20px;
+    border-radius: 8px;
     width: fit-content;
-    margin: 5px auto;
+    background-color: #08112c;
 }
 
 .date {
-    width: 12vh;
+    width: 10vh;
     text-align: center;
     font-size: 3rem;
     font-family: 'Poppins', sans-serif;
@@ -641,7 +641,6 @@ h2{
     color: #fff;
     padding: 10px;
     border-radius: 10px;
-    background-color: #08112c;
 }
 
 .date:hover {
@@ -649,29 +648,116 @@ h2{
 }
 
 .lispan {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     display: block;
-    margin-bottom: 10px;
-    color: #ffffff;
-    background: white;
+    background: var(--glow-violet);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
 }
 
 .label {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 400;
+
 }
 
 .countdown h1 {
-    font-size: 4rem;
-    color: #444;
+    font-size: 2rem;
+    color: #ffffff;
 }
+
+
+
+
+.time {
+    height: 40%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-container-time {
+    margin-top: 6%;
+    display: flex;
+    height: 40px;
+    width: 95%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    opacity: 0.8;
+    position: relative;
+    transition: width 0.5s ease;
+}
+
+#lote1-segment { background-color: #10bdf1; }
+#lote2-segment { background-color: #760FFC; }
+#lote3-segment { background-color: #30ceb4; }
+#lote4-segment { background-color: #c730ce; }
+
+.progress-marker {
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%);
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 3;
+}
+
+.marker-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: black;
+    background: white;
+    padding: 4px 6px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 4;
+}
+
+.marker-line {
+    width: 2px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    margin: 3px auto;
+    z-index: 4;
+}
+
+.marker-date {
+    font-size: 0.8rem;
+    color: black;
+    background: white;
+    padding: 4px 6px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 4;
+}
+
+.active {
+    opacity: 1 !important;
+}
+
+.inactive {
+    opacity: 1;
+}
+
 
 
 @media (max-width: 2500px) {    
