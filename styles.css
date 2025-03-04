@@ -328,16 +328,20 @@ body {
     text-align: center;
     border-radius: 8px;
     padding: 25px;
+
      /* Centra el texto horizontalmente dentro del contenedor */
 }
 
 .stat {
+    display: flex;
+    flex-direction: column;
     color: #fff; /* Color del texto */
+    gap: 10px;
 }
 
 .statnum {
     background: var(--glow-violet);
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     background-clip: text;
     -webkit-background-clip: text;
