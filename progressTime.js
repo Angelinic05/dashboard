@@ -29,9 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // 🔥 Calcular el porcentaje de progreso quemado en segundos
         let burnedPercentage = (elapsedTime / totalDuration) * 100;
         burnedPercentage = Math.max(0, Math.min(burnedPercentage, 100));
-
+        
         // Aplicar la anchura a la barra quemada
         document.getElementById('progress-burned').style.width = burnedPercentage + '%';
+        document.getElementById('progress-flag').style.width = burnedPercentage + '%';
 
         console.log("🔥 Progreso quemado:", burnedPercentage.toFixed(2) + "%");
 
