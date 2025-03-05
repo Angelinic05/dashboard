@@ -766,17 +766,6 @@ h2{
 
 }
 
-
-/* .progress-flag {
-    top: 63%;
-    display: flex;
-    justify-content: flex-end;
-    position: absolute;
-    border-radius: 5px;
-    z-index: 1000; 
-
-} */
-
 .flag-label {
     text-align: center;
     color: white;
@@ -787,7 +776,6 @@ h2{
 }
 
 .progress-flag {
-
     display: flex;
     justify-content: flex-end;
     position: absolute;
@@ -877,7 +865,7 @@ h2{
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
 @media (max-width: 1400px) {    
     .contenedor-pequeño {
-        flex: 1 1 calc(20% - 10px); /* Ajuste flexible con espacio para gap */
+        flex: 1 1 calc(10% - 10px); /* Ajuste flexible con espacio para gap */
         padding: 0;
          /* Centra el texto horizontalmente dentro del contenedor */
     }
@@ -929,15 +917,7 @@ h2{
     }
 
     .lispan {
-        font-size: 3rem;
-        font-weight: bold;
-        display: block;
-        margin-bottom: 10px;
-        color: #ffffff;
-        background: white;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        letter-spacing: 2px;
+        margin-bottom: 0;
     }
 
     .subcontenedor-der-circle {
@@ -965,6 +945,41 @@ h2{
     .statnum2 {
         font-size: 0.8rem;
     }
+
+
+
+    .progress-container-time {
+        margin-top: 6%;
+        height: 38px;
+    }
+    
+    
+    .progress-marker {
+        top: 0;
+    }
+
+
+    .marker-label {
+        font-size: 1rem;
+    }
+
+    .marker-line {
+        height: 1.5vh;
+    }
+
+    .marker-date {
+        font-size: 0.8rem;
+    }
+    
+    
+    .flag-gif {
+        width: 40px;
+        /* Otros estilos que consideres necesarios */
+
+    }
+
+
+
 }
 /* Responsividad para dispositivos móviles */
 @media (max-width: 700px) {
