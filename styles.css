@@ -731,14 +731,14 @@ h2{
     color: black;
     background: white;
     padding: 4px 6px;
-    border-radius: 4px;
+    border-radius: 8px;
     position: relative;
     z-index: 4;
 }
 
 .marker-line {
     width: 2px;
-    height: 30px;
+    height: 3vh;
     background-color: rgb(255, 255, 255);
     margin: 3px auto;
     z-index: 4;
