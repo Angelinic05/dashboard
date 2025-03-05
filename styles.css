@@ -797,7 +797,7 @@ h2{
 .flag-gif {
     height: 100%;
     width: 70px; /* Ajusta el tamaño según sea necesario */
-
+    filter: invert(1)
     /* Otros estilos que consideres necesarios */
 
 }
