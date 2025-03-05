@@ -863,7 +863,7 @@ h2{
 } 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------*/
-@media (max-width: 1400px) {    
+@media (max-width: 1500px) {    
     .contenedor-pequeño {
         flex: 1 1 calc(10% - 10px); /* Ajuste flexible con espacio para gap */
         padding: 0;
