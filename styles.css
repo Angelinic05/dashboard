@@ -429,8 +429,9 @@ h2{
 } 
 
 .subcontenedor-der-circle {
+    top: 52px;
     background-color: #08112c;   
-    height: 14.5rem;
+    height: 23.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -586,8 +587,8 @@ h2{
 .progress-container4,
 .progress-container5 {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 }
 
 .progress-background {
