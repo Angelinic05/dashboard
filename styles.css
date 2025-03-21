@@ -356,7 +356,7 @@ body {
 
 /* Contenedor inferior con 2 columnas -------------------------------*/
 h2{
-    margin: 0 8;
+    margin: 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -431,7 +431,7 @@ h2{
 .subcontenedor-der-circle {
     top: 52px;
     background-color: #08112c;   
-    height: 28.1rem;
+    height: 15rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -441,6 +441,71 @@ h2{
     overflow: hidden;
     padding: 2vh;
 }
+
+
+
+
+.subcontenedor-costo-lead {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    top: 60px;
+
+    height: 12.7rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.costo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #08112c;   
+    margin-top: 10px;
+    border-radius: 8px;
+    gap: 15px;
+}
+
+.text-cpl-latam{
+    font-size: 1.2rem;
+    color: #37BCDB;
+}
+
+.costo-usa{
+
+}
+
+.text-cpl-usa{
+    height: fit-content;
+    font-size: 1.2rem;
+    color: #c730ce;
+}
+
+.cpl-text-latam{
+    padding: 10px;
+    width: 80%;
+    font-size: 2.5rem;
+    color: white;
+    border: 4px solid #37BCDB !important;
+    border-radius: 8px;
+}
+
+.cpl-text-usa{
+    padding: 10px;
+    width: 80%;
+    font-size: 2.5rem;
+    color: white;
+    border: 4px solid #c730ce !important;
+    border-radius: 8px;
+}
+
+
+
+
+
+
+
 
 /* Estilos para la tarjeta de la tabla */
 .card.schedule-table {
