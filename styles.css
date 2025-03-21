@@ -472,9 +472,6 @@ h2{
     color: #37BCDB;
 }
 
-.costo-usa{
-
-}
 
 .text-cpl-usa{
     height: fit-content;
@@ -482,24 +479,22 @@ h2{
     color: #c730ce;
 }
 
-.cpl-text-latam{
+.cpl-text-latam, .cpl-text-usa{
     padding: 10px;
     width: 80%;
     font-size: 2.5rem;
     color: white;
-    border: 4px solid #37BCDB !important;
     border-radius: 8px;
+}
+
+
+.cpl-text-latam{
+    border: 4px solid #37BCDB !important;
 }
 
 .cpl-text-usa{
-    padding: 10px;
-    width: 80%;
-    font-size: 2.5rem;
-    color: white;
     border: 4px solid #c730ce !important;
-    border-radius: 8px;
 }
-
 
 
 
@@ -987,7 +982,7 @@ h2{
     }
 
     .subcontenedor-der-circle {
-        height: 7.6rem;
+        height: 12.1rem;
         padding: 2vh;
     }
 
@@ -1004,8 +999,8 @@ h2{
     .progress-container4,
     .progress-container5 {
         position: relative;
-        width: 75px;
-        height: 75px;
+        width: 65px;
+        height: 65px;
     }
 
     .statnum2 {
