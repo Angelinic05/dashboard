@@ -275,6 +275,13 @@
                                         <span class="progress-text">0.00%</span>
                                     </li>
                                     <li data-index="5">
+                                        <span>TIKTOK</span>
+                                        <div class="progress-bar">
+                                            <div class="progress stylebarleads"></div>
+                                        </div>
+                                        <span class="progress-text">0.00%</span>
+                                    </li>
+                                    <li data-index="6">
                                         <span>REF</span>
                                         <div class="progress-bar">
                                             <div class="progress stylebarleads"></div>
@@ -482,7 +489,7 @@
                 ],
                 chart: {
                     type: 'bar',
-                    height: 550,
+                    height: 624,
                     dropShadow: {
                         enabled: true,
                     },
@@ -586,7 +593,7 @@
                 </tr>
             `;
         
-            const fuentes = ["FB AUD", "RRSS", "YT. ORG.", "YT. AUD.", "MTY.", "REF", "TOTAL"];
+            const fuentes = ["FB AUD", "RRSS", "YT. ORG.", "YT. AUD.", "MTY.", "TIKTOK", "REF", "TOTAL"];
             data.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
