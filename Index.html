@@ -391,12 +391,12 @@
                     <div class="subcontenedor-costo-lead">
                         <div class="costo costo-latam">
                             <h2 class="text-cpl-latam">CPL LATAM</h2>
-                            <h2 class="cpl-text-latam">$1.70</h2>
+                            <h2 class="cpl-text-latam" id="cpl-latam">$0.00</h2>
 
                         </div>
                         <div class="costo costo-usa">
                             <h2 class="text-cpl-usa">CPL USA</h2>
-                            <h2 class="cpl-text-usa">$4.34</h2>
+                            <h2 class="cpl-text-usa" id="cpl-usa">$0.00</h2>
                         </div>
                     </div>
                 </div>
@@ -583,6 +583,8 @@
                 console.log('Datos de Leads:', data.leads);
                 console.log('Datos de Inversiones:', data.investments);
                 console.log('Datos de Inversiones:', data.circle);
+                console.log('Datos de CPL:', data.cpl);
+                cpl(data.cpl)
                 updateTable(data.leads);
                 updateProgressBars(data.leads);
                 updateInvestmentTable(data.investments);
@@ -591,6 +593,11 @@
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
+        }
+
+        function cpl(data){
+            document.getElementById('cpl-latam').innerText = `$${data.latam}`;
+            document.getElementById('cpl-usa').innerText = `$${data.usa}`;
         }
     
         // Función para actualizar la tabla de leads
