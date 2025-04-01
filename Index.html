@@ -229,7 +229,7 @@
                                     <tr>
                                         <th>FUENTE</th>
                                         <th>META</th>
-                                        <th>PROYECCIÓN</th>
+                                        <!-- <th>PROYECCIÓN</th> -->
                                         <th>LOGRADO</th>
                                         <th>%LOGRADO</th>
                                     </tr>
@@ -608,7 +608,6 @@
                 <tr>
                     <th>FUENTE</th>
                     <th>META</th>
-                    <th>PROYECCIÓN</th>
                     <th>LOGRADO</th>
                     <th>%LOGRADO</th>
                 </tr>
@@ -620,7 +619,7 @@
                 row.innerHTML = `
                     <td><strong>${fuentes[index]}</td>
                     <td>${(Number(item.meta).toLocaleString())}</td> 
-                    <td>${(Number(item.proyeccion).toLocaleString())}</td> 
+
                     <td>${(Number(item.logrado).toLocaleString())}</td>
                     <td>${(item.porcentaje * 100).toFixed(2)}%</td>
                 `;
